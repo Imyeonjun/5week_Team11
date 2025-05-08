@@ -6,11 +6,11 @@ public class MapCreator : MonoBehaviour
 {
     public GameObject[] roomTemplates; // 템플릿 프리팹 불러오기
 
-    [Header("스테이지 생성 범위")]
+    [Header("스테이지 구성 프리팹 갯수")]
     public int stageWidth = 5;
     public int stageHeight = 5;
 
-    [Header("스테이지 간격")]
+    [Header("프리팹 간격")]
     public float roomSpacing = 10f;
 
     void Start()

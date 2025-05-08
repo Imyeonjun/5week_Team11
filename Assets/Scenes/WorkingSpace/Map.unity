@@ -169,7 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomTemplates:
   - {fileID: 2086356632417842948, guid: db79ddd10584e2d419f1af6cfe67eb37, type: 3}
+  - {fileID: 2086356632417842948, guid: b8a44dd91bc246940a5ee70396ce5737, type: 3}
   - {fileID: 3024446763080684696, guid: 08142473ff077f145b9965c525dd25f4, type: 3}
+  - {fileID: 2086356632417842948, guid: b99ee3f961534364993e54adee683343, type: 3}
   stageWidth: 5
   stageHeight: 5
   roomSpacing: 3

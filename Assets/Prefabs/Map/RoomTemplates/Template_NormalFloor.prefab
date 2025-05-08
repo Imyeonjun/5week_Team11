@@ -244,8 +244,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5957941634113788985}
   m_Layer: 0
-  m_Name: Template_Floor
-  m_TagString: Untagged
+  m_Name: Template_NormalFloor
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
