@@ -1,12 +1,27 @@
 using UnityEngine;
 
-// 모든 몬스터의 기본 움직임, 회전, 넉백 처리를 담당하는 기반 클래스
+// 모든 몬스터의 기본 움직임, 애니메이션, 스텟 처리 클래스.
 public class Monster_Controller : MonoBehaviour
 {
-    protected Rigidbody2D _rigidbody; // 이동을 위한 물리 컴포넌트
-    
+#region SerializeField
+    [Header("몬스터 이동 설정")]
     [SerializeField] private SpriteRenderer characterRenderer; // 좌우 반전을 위한 렌더러
     [SerializeField] private Transform weaponPivot; // 무기를 회전시킬 기준 위치
+
+    [Header("몬스터 스텟 설정")]
+    [Range(0,100)][SerializeField] private float health = 10.0f; // 몬스터 체력
+    public float Health{get => health; set => health = Mathf.Clamp(value,0,100); }
+    [Range(0f,20f)][SerializeField] private float speed = 1.0f; // 몬스터 공격력
+    public float Speed{get => speed; set => speed = Mathf.Clamp(value,0,20); }
+
+    [Header("몬스터 리소스")]
+    [SerializeField] private float healthChangeDelay = 0.5f; // 피해 후 무적 지속 시간.
+
+#endregion
+
+#region 선언
+    protected Rigidbody2D _rigidbody; // 이동을 위한 물리 컴포넌트
+    protected Monster_Animation monsterAnimation; // 애니메이션 처리 클래스
 
     protected Vector2 movementDirection = Vector2.zero; // 현재 이동 방향
     public Vector2 MovementDirection{get{return movementDirection;}}
@@ -16,21 +31,40 @@ public class Monster_Controller : MonoBehaviour
 
     private Vector2 knockback = Vector2.zero; // 넉백 방향
     private float knockbackDuration = 0.0f; // 넉백 지속 시간
+
+    private float timeSinceLastChange = float.MaxValue; // 마지막 체력 변경 시간
+
+    public float CurrentHealth{get; private set;} // 현재 체력
+    public float MaxHealth => health;// 최대 체력은 몬스터 스텟에서 설정한 체력으로 초기화
+    
+
+#endregion 
     
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        monsterAnimation = GetComponent<Monster_Animation>();
+        // MaxHealth = health; // 최대 체력 초기화
+       
     }
 
     protected virtual void Start()
     {
-        
+        CurrentHealth = health;
     }
     
     protected virtual void Update()
     {
-        HandleAction();
         Rotate(lookDirection);
+
+        if(timeSinceLastChange < healthChangeDelay)
+        {
+            timeSinceLastChange += Time.deltaTime; // 무적 시간 증가
+            if(timeSinceLastChange >= healthChangeDelay)
+            {
+               monsterAnimation.Damage(); // 무적 해제 애니메이션 실행
+            }
+        }
     }
     
     protected virtual void FixedUpdate()
@@ -41,15 +75,11 @@ public class Monster_Controller : MonoBehaviour
             knockbackDuration -= Time.fixedDeltaTime; // 넉백 시간 감소
         }
     }
-    
-    protected virtual void HandleAction()
-    {
-        
-    }
 
+#region 움직임 (base)
     private void Movment(Vector2 direction)
     {
-        direction = direction * 5; // 이동 속도
+        direction = direction * speed; // 이동 속도
         
         // 넉백 중이면 이동 속도 감소 + 넉백 방향 적용
         if(knockbackDuration > 0.0f)
@@ -82,5 +112,48 @@ public class Monster_Controller : MonoBehaviour
         knockbackDuration = duration;
         // 상대 방향을 반대로 밀어냄
         knockback = -(other.position - transform.position).normalized * power;
-    }    
+    }  
+#endregion
+
+#region 체력 (Resource)
+    
+    public bool ChangeHealth(float change)
+    {
+        // 변화 없거나 무적 상태면 무시
+        if (change == 0 || timeSinceLastChange < healthChangeDelay)
+        {
+            return false;
+        }
+
+        timeSinceLastChange = 0f; // 다시 무적 시작
+        
+        // 체력 적용
+        CurrentHealth += change;
+        CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
+        CurrentHealth = CurrentHealth < 0 ? 0 : CurrentHealth;
+
+				// 데미지일 경우 (음수)
+        if (change < 0)
+        {
+            monsterAnimation.Damage(); // 맞는 애니메이션 실행
+            
+        }
+
+				// 체력이 0 이하가 되면 사망 처리
+        if (CurrentHealth <= 0f)
+        {
+            Death();
+        }
+
+        return true;
+    }
+
+    private void Death()
+    {
+        
+    }
+
+
+
+#endregion    
 }

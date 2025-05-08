@@ -181,6 +181,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1431759658}
+    - targetCorrespondingSourceObject: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1431759654}
   m_SourcePrefab: {fileID: 100100000, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
 --- !u!1 &718390965
@@ -278,6 +281,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 1610960403}
   weaponPivot: {fileID: 1742550049}
+--- !u!114 &1431759658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431759653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343e07a22c9024c70ac9a743b341d978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1610960403 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3339818022554858214, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
