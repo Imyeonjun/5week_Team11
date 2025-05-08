@@ -10,17 +10,28 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
-    
+    [SerializeField] private PlayerWeaponHandler WeaponPrefab;
+
+    private PlayerWeaponHandler weaponHandler;
+
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
+
+    private bool isAttacking;
+    private float timeSinceLastAttack = float.MaxValue;
 
     private Camera camera;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        if (WeaponPrefab != null)
+            weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
+        else
+            weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
+        
     }
     private void Start()
     {
@@ -30,6 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleAction();
         Rotate(lookDirection);
+        HandleAttackDelay();
     }
 
     private void FixedUpdate()
@@ -58,9 +70,12 @@ public class PlayerController : MonoBehaviour
         {
             lookDirection = lookDirection.normalized;
         }
+
+        isAttacking = Input.GetMouseButtonDown(0);
+
     }
     
-    // 무기 회전에 필요할 듯
+    
     private void Rotate(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -72,6 +87,8 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
+
+       
     }
 
     private void Movement(Vector2 direction)
@@ -92,4 +109,26 @@ public class PlayerController : MonoBehaviour
         knockback = -(other.position - transform.position).normalized * power;
     }
 
+    public void Attack()
+    {
+        if (lookDirection != Vector2.zero)
+            weaponHandler?.Attack();
+    }
+
+    private void HandleAttackDelay()
+    {
+        if (weaponHandler == null)
+            return;
+
+        if (timeSinceLastAttack <= weaponHandler.Delay)
+        {
+            timeSinceLastAttack += Time.deltaTime;
+        }
+
+        if (isAttacking && timeSinceLastAttack > weaponHandler.Delay)
+        {
+            timeSinceLastAttack = 0;
+            Attack();
+        }
+    }
 }
