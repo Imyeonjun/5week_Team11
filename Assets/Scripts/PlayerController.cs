@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
+    [SerializeField] private SpriteRenderer weaponRenderer;
     
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        
     }
     private void Start()
     {
@@ -72,6 +74,14 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
+
+        WeaponRotate(isLeft);
+       
+    }
+
+    public virtual void WeaponRotate(bool isLeft)
+    {
+        weaponRenderer.flipY = isLeft;
     }
 
     private void Movement(Vector2 direction)
