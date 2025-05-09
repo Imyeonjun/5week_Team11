@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
             lookDirection = lookDirection.normalized;
         }
 
-        isAttacking = Input.GetMouseButtonDown(0);
+        isAttacking = Input.GetMouseButton(0); //누르면 화살 계속 나오게 수정 (GetMouseButtonDown -> GetMouseButton)
 
     }
 
