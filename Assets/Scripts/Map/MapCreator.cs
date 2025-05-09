@@ -84,4 +84,9 @@ public class MapCreator : MonoBehaviour
             Debug.LogWarning("MapValidator가 존재하지 않습니다!");
         }
     }
+
+    //int RandomStageWide()
+    //{
+    //    //스테이지 크기 랜덤값 만들기
+    //}
 }
