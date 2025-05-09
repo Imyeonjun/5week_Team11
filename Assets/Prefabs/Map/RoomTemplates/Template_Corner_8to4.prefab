@@ -94,7 +94,7 @@ MonoBehaviour:
   openBottom: 0
   openLeft: 1
   openRight: 0
-  isEmptyRoom: 0
+  isEmptyRoom: 1
 --- !u!1 &8800918253964891358
 GameObject:
   m_ObjectHideFlags: 0
