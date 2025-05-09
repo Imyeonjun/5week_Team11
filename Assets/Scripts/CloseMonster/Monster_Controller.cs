@@ -7,6 +7,9 @@ public class Monster_Controller : MonoBehaviour
     [Header("몬스터 이동 설정")]
     [SerializeField] private SpriteRenderer characterRenderer; // 좌우 반전을 위한 렌더러
     [SerializeField] private Transform weaponPivot; // 무기를 회전시킬 기준 위치
+    
+    [SerializeField] private Monster_WeaponHandler WeaponPrefab;
+    private Monster_WeaponHandler weaponHandler;
 
     [Header("몬스터 스텟 설정")]
     [Range(0,100)][SerializeField] private float health = 10.0f; // 몬스터 체력
@@ -37,6 +40,8 @@ public class Monster_Controller : MonoBehaviour
     public float CurrentHealth{get; private set;} // 현재 체력
     public float MaxHealth => health;// 최대 체력은 몬스터 스텟에서 설정한 체력으로 초기화
     
+    protected bool isAttacking;//공격중 여부
+    private float timeSinceLastAttack = float.MaxValue;//마지막 공격 이후 경과 시간.
 
 #endregion 
     
@@ -56,6 +61,7 @@ public class Monster_Controller : MonoBehaviour
     protected virtual void Update()
     {
         Rotate(lookDirection);
+        HandleAttackDelay();
 
         if(timeSinceLastChange < healthChangeDelay)
         {
@@ -105,6 +111,8 @@ public class Monster_Controller : MonoBehaviour
 		        // 무기 회전 처리
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
+
+        weaponHandler?.Rotate(isLeft); // 무기 회전
     }
     
     public void ApplyKnockback(Transform other, float power, float duration)
@@ -132,14 +140,14 @@ public class Monster_Controller : MonoBehaviour
         CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
         CurrentHealth = CurrentHealth < 0 ? 0 : CurrentHealth;
 
-				// 데미지일 경우 (음수)
+		// 데미지일 경우 (음수)
         if (change < 0)
         {
             monsterAnimation.Damage(); // 맞는 애니메이션 실행
             
         }
 
-				// 체력이 0 이하가 되면 사망 처리
+		// 체력이 0 이하가 되면 사망 처리
         if (CurrentHealth <= 0f)
         {
             Death();
@@ -156,4 +164,37 @@ public class Monster_Controller : MonoBehaviour
 
 
 #endregion    
+
+
+#region 무기 (weaponhandler)
+
+    private void HandleAttackDelay()
+    {
+        if(weaponHandler == null)
+        {
+            return;
+        }
+
+        if(timeSinceLastAttack <= weaponHandler.Delay)
+        {
+            timeSinceLastAttack += Time.deltaTime;
+        }
+        
+        // 공격 입력 중이고 쿨타임이 끝났으면 공격 실행
+        if(isAttacking && timeSinceLastAttack > weaponHandler.Delay)
+        {
+            timeSinceLastAttack = 0;
+            Attack(); // 실제 공격 실행
+        }
+    }
+
+    protected void Attack()
+    {
+        if(lookDirection != Vector2.zero)
+        {          
+            weaponHandler?.Attack(); // 무기 공격 실행
+        }
+    }
+
+#endregion
 }

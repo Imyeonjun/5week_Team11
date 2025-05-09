@@ -117,6 +117,8 @@ GameObject:
   - component: {fileID: 6400879537823849059}
   - component: {fileID: 3480109884723901959}
   - component: {fileID: 654238034870602949}
+  - component: {fileID: 5535635820001028822}
+  - component: {fileID: 2117316116842945558}
   m_Layer: 6
   m_Name: Big_Zombie
   m_TagString: Untagged
@@ -213,6 +215,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6130712}
   m_EdgeRadius: 0
+--- !u!114 &5535635820001028822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914763427369189305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343e07a22c9024c70ac9a743b341d978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2117316116842945558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914763427369189305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0928417c7fdcb4dd2bfe564534c40278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRenderer: {fileID: 3339818022554858214}
+  weaponPivot: {fileID: 4749471630534485767}
+  WeaponPrefab: {fileID: 353989893478329880, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
+  health: 10
+  speed: 2
+  healthChangeDelay: 0.5
 --- !u!1 &3909254665425936651
 GameObject:
   m_ObjectHideFlags: 0
