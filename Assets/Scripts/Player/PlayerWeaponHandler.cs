@@ -71,7 +71,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     public void AttackAnimation()
     {
         animator.SetTrigger(isAttack);
-        Debug.Log("무기공격");
+        
     }
 
     public void Rotate(bool isLeft)
