@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3580564430038035954}
+  - component: {fileID: -260855772482753117}
   m_Layer: 0
   m_Name: Template_Empty
   m_TagString: Map
@@ -77,6 +78,22 @@ Transform:
   - {fileID: 4239399803123829373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-260855772482753117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024446763080684696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1e3c6ed2bf3ce408083a27848863fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorTop: 0
+  doorBottom: 0
+  doorLeft: 0
+  doorRight: 0
 --- !u!1 &8800918253964891358
 GameObject:
   m_ObjectHideFlags: 0
