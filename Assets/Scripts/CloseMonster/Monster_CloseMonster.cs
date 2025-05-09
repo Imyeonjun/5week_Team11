@@ -9,7 +9,7 @@ public class Monster_CloseMonster : Monster_WeaponHandler
 
     private Monster_Controller controller; // 몬스터 컨트롤러
 
-		// 무기 크기에 따라 충돌 범위를 확장
+	// 무기 크기에 따라 충돌 범위를 확장
     protected override void Start()
     {
         collideBoxSize = collideBoxSize * WeaponSize;
@@ -30,7 +30,7 @@ public class Monster_CloseMonster : Monster_WeaponHandler
         
         if (hit.collider != null)
         {
-						// 대상에게 체력 감소 적용
+			// 대상에게 체력 감소 적용
             Monster_Controller resourceController = hit.collider.GetComponent<Monster_Controller>();
             if(resourceController != null)
             {

@@ -23,6 +23,7 @@ public class Monster_Controller : MonoBehaviour
 #endregion
 
 #region 선언
+    private Transform targetPlayer;
     protected Rigidbody2D _rigidbody; // 이동을 위한 물리 컴포넌트
     protected Monster_Animation monsterAnimation; // 애니메이션 처리 클래스
 
@@ -49,6 +50,8 @@ public class Monster_Controller : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         monsterAnimation = GetComponent<Monster_Animation>();
+        weaponHandler =  GetComponent<Monster_WeaponHandler>();
+        characterRenderer = GetComponentInChildren<SpriteRenderer>();
         // MaxHealth = health; // 최대 체력 초기화
        
     }
@@ -56,12 +59,30 @@ public class Monster_Controller : MonoBehaviour
     protected virtual void Start()
     {
         CurrentHealth = health;
+
+        //테그에서 플레이어를 가져옴
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if(playerObj != null)
+        {
+            targetPlayer = playerObj.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Player not found");
+        }
     }
     
     protected virtual void Update()
     {
         Rotate(lookDirection);
         HandleAttackDelay();
+
+        if(targetPlayer != null)
+        {
+            // 플레이어 방향으로 바라보게 설정
+            lookDirection = (targetPlayer.position - transform.position).normalized;
+            movementDirection = lookDirection; // 이동 방향 설정
+        }
 
         if(timeSinceLastChange < healthChangeDelay)
         {
@@ -100,19 +121,23 @@ public class Monster_Controller : MonoBehaviour
 
     private void Rotate(Vector2 direction)
     {
-        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bool isLeft = Mathf.Abs(rotZ) > 90f;
-        
-        // 스프라이트 좌우 반전
-        characterRenderer.flipX = isLeft;
-        
-        if (weaponPivot != null)
+       
+        if(direction == Vector2.zero)
         {
-		        // 무기 회전 처리
-            weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
+            return; // 방향이 없으면 회전하지 않음
         }
 
-        weaponHandler?.Rotate(isLeft); // 무기 회전
+        bool isLeft = direction.x < 0;
+        
+        if(direction != Vector2.zero)
+        {   
+            // 스프라이트 좌우 반전
+            characterRenderer.flipX = isLeft;
+        }
+        
+
+        // weaponHandler?.Rotate(isLeft);
+       
     }
     
     public void ApplyKnockback(Transform other, float power, float duration)
