@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 9274eee45026f634d85538db8059b8d1, type: 3}
   stageWidth: 5
   stageHeight: 5
-  roomSpacing: 10
+  roomSpacing: 3
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0
