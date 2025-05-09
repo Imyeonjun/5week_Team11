@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
     private PlayerWeaponHandler weaponHandler;
-    private AnimationHandler animationHandler; //애니메이션 임시 확인용 (BaseController 만들고 바꾸기)
+    private AnimationHandler animationHandler;
 
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
