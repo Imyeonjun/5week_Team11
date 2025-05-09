@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
+    public Vector2 LookDirection { get { return lookDirection; } }
+
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
 
