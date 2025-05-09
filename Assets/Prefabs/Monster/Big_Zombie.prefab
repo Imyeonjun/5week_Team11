@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 3480109884723901959}
   - component: {fileID: 654238034870602949}
   - component: {fileID: 5535635820001028822}
+  - component: {fileID: 1262728035677529989}
   - component: {fileID: 2117316116842945558}
   m_Layer: 6
   m_Name: Big_Zombie
@@ -227,6 +228,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343e07a22c9024c70ac9a743b341d978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1262728035677529989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914763427369189305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2230420b979124d39a30ea2fde540bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  weaponSize: 1
+  power: 1
+  speed: 1
+  attackRange: 10
+  target:
+    serializedVersion: 2
+    m_Bits: 0
+  isOnKnockback: 0
+  knockbackPower: 0.1
+  knockbackTime: 0.5
+  collideBoxSize: {x: 1, y: 1}
 --- !u!114 &2117316116842945558
 MonoBehaviour:
   m_ObjectHideFlags: 0
