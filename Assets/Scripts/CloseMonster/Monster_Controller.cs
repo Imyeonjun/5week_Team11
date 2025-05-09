@@ -14,7 +14,7 @@ public class Monster_Controller : MonoBehaviour
     [Header("몬스터 스텟 설정")]
     [Range(0,100)][SerializeField] private float health = 10.0f; // 몬스터 체력
     public float Health{get => health; set => health = Mathf.Clamp(value,0,100); }
-    [Range(0f,20f)][SerializeField] private float speed = 1.0f; // 몬스터 공격력
+    [Range(0f,20f)][SerializeField] private float speed = 1.0f; // 몬스터 이동 속도
     public float Speed{get => speed; set => speed = Mathf.Clamp(value,0,20); }
 
     [Header("몬스터 리소스")]
@@ -50,9 +50,13 @@ public class Monster_Controller : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         monsterAnimation = GetComponent<Monster_Animation>();
-        weaponHandler =  GetComponent<Monster_WeaponHandler>();
+        
         characterRenderer = GetComponentInChildren<SpriteRenderer>();
-        // MaxHealth = health; // 최대 체력 초기화
+
+       if (WeaponPrefab != null)
+            weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
+        else
+            weaponHandler = GetComponentInChildren<Monster_WeaponHandler>();
        
     }
 
@@ -117,6 +121,9 @@ public class Monster_Controller : MonoBehaviour
         
         // 실제 물리 이동
         _rigidbody.velocity = direction;
+        monsterAnimation.Move();
+
+
     }
 
     private void Rotate(Vector2 direction)
@@ -136,7 +143,7 @@ public class Monster_Controller : MonoBehaviour
         }
         
 
-        // weaponHandler?.Rotate(isLeft);
+        weaponHandler?.Rotate(isLeft);
        
     }
     
@@ -146,6 +153,8 @@ public class Monster_Controller : MonoBehaviour
         // 상대 방향을 반대로 밀어냄
         knockback = -(other.position - transform.position).normalized * power;
     }  
+
+   
 #endregion
 
 #region 체력 (Resource)
@@ -183,7 +192,9 @@ public class Monster_Controller : MonoBehaviour
 
     private void Death()
     {
-        
+        Debug.Log("몬스터 사망");
+        // monsterAnimation.Damage(); // 죽는 애니메이션 실행
+        // Desrtoy(gameObject,1f); // 몬스터 오브젝트 파괴
     }
 
 

@@ -35,36 +35,68 @@ public class Monster_WeaponHandler : MonoBehaviour
     
     private static readonly int IsAttack = Animator.StringToHash("IsAttack");
     
-    private Animator animator;
-    private SpriteRenderer weaponRenderer;
+    protected Animator animator;
+    protected SpriteRenderer weaponRenderer;
+    protected Monster_Controller monsterController;
 
     protected virtual void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        monsterController = GetComponentInParent<Monster_Controller>();
         
-        animator.speed = 1.0f / delay; 
-        transform.localScale = Vector3.one * weaponSize;
+        if(animator != null)
+        {
+            animator.speed = 1.0f / delay;
+        }
+         
     }
 
     protected virtual void Start()
     {
-        
+        if(monsterController == null)
+        {
+            Debug.LogError("Monster_Controller is not assigned in the inspector.");
+        }
     }
     
-    public virtual void Attack()
+    public virtual void StartAttackAnimation()
     {
-        AttackAnimation();
+        if(animator != null)
+        {
+            animator.SetTrigger(IsAttack);
+        }
+        else
+        {
+            PerformAttackHitCheck();
+            OnAttackAnimationEnd();
+        }
+        
     }
 
-    public void AttackAnimation()
+    public void PerformAttackHitCheck()
     {
-        animator.SetTrigger(IsAttack);
+        Debug.Log("몬스터웨폰핸들러: PerformAttackHitCheck");
     }
+
+    public void OnAttackAnimationEnd()
+    {
+        if(monsterController != null)
+        {
+            monsterController.EndAttack();
+        }
+
+        Debug.Log("몬스터웨폰핸들러 : OnAttackAnimationEnd");
+    }
+
 
     public virtual void Rotate(bool isLeft)
     {
-        weaponRenderer.flipY = isLeft;
+       if(isLeft)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        else
+            transform.eulerAngles = new Vector3(0, 0, 0);
     }
     
     

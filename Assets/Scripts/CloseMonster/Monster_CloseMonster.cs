@@ -7,16 +7,17 @@ public class Monster_CloseMonster : Monster_WeaponHandler
     [Header("Melee Attack Info")]
     public Vector2 collideBoxSize = Vector2.one; // 공격 범위 (충돌 박스 크기)
 
-    private Monster_Controller controller; // 몬스터 컨트롤러
+    // private Monster_Controller controller; // 몬스터 컨트롤러
 
 	// 무기 크기에 따라 충돌 범위를 확장
     protected override void Start()
     {
+        base.Start();
         collideBoxSize = collideBoxSize * WeaponSize;
-        controller = GetComponentInParent<Monster_Controller>();
+        
     }
 
-    public override void Attack()
+    public override void PerformAttackHitCheck()
     {
         // BoxCast로 근접 공격 판정 (LookDirection 방향으로 충돌 검사)
         RaycastHit2D hit = Physics2D.BoxCast(
