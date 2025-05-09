@@ -186,9 +186,13 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 5eff8ea65d7543040b0b6f1b3b443600, type: 3}
   - {fileID: 3024446763080684696, guid: 08142473ff077f145b9965c525dd25f4, type: 3}
   - {fileID: 3024446763080684696, guid: 9274eee45026f634d85538db8059b8d1, type: 3}
-  stageWidth: 5
-  stageHeight: 5
-  roomSpacing: 3
+  - {fileID: 3024446763080684696, guid: 815d5abb3574cbd4fb5312ddad04cd34, type: 3}
+  - {fileID: 3024446763080684696, guid: 3e0e905a43399174daf3793b1918e725, type: 3}
+  - {fileID: 3024446763080684696, guid: f10f91d3fa53c7e44a69f38b5dec88df, type: 3}
+  - {fileID: 3024446763080684696, guid: 19769c6128c2750479c286114e33b92b, type: 3}
+  stageWidth: 10
+  stageHeight: 10
+  roomSpacing: 5
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0
