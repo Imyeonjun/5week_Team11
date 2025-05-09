@@ -59,12 +59,12 @@ MonoBehaviour:
   knockbackTime: 0.5
   projectileSpawnPosition: {fileID: 4797795805077375170}
   bulletIndex: 0
-  bulletSize: 1
+  bulletSize: 0.7
   duration: 10
   spread: 1
-  numberofProjectilesPershot: 3
-  multipleProjectileAngle: 3
-  projectileColor: {r: 1, g: 1, b: 1, a: 0}
+  numberofProjectilesPershot: 1
+  multipleProjectileAngle: 1
+  projectileColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5246196235717418093
 GameObject:
   m_ObjectHideFlags: 0
