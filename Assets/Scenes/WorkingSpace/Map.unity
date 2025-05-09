@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 49918427}
+  - component: {fileID: 49918429}
   - component: {fileID: 49918428}
   m_Layer: 0
   m_Name: MapCreator
@@ -164,7 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 49918426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d64aacb953f09468b19cbf89569736, type: 3}
+  m_Script: {fileID: 11500000, guid: d5cd0d5e3bbc5bc40973acd0760bec44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &49918429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49918426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e0639117b987c4aa6c3b965d137030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomTemplates:
@@ -175,7 +188,7 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 9274eee45026f634d85538db8059b8d1, type: 3}
   stageWidth: 5
   stageHeight: 5
-  roomSpacing: 3
+  roomSpacing: 10
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0
