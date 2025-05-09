@@ -18,8 +18,6 @@ public class Monster_CloseMonster : Monster_WeaponHandler
 
     public override void Attack()
     {
-        
-        
         // BoxCast로 근접 공격 판정 (LookDirection 방향으로 충돌 검사)
         RaycastHit2D hit = Physics2D.BoxCast(
             transform.position + (Vector3)controller.LookDirection * collideBoxSize.x, // 위치
