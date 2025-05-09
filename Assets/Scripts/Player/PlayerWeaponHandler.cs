@@ -71,7 +71,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     private static readonly int isAttack = Animator.StringToHash("isAttack");
 
-    public PlayerController Controller { get; private set; }
+    public PlayerController playerController { get; private set; }
 
     private Animator animator;
     private SpriteRenderer weaponRenderer;
@@ -80,7 +80,7 @@ public class PlayerWeaponHandler : MonoBehaviour
  
     protected virtual void Awake()
     {
-        Controller = GetComponentInParent<PlayerController>();
+        playerController = GetComponentInParent<PlayerController>();
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -107,7 +107,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             float angle = minAlge + projectileAngleSpace * i;
             float randomSpread = Random.Range(-spread, spread);
             angle += randomSpread;
-            CreateProjectile(Controller.LookDirection, angle);
+            CreateProjectile(playerController.LookDirection, angle);
         }
 
     }
