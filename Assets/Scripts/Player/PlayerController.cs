@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
             lookDirection = lookDirection.normalized;
         }
 
-        isAttacking = Input.GetMouseButtonDown(0);
+        isAttacking = Input.GetMouseButton(0);
 
     }
 
