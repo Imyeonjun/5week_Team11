@@ -29,7 +29,7 @@ public class Monster_Animation : MonoBehaviour
 
     public void Attack()
     {
-        animator.SetBool(IsAttack, true);
+        animator.SetTrigger(IsAttack);
     }
 
 }

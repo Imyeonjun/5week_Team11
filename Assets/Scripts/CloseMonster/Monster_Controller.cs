@@ -51,7 +51,7 @@ public class Monster_Controller : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         monsterAnimation = GetComponent<Monster_Animation>();
-        // weaponHandler =  GetComponentInChildren<Monster_WeaponHandler>();
+        weaponHandler =  GetComponentInChildren<Monster_WeaponHandler>();
         
        if (WeaponPrefab != null)
        {
@@ -221,7 +221,16 @@ public class Monster_Controller : MonoBehaviour
 #endregion    
 
 
-#region 무기 (weaponhandler)
+#region 공격(Animation관련)
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            targetPlayer = other.transform; // 플레이어를 타겟으로 설정
+            CheckAndStartAttack(); // 공격 체크
+        }
+    }
 
     private void CheckAndStartAttack()
     {

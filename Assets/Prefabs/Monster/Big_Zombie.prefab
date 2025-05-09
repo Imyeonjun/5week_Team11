@@ -270,6 +270,7 @@ MonoBehaviour:
   health: 10
   speed: 2
   healthChangeDelay: 0.5
+  attackRange: 1
 --- !u!1 &3909254665425936651
 GameObject:
   m_ObjectHideFlags: 0

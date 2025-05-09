@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Monster_CloseMonster : Monster_WeaponHandler
 {
+    
     [Header("Melee Attack Info")]
     public Vector2 collideBoxSize = Vector2.one; // 공격 범위 (충돌 박스 크기)
-
-    // private Monster_Controller controller; // 몬스터 컨트롤러
-
+    
 	// 무기 크기에 따라 충돌 범위를 확장
     protected override void Start()
     {
