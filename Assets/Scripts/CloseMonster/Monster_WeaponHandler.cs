@@ -75,7 +75,7 @@ public class Monster_WeaponHandler : MonoBehaviour
         
     }
 
-    public void PerformAttackHitCheck()
+    public virtual void PerformAttackHitCheck()
     {
         Debug.Log("몬스터웨폰핸들러: PerformAttackHitCheck");
     }
@@ -88,6 +88,14 @@ public class Monster_WeaponHandler : MonoBehaviour
         }
 
         Debug.Log("몬스터웨폰핸들러 : OnAttackAnimationEnd");
+    }
+
+    public void EndAttackAnimation()
+    {
+        if(animator != null)
+        {
+            animator.SetBool(IsAttack, false);
+        }
     }
 
 

@@ -44,19 +44,37 @@ public class Monster_Controller : MonoBehaviour
     protected bool isAttacking;//공격중 여부
     private float timeSinceLastAttack = float.MaxValue;//마지막 공격 이후 경과 시간.
 
+    [SerializeField] private float attackRange = 1.0f;
 #endregion 
     
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         monsterAnimation = GetComponent<Monster_Animation>();
+        // weaponHandler =  GetComponentInChildren<Monster_WeaponHandler>();
         
-        characterRenderer = GetComponentInChildren<SpriteRenderer>();
-
        if (WeaponPrefab != null)
-            weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
+       {
+             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
+       }
         else
-            weaponHandler = GetComponentInChildren<Monster_WeaponHandler>();
+        {
+            weaponHandler = weaponPivot.GetComponentInChildren<Monster_WeaponHandler>();
+            if(weaponHandler == null)
+            {
+               weaponHandler = GetComponentInChildren<Monster_WeaponHandler>();
+            }
+        }
+
+        characterRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (monsterAnimation == null)
+        {
+             Debug.LogError("Monster_Animation component not found on this object or in its children!", this);
+        }
+         if (weaponHandler == null)
+        {
+             Debug.LogError("Monster_WeaponHandler or WeaponPrefab not found!", this);
+        }
        
     }
 
@@ -79,7 +97,6 @@ public class Monster_Controller : MonoBehaviour
     protected virtual void Update()
     {
         Rotate(lookDirection);
-        HandleAttackDelay();
 
         if(targetPlayer != null)
         {
@@ -121,6 +138,8 @@ public class Monster_Controller : MonoBehaviour
         
         // 실제 물리 이동
         _rigidbody.velocity = direction;
+        //여기서 많은 수정이 필요. 움직임에 많은 경우의 수를 확인할 필요 있음.
+
         monsterAnimation.Move();
 
 
@@ -204,32 +223,29 @@ public class Monster_Controller : MonoBehaviour
 
 #region 무기 (weaponhandler)
 
-    private void HandleAttackDelay()
+    private void CheckAndStartAttack()
     {
-        if(weaponHandler == null)
+        if(targetPlayer != null && !isAttacking ) // && timeSinceLastAttack >= attackCooldown
         {
-            return;
-        }
-
-        if(timeSinceLastAttack <= weaponHandler.Delay)
-        {
-            timeSinceLastAttack += Time.deltaTime;
-        }
-        
-        // 공격 입력 중이고 쿨타임이 끝났으면 공격 실행
-        if(isAttacking && timeSinceLastAttack > weaponHandler.Delay)
-        {
-            timeSinceLastAttack = 0;
-            Attack(); // 실제 공격 실행
+            float distanceToPlayer = Vector2.Distance(transform.position, targetPlayer.position);
+            if (distanceToPlayer <= attackRange) // attackRange 변수 추가 필요
+            {
+                 StartAttackSequence(); // 공격 시퀀스 시작
+            }
         }
     }
 
-    protected void Attack()
+    private void StartAttackSequence()
     {
-        if(lookDirection != Vector2.zero)
-        {          
-            weaponHandler?.Attack(); // 무기 공격 실행
-        }
+        isAttacking = true; // 공격 중 상태.
+        timeSinceLastAttack = 0f; // 공격 쿨타임 초기화
+        weaponHandler.StartAttackAnimation(); // 공격 애니메이션 실행
+    }
+
+    public void EndAttack()
+    {
+        isAttacking = false; // 공격 종료
+        weaponHandler.EndAttackAnimation(); // 공격 애니메이션 종료
     }
 
 #endregion
