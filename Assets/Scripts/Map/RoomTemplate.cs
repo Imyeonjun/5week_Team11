@@ -6,4 +6,6 @@ public class RoomTemplate : MonoBehaviour
     public bool openBottom;
     public bool openLeft;
     public bool openRight;
+
+    public bool isEmptyRoom = false;
 }

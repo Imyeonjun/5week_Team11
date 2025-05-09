@@ -90,10 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1e3c6ed2bf3ce408083a27848863fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorTop: 0
-  doorBottom: 0
-  doorLeft: 0
-  doorRight: 0
+  openTop: 0
+  openBottom: 0
+  openLeft: 0
+  openRight: 0
+  isEmptyRoom: 1
 --- !u!1 &8800918253964891358
 GameObject:
   m_ObjectHideFlags: 0
