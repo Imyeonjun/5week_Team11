@@ -127,5 +127,24 @@ public class MonsterBase : MonoBehaviour
         knockbackDuration = duration;
         // 상대 방향을 반대로 밀어냄
         knockback = -(other.position - transform.position).normalized * power;
-    }    
+    }  
+
+    public virtual void Death()
+    {
+        _rigidbody.velocity = Vector3.zero;
+
+        foreach (SpriteRenderer renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color color = renderer.color;
+            color.a = 0.3f;
+            renderer.color = color;
+        }
+
+        foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())
+        {
+            component.enabled = false;
+        }
+
+        Destroy(gameObject, 2f);
+    }
 }

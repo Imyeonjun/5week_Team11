@@ -48,6 +48,19 @@ public class MonsterProjectileController : MonoBehaviour
         }
         else if(rangeWeapon.target.value == (rangeWeapon.target.value | (1 << collision.gameObject.layer)))
         {
+            MonsterResource resource = collision.GetComponent<MonsterResource>();
+            if(resource != null)
+            {
+                resource.ChangeHealth(-rangeWeapon.Power);
+                if(rangeWeapon.IsOnKnockback)
+                {
+                    MonsterBase controller = collision.GetComponent<MonsterBase>();
+                    if(controller != null)
+                    {
+                        controller.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
+                    }
+                }
+            }
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);
         }
     }

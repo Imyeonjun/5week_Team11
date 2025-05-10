@@ -73,7 +73,7 @@ public class MonsterResource : MonoBehaviour
 
     private void Death()
     {
-
+        _base.Death(); // 사망 애니메이션 실행 
     }
 
 }

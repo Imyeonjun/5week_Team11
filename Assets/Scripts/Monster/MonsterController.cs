@@ -60,5 +60,10 @@ public class MonsterController : MonsterBase
     {
         return (target.position - transform.position).normalized;
     }
+
+    public override void Death()
+    {
+        base.Death();
+    }
     
 }
