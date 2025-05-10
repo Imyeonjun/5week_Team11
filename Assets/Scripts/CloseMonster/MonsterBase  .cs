@@ -46,7 +46,7 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void Update()
     {
-        
+        HandleAction();
         Rotate(lookDirection);
         HandleAttackDelay();
     }
@@ -58,6 +58,11 @@ public class MonsterBase : MonoBehaviour
         {
             knockbackDuration -= Time.fixedDeltaTime; // 넉백 시간 감소
         }
+    }
+
+    protected virtual void HandleAction()
+    {
+       
     }
 
     private void Movment(Vector2 direction)

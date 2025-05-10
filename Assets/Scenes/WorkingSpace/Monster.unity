@@ -181,6 +181,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
+--- !u!1 &50262568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+  m_PrefabInstance: {fileID: 710341022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &50262572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50262568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b787f6a29cc4747a697184c631b41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRenderer: {fileID: 1942822658}
+  weaponPivot: {fileID: 1284953167}
+  WeaponPrefab: {fileID: 0}
+  followRange: 15
+--- !u!114 &50262573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50262568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f311e70b067846e9879e83e99a42e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &278121246
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +402,13 @@ PrefabInstance:
     - {fileID: 2117316116842945558, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 50262572}
+    - targetCorrespondingSourceObject: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 50262573}
   m_SourcePrefab: {fileID: 100100000, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
 --- !u!1 &718390965
 GameObject:
@@ -380,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 718390967}
-  - component: {fileID: 718390966}
+  - component: {fileID: 718390968}
   m_Layer: 0
   m_Name: MonsterManager
   m_TagString: Untagged
@@ -388,34 +427,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &718390966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718390965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4906cedf766ac4a21a9efc5025b13a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
-  spawnAreas:
-  - x: 0
-    y: -5
-    width: 10
-    height: 10
-  gizmoColor:
-    r: 1
-    g: 0
-    b: 0
-    a: 0.3
-  activeEnemies: []
-  enemySpawnComplite: 0
-  timeBetweenSpawns: 0.2
-  timeBetweenWaves: 1
 --- !u!4 &718390967
 Transform:
   m_ObjectHideFlags: 0
@@ -431,6 +442,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718390968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718390965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660146a0c166f4d8e96de0af7b13c7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 50262568}
+  spawnAreas:
+  - serializedVersion: 2
+    x: 0
+    y: -5
+    width: 10
+    height: 10
+  gizmoColor: {r: 1, g: 0, b: 0, a: 0.3}
+  timeBetweenSpawns: 0.2
+  timeBetweenWaves: 1
+--- !u!4 &1284953167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4749471630534485767, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+  m_PrefabInstance: {fileID: 710341022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1753439535
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +562,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1942822658 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3339818022554858214, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+  m_PrefabInstance: {fileID: 710341022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
