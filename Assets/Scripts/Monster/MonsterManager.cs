@@ -71,9 +71,17 @@ public class MonsterManager : MonoBehaviour
 
         // 적 생성 및 리스트에 추가
         GameObject spawnedEnemy = Instantiate(randomPrefab, new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
-        MonsterController enemyController = spawnedEnemy.GetComponent<MonsterController>();
+        MonsterController monsterController = spawnedEnemy.GetComponent<MonsterController>();
 
-        activeEnemies.Add(enemyController);
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            // ✅ Init 호출 → 플레이어를 타겟으로 설정
+            monsterController.Init(this, player.transform);
+        }
+
+        activeEnemies.Add(monsterController);
     }
     // 적이 사망했을 때 호출되는 메서드
     // public void RemoveEnemyOnDeath(MonsterController enemy)

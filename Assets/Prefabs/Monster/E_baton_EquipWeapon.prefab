@@ -82,7 +82,7 @@ MonoBehaviour:
   weaponSize: 1
   power: 1
   speed: 1
-  attackRange: 10
+  attackRange: 2
   target:
     serializedVersion: 2
     m_Bits: 128
@@ -113,7 +113,7 @@ MonoBehaviour:
   weaponSize: 1
   power: 1
   speed: 1
-  attackRange: 1.2
+  attackRange: 1
   target:
     serializedVersion: 2
     m_Bits: 128
