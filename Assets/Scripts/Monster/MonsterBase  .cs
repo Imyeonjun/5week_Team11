@@ -67,7 +67,7 @@ public class MonsterBase : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        direction = direction * 5; // 이동 속도
+        direction = direction * _stat.Speed; // 이동 속도
         
         // 넉백 중이면 이동 속도 감소 + 넉백 방향 적용
         if(knockbackDuration > 0.0f)
