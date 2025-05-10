@@ -1,26 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster_CloseMonster : Monster_WeaponHandler
+// 근접 무기 전용 핸들러 (WeaponHandler 상속)
+public class MonsterClose : MonsterWeaponHandler
 {
     [Header("Melee Attack Info")]
     public Vector2 collideBoxSize = Vector2.one; // 공격 범위 (충돌 박스 크기)
 
-    private Monster_Controller controller; // 몬스터 컨트롤러
-
 		// 무기 크기에 따라 충돌 범위를 확장
     protected override void Start()
     {
+        base.Start();
         collideBoxSize = collideBoxSize * WeaponSize;
-        controller = GetComponentInParent<Monster_Controller>();
     }
 
     public override void Attack()
     {
+        base.Attack();
+        
         // BoxCast로 근접 공격 판정 (LookDirection 방향으로 충돌 검사)
         RaycastHit2D hit = Physics2D.BoxCast(
-            transform.position + (Vector3)controller.LookDirection * collideBoxSize.x, // 위치
+            transform.position + (Vector3)_base.LookDirection * collideBoxSize.x, // 위치
             collideBoxSize,              // 박스 크기
             0,                           // 회전 없음
             Vector2.zero,                // 이동 거리 없음 (고정된 위치)
@@ -31,18 +30,18 @@ public class Monster_CloseMonster : Monster_WeaponHandler
         if (hit.collider != null)
         {
 						// 대상에게 체력 감소 적용
-            Monster_Controller resourceController = hit.collider.GetComponent<Monster_Controller>();
-            if(resourceController != null)
+            MonsterResource resource = hit.collider.GetComponent<MonsterResource>();
+            if(resource != null)
             {
-                resourceController.ChangeHealth(-Power); // 데미지 적용
+                resource.ChangeHealth(-Power); // 데미지 적용
                 
                 // 넉백 효과가 설정되어 있을 경우 적용
                 if(IsOnKnockback)
                 {
-                    Monster_Controller controller = hit.collider.GetComponent<Monster_Controller>();
-                    if(controller != null)
+                    MonsterBase monsterBase = hit.collider.GetComponent<MonsterBase>();
+                    if(monsterBase != null)
                     {
-                        controller.ApplyKnockback(transform, KnockbackPower, KnockbackTime);
+                        monsterBase.ApplyKnockback(transform, KnockbackPower, KnockbackTime);
                     }
                 }
             }

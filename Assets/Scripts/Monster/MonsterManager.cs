@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Monster_Manager : MonoBehaviour
+public class MonsterManager : MonoBehaviour
 {
-    //여기에 몬스터가 스폰되는 위치와 종류, 스폰시간 웨이브를 담습니다.
     private Coroutine waveRoutine;
         
     [SerializeField]
@@ -17,7 +17,7 @@ public class Monster_Manager : MonoBehaviour
     [SerializeField]
     private Color gizmoColor = new Color(1, 0, 0, 0.3f); // 기즈모 색상
 
-    private List<Monster_Controller> activeEnemies = new List<Monster_Controller>(); // 현재 활성화된 적들
+    private List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
 
     private bool enemySpawnComplite;
     
@@ -71,10 +71,25 @@ public class Monster_Manager : MonoBehaviour
 
         // 적 생성 및 리스트에 추가
         GameObject spawnedEnemy = Instantiate(randomPrefab, new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
-        Monster_Controller enemyController = spawnedEnemy.GetComponent<Monster_Controller>();
+        MonsterController monsterController = spawnedEnemy.GetComponent<MonsterController>();
 
-        activeEnemies.Add(enemyController);
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            // ✅ Init 호출 → 플레이어를 타겟으로 설정
+            monsterController.Init(this, player.transform);
+        }
+
+        activeEnemies.Add(monsterController);
     }
+    // 적이 사망했을 때 호출되는 메서드
+    // public void RemoveEnemyOnDeath(MonsterController enemy)
+    // {
+    //     activeEnemies.Remove(enemy);
+    //     if (enemySpawnComplite && activeEnemies.Count == 0)
+    //         // gameManager.EndOfWave();
+    // }
 
     // 기즈모를 그려 영역을 시각화 (선택된 경우에만 표시)
     private void OnDrawGizmosSelected()
