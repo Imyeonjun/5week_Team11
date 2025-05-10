@@ -117,9 +117,10 @@ GameObject:
   - component: {fileID: 6400879537823849059}
   - component: {fileID: 3480109884723901959}
   - component: {fileID: 654238034870602949}
-  - component: {fileID: 5535635820001028822}
-  - component: {fileID: 1262728035677529989}
-  - component: {fileID: 2117316116842945558}
+  - component: {fileID: 2045075336635083287}
+  - component: {fileID: 2679495967542997402}
+  - component: {fileID: -4471263276096418424}
+  - component: {fileID: 6304865070164921908}
   m_Layer: 6
   m_Name: Big_Zombie
   m_TagString: Untagged
@@ -216,7 +217,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6130712}
   m_EdgeRadius: 0
---- !u!114 &5535635820001028822
+--- !u!114 &2045075336635083287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,10 +226,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914763427369189305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 343e07a22c9024c70ac9a743b341d978, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f311e70b067846e9879e83e99a42e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1262728035677529989
+--- !u!114 &2679495967542997402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,40 +238,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914763427369189305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2230420b979124d39a30ea2fde540bdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 10
-  target:
-    serializedVersion: 2
-    m_Bits: 128
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  collideBoxSize: {x: 1, y: 1}
---- !u!114 &2117316116842945558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914763427369189305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0928417c7fdcb4dd2bfe564534c40278, type: 3}
+  m_Script: {fileID: 11500000, guid: f8b787f6a29cc4747a697184c631b41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 3339818022554858214}
-  weaponPivot: {fileID: 4749471630534485767}
-  WeaponPrefab: {fileID: 353989893478329880, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
+  weaponPivot: {fileID: 6828846345135537749}
+  WeaponPrefab: {fileID: 2073097891239373987, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
+  followRange: 15
+--- !u!114 &-4471263276096418424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914763427369189305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35ca72ad292f49229db5f889af292a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 10
-  speed: 2
+  speed: 3
+--- !u!114 &6304865070164921908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914763427369189305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59e7fca31a3b41218e9ba19d7f55e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
-  attackRange: 1
 --- !u!1 &3909254665425936651
 GameObject:
   m_ObjectHideFlags: 0
