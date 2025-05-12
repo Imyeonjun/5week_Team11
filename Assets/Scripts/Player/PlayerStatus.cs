@@ -10,8 +10,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
-        levelText = GetComponent<TextMeshProUGUI>();
-        if (levelText == null) Debug.Log("Level TMP is Null!");
+        levelText = GetComponentInChildren<TextMeshProUGUI>();
+        if (levelText == null) Debug.Log("Level TMP in Canvas is Null!");
     }
 
     public void Start()
@@ -21,8 +21,12 @@ public class PlayerStatus : MonoBehaviour
 
     public void LevelUp()
     {
-        if (level >= 1) levelText.gameObject.SetActive(true);
         level++;
         levelText.text = $"LV.{level}";
+    }
+
+    public void Update() //레벨업 확인용 코드, 레벨업 수단 생기면 LevelUp()과 병합할 것
+    {
+        if (level >= 1) levelText.gameObject.SetActive(true);
     }
 }
