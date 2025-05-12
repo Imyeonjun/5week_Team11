@@ -6,7 +6,7 @@ using UnityEngine;
 public class SkillPickUp : MonoBehaviour
 {
     
-    LayerMask levelCollisionLayer;
+    //LayerMask levelCollisionLayer;
     public PlayerController player;
     //public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
