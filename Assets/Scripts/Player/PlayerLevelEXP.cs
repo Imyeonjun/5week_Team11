@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerStatus : MonoBehaviour
 {
     private TextMeshProUGUI levelText;
+    public GameObject levelLayer;
     public RectTransform levelBar;
     [SerializeField] private int level = 0;
     [SerializeField] private int exp = 0;
@@ -21,6 +22,10 @@ public class PlayerStatus : MonoBehaviour
 
     public void Start()
     {
+        Canvas canvas = GetComponent<Canvas>(); //레벨 텍스트가 경험치바 앞으로 가게 하기 위해서 레이어 지정
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 100;
+
         levelText.gameObject.SetActive(false);
     }
 

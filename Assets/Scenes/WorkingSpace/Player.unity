@@ -7890,7 +7890,7 @@ Canvas:
   m_GameObject: {fileID: 1879337594}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -7916,6 +7916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7508fd4c28b4745ad25e542dcba053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLayer: {fileID: 1322520078}
   levelBar: {fileID: 1076520833}
   level: 0
   exp: 0
