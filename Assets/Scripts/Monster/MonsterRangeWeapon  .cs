@@ -53,7 +53,7 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
         float minAngle = -(numberOfProjectilesPerShot / 2f) * projectilesAngleSpace;
 
 
-				// 각 총알마다 회전 각도 계산 후 발사
+	    // 각 총알마다 회전 각도 계산 후 발사
         for (int i = 0; i < numberOfProjectilesPerShot; i++)
         {
             Debug.Log("투사체 준비.");
