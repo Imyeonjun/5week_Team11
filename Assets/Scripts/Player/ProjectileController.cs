@@ -25,6 +25,8 @@ public class ProjectileController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         pivot = transform.GetChild(0);
+
+        
     }
 
     private void Update()
