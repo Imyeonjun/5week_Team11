@@ -19,7 +19,7 @@ public class Ranged_Enemy : MonoBehaviour
     private float moveTimer = 0f;
     private float attackTimer = 0f;
     private Vector2 moveDirection;
-
+    private float idleTimer = 0f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,7 +41,14 @@ public class Ranged_Enemy : MonoBehaviour
     private void Update()
     {
         HandleAttackTimer();
-        HandleMoveTimer();
+        if (isMoving)
+        {
+            HandleMoveTimer();
+        }
+        else
+        {
+            HandleIdleTimer();
+        }
     }
 
     private void FixedUpdate()
@@ -82,10 +89,24 @@ public class Ranged_Enemy : MonoBehaviour
         moveTimer -= Time.deltaTime;
         if (moveTimer <= 0)
         {
-            SetRandomMove();
+            StartIdle(); // 이동 종료 후 정지 상태 시작
         }
     }
-
+    private void HandleIdleTimer()
+    {
+        idleTimer -= Time.deltaTime;
+        if (idleTimer <= 0)
+        {
+            SetRandomMove(); // 정지 후 다시 이동 시작
+        }
+    }
+    private void StartIdle()
+    {
+        isMoving = false;
+        idleTimer = Random.Range(3f, 5f);
+        animHandler.Move(Vector2.zero); // 애니메이션 정지
+    }
+    
     private void HandleAttackTimer()
     {
         if (player == null) return;
