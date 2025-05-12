@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e0639117b987c4aa6c3b965d137030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corridorHorizontalPrefab: {fileID: 3024446763080684696, guid: a650f03eaf5fbe94aa4747f93a66df0f, type: 3}
+  corridorVerticalPrefab: {fileID: 3024446763080684696, guid: d2f095cfc2b50bf4a817c4debd604301, type: 3}
   roomTemplates:
   - {fileID: 3024446763080684696, guid: 30966303b1d94854b9e6236033f615ad, type: 3}
   - {fileID: 3024446763080684696, guid: 056e6c82e32a9f74b96eebe5875937db, type: 3}
@@ -187,7 +189,7 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: f93d869558925d1489bc5a531ddd65c8, type: 3}
   stageWidth: 3
   stageHeight: 3
-  roomSpacing: 10
+  roomSpacing: 11
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0
