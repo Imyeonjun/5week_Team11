@@ -32,7 +32,7 @@ public class SkillCardManager : MonoBehaviour
 
     public void ChoiceCard()
     {
-        skillPickUp.ApplyRandomSkill();
+        skillPickUp.GetRandomSkill();
     }
 }
 
