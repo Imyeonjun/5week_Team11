@@ -53,7 +53,7 @@ public class SkillPickUp : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision) //나중에 스킬 UI때 편집
     {
 
         if(collision.gameObject.layer != 6)

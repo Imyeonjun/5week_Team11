@@ -8,17 +8,13 @@ public class SkillSpawn : MonoBehaviour
     public SkillPickUp skillPickUp;
     private Skill skill;
 
-    public void Awake()
+    public void Awake() //나중에 스킬 UI때 편집
     {
 
         skill = GetComponentInChildren<Skill>();
         skillPickUp = GetComponentInChildren<SkillPickUp>();
 
         skillPickUp.ApplyRandomSkill();
-        
-
-       
-
 
     }
 }

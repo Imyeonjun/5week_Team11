@@ -9,7 +9,7 @@ public class Skill : MonoBehaviour
     //공격력 증가
     //공격속도 증가
     //화살의 방향 변화
-    public PlayerController player;
+    //public PlayerController player;
     public PlayerWeaponHandler playerWeaponHandler;
      
     public float AttackPowerUP()
