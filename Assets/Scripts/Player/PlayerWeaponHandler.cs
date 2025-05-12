@@ -59,7 +59,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] private int numberofProjectilesPershot;
 
-    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } }
+    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } set { numberofProjectilesPershot = value; } }
 
     [SerializeField] private float multipleProjectileAngle;
 
@@ -85,7 +85,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
         
-        animator.speed = 1f / delay;
+        
         transform.localScale = Vector3.one * weaponSize;
     }
 
@@ -96,7 +96,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void Attack()
     {
-
+        animator.speed = 1f / delay;
         AttackAnimation();
 
         float projectileAngleSpace = multipleProjectileAngle;

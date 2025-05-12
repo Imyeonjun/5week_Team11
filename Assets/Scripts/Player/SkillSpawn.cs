@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class SkillSpawn : MonoBehaviour
 {
-    public GameObject SpawnPrefab;
-    public Skill[] skill;
+    //public GameObject SpawnPrefab;
+    public SkillPickUp skillPickUp;
+    private Skill skill;
 
-    public void Start()
+    public void Awake()
     {
-        GameObject instance = Instantiate(SpawnPrefab, transform.parent);
 
-        skill.SkillList
-            
-            pickUP = instance.GetComponentInChildren<SkillPickUp>();
+        skill = GetComponentInChildren<Skill>();
+        skillPickUp = GetComponentInChildren<SkillPickUp>();
 
+        skillPickUp.ApplyRandomSkill();
         
+
+       
+
+
     }
 }

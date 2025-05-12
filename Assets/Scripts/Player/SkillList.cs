@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillList : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+    public enum skillList
     {
-        
+        AttackPowerUP,
+        AttackSpeedUP,
+        AttackProjectileUP
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}

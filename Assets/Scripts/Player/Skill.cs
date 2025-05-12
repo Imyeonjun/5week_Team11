@@ -12,37 +12,25 @@ public class Skill : MonoBehaviour
     
     public PlayerWeaponHandler playerWeaponHandler;
 
-    
-
-    public void ApplySkill(SkillList skill)
-    {
-        switch (skill)
-        {
-            case SkillList.AttackPowerUP:
-                playerWeaponHandler.Power = finalAttackPower;
-        }
-    }
     public float AttackPowerUP()
     {
         float baseAttackPower = playerWeaponHandler.Power;
         float bonusAttackPower = 5;
         float finalAttackPower = baseAttackPower + bonusAttackPower;
         return finalAttackPower;
-        Debug.Log("AttackPowerUP");
     }
     public float AttackSpeedUp()
     {
+        float baseAttackSpeed = playerWeaponHandler.Delay;
         float finalAttackSpeed = 0.3f;
         return finalAttackSpeed;
-        Debug.Log("AttackSpeedUp");
     }
 
-    public float AttackProjectileUP()
+    public int AttackProjectileUP()
     {
-        float baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;
-        float finalAttackShot = baseAttackShot++;
+        int baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;
+        int finalAttackShot = 3;
         return finalAttackShot;
-        Debug.Log("AttackProjectileUP");
     }
 
    

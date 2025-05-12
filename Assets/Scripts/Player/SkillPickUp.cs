@@ -7,21 +7,53 @@ public class SkillPickUp : MonoBehaviour
 {
     
     LayerMask levelCollisionLayer;
+    public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
+    public skillList skillList;
 
-    public void Awake()
+    //public void Awake()
+    //{
+    //    if (playerWeaponHandler != null)
+    //        playerWeaponHandler = Instantiate(WeaponPrefab, weaponPivot);
+    //    else
+    //        weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
+    //}
+
+    public skillList GetRandomSkill()
     {
-
+        skillList[] values = (skillList[])System.Enum.GetValues(typeof(skillList));
+        int index = Random.Range(0, values.Length);
+        return values[index];
     }
 
-    public void GetRandomSkill()
+    public void ApplyRandomSkill()
     {
-
+        skillList = GetRandomSkill();
+        //ApplySkill(skillList);
     }
+
+    public void ApplySkill(skillList list)
+    {
+        switch (list)
+        {
+            case skillList.AttackPowerUP:
+                playerWeaponHandler.Power = skill.AttackPowerUP();
+                Debug.Log("공격력 증가!");
+                break;
+            case skillList.AttackSpeedUP:
+                playerWeaponHandler.Delay = skill.AttackSpeedUp();
+                Debug.Log("공격속도 증가!");
+                break;
+            case skillList.AttackProjectileUP:
+                playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
+                Debug.Log("화살 수 증가!");
+                break;
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-             
-        
+
         if(collision.gameObject.layer != 6)
         {
             return;
@@ -29,8 +61,8 @@ public class SkillPickUp : MonoBehaviour
 
         else
         {
+            ApplySkill(skillList);
             
-            Debug.Log("스킬 획득");
             Destroy(this.gameObject);
             
         }
