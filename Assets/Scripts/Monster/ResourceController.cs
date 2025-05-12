@@ -5,6 +5,7 @@ public class ResourceController : MonoBehaviour
     [SerializeField] private float healthChangeDelay = .5f; // 피해 후 무적 지속 시간
 
     private MonsterBase _base;
+    private PlayerController _player;
     private MonsterAnimation _monsterAnimation;
     private CharacterStat _stat;
     private AnimationHandler _playerAnimation;
@@ -14,16 +15,18 @@ public class ResourceController : MonoBehaviour
     public float CurrentHealth { get; private set; } // 현재 체력 (외부 접근만 허용)
     public float MaxHealth => _stat.Health; // 최대 체력은 StatHandler로부터 가져옴
 
+
     private void Awake()
     {
         _base = GetComponent<MonsterBase>();
         _monsterAnimation = GetComponent<MonsterAnimation>();
         _stat = GetComponent<CharacterStat>();
         _playerAnimation = GetComponent<AnimationHandler>();
+        _player = GetComponent<PlayerController>();
 
        if(_stat != null)
        {
-         CurrentHealth = _stat.Health;
+        CurrentHealth = _stat.Health;
        }
        else
        {
@@ -100,6 +103,7 @@ public class ResourceController : MonoBehaviour
         {
             Death();
         }
+        Debug.Log(CurrentHealth);
 
         return true;
     }

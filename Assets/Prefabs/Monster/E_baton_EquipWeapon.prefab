@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883921409191485849}
-  - component: {fileID: 2073097891239373987}
   - component: {fileID: -6004939775857984123}
   m_Layer: 0
   m_Name: E_baton_EquipWeapon
@@ -66,37 +65,6 @@ Transform:
   - {fileID: 844072600395962470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2073097891239373987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6016370484392413362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6069acf39fd423ea277dbbda61b00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 2
-  target:
-    serializedVersion: 2
-    m_Bits: 64
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  projectileSpawnPosition: {fileID: 8883921409191485849}
-  bulletIndex: 0
-  bulletSize: 1
-  duration: 0
-  spread: 0
-  numberofProjectilesPerShot: 0
-  multipleProjectilesAngel: 0
-  projectileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6004939775857984123
 MonoBehaviour:
   m_ObjectHideFlags: 0
