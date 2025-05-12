@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 1
   weaponSize: 0.7
-  power: 20
+  power: 10
   speed: 10
   attackRange: 10
   target:

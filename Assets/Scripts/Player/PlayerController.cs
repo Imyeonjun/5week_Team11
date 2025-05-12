@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform weaponPivot;
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
-    private PlayerWeaponHandler weaponHandler;
+    public PlayerWeaponHandler weaponHandler;
     private AnimationHandler animationHandler; //애니메이션 임시 확인용 (BaseController 만들고 바꾸기)
 
     private Vector2 movementDirection = Vector2.zero;

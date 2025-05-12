@@ -415,7 +415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c0f72fbbd27fb4c9181f72d6b2d9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
+  player: {fileID: 1641287801}
+  playerWeaponHandler: {fileID: 0}
 --- !u!114 &118881141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f373fcba3cbb54091d4c8519d2b8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
+  player: {fileID: 0}
   skill: {fileID: 118881140}
   skillList: 0
 --- !u!1 &149844243
@@ -7023,6 +7024,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 149844245}
   weaponPivot: {fileID: 1605706704}
   WeaponPrefab: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
+  weaponHandler: {fileID: 0}
 --- !u!114 &1641287802
 MonoBehaviour:
   m_ObjectHideFlags: 0

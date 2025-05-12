@@ -7,7 +7,8 @@ public class SkillPickUp : MonoBehaviour
 {
     
     LayerMask levelCollisionLayer;
-    public PlayerWeaponHandler playerWeaponHandler;
+    public PlayerController player;
+    //public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
     public skillList skillList;
 
@@ -34,6 +35,7 @@ public class SkillPickUp : MonoBehaviour
 
     public void ApplySkill(skillList list)
     {
+        PlayerWeaponHandler playerWeaponHandler = player.weaponHandler;
         switch (list)
         {
             case skillList.AttackPowerUP:
