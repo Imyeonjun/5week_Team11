@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+    private ResourceController _resource;
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _resource = GetComponent<ResourceController>();
         if (WeaponPrefab != null)
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
@@ -129,6 +131,14 @@ public class PlayerController : MonoBehaviour
         {
             timeSinceLastAttack = 0;
             Attack();
+        }
+    }
+
+    public void ApplyDamage(float amount)
+    {
+        if (_resource != null)
+        {
+            _resource.ChangeHealth(-amount);
         }
     }
 }

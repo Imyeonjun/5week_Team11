@@ -30,7 +30,7 @@ public class MonsterClose : MonsterWeaponHandler
         if (hit.collider != null)
         {
 						// 대상에게 체력 감소 적용
-            MonsterResource resource = hit.collider.GetComponent<MonsterResource>();
+            ResourceController resource = hit.collider.GetComponent<ResourceController>();
             if(resource != null)
             {
                 resource.ChangeHealth(-Power); // 데미지 적용

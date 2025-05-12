@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MonsterResource : MonoBehaviour
+public class ResourceController : MonoBehaviour
 {
     [SerializeField] private float healthChangeDelay = .5f; // 피해 후 무적 지속 시간
 
@@ -18,11 +18,13 @@ public class MonsterResource : MonoBehaviour
         _base = GetComponent<MonsterBase>();
         _animation = GetComponent<MonsterAnimation>();
         _stat = GetComponent<MonsterStat>();
+
+       
     }
 
     private void Start()
     {
-        CurrentHealth = _stat.Health;
+        
     }
 
     private void Update()
