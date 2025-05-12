@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
     private PlayerWeaponHandler weaponHandler;
-    private AnimationHandler animationHandler;
+    private AnimationHandler animationHandler; //애니메이션 임시 확인용 (BaseController 만들고 바꾸기)
 
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
@@ -75,10 +75,9 @@ public class PlayerController : MonoBehaviour
             lookDirection = lookDirection.normalized;
         }
 
-        isAttacking = Input.GetMouseButton(0); //누르면 화살 계속 나오게 수정 (GetMouseButtonDown -> GetMouseButton)
+        isAttacking = Input.GetMouseButton(0);
 
     }
-
 
     private void Rotate(Vector2 direction)
     {
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
-
 
     }
 

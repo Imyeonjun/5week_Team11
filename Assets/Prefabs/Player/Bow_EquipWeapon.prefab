@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6126279702550087745}
   - component: {fileID: 8248210845010236477}
+  - component: {fileID: -7074659859607153649}
   m_Layer: 0
   m_Name: Bow_EquipWeapon
   m_TagString: Untagged
@@ -46,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed33c4c84f3d48479892eb88e417c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.5
+  delay: 1
   weaponSize: 0.7
-  power: 5
+  power: 20
   speed: 10
   attackRange: 10
   target:
@@ -63,8 +64,21 @@ MonoBehaviour:
   duration: 10
   spread: 1
   numberofProjectilesPershot: 1
-  multipleProjectileAngle: 1
+  multipleProjectileAngle: 3
   projectileColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &-7074659859607153649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025218780390337585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c0f72fbbd27fb4c9181f72d6b2d9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeaponHandler: {fileID: 8248210845010236477}
 --- !u!1 &5246196235717418093
 GameObject:
   m_ObjectHideFlags: 0

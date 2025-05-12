@@ -59,7 +59,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] private int numberofProjectilesPershot;
 
-    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } }
+    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } set { numberofProjectilesPershot = value; } }
 
     [SerializeField] private float multipleProjectileAngle;
 
@@ -71,30 +71,32 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     private static readonly int isAttack = Animator.StringToHash("isAttack");
 
-    public PlayerController Controller { get; private set; }
+    public PlayerController playerController { get; private set; }
 
     private Animator animator;
     private SpriteRenderer weaponRenderer;
     private ProjectileManager projectileManager;
+    private Skill skill; //스킬 추가하기
 
  
-    protected virtual void Awake()
+    public void Awake()
     {
-        Controller = GetComponentInParent<PlayerController>();
+        playerController = GetComponentInParent<PlayerController>();
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        animator.speed = 1.0f / delay;
+        
+        
         transform.localScale = Vector3.one * weaponSize;
     }
 
-    protected virtual void Start()
+    public void Start()
     {
         projectileManager = ProjectileManager.Instance;
     }
 
     public void Attack()
     {
+        animator.speed = 1f / delay;
         AttackAnimation();
 
         float projectileAngleSpace = multipleProjectileAngle;
@@ -107,12 +109,12 @@ public class PlayerWeaponHandler : MonoBehaviour
             float angle = minAlge + projectileAngleSpace * i;
             float randomSpread = Random.Range(-spread, spread);
             angle += randomSpread;
-            CreateProjectile(Controller.LookDirection, angle);
+            CreateProjectile(playerController.LookDirection, angle);
         }
 
     }
 
-    private void CreateProjectile(Vector2 _lookDirection, float angle)
+    public void CreateProjectile(Vector2 _lookDirection, float angle)
     {
         projectileManager.ShootBullet(
             this,
@@ -120,7 +122,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             RotateVector2(_lookDirection, angle)
             );
     }
-    private static Vector2 RotateVector2(Vector2 v, float degree)
+    public static Vector2 RotateVector2(Vector2 v, float degree)
     {
         return Quaternion.Euler(0, 0, degree) * v;
     }
