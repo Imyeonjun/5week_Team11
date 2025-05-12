@@ -5,8 +5,9 @@ public class ResourceController : MonoBehaviour
     [SerializeField] private float healthChangeDelay = .5f; // 피해 후 무적 지속 시간
 
     private MonsterBase _base;
-    private MonsterAnimation _animation;
+    private MonsterAnimation _monsterAnimation;
     private CharacterStat _stat;
+    private AnimationHandler _playerAnimation;
     
     private float timeSinceLastChange = float.MaxValue; // 마지막 체력 변경 이후 경과 시간
 
@@ -16,8 +17,9 @@ public class ResourceController : MonoBehaviour
     private void Awake()
     {
         _base = GetComponent<MonsterBase>();
-        _animation = GetComponent<MonsterAnimation>();
+        _monsterAnimation = GetComponent<MonsterAnimation>();
         _stat = GetComponent<CharacterStat>();
+        _playerAnimation = GetComponent<AnimationHandler>();
 
        if(_stat != null)
        {
@@ -43,7 +45,17 @@ public class ResourceController : MonoBehaviour
             timeSinceLastChange += Time.deltaTime;
             if (timeSinceLastChange >= healthChangeDelay)
             {
-                _animation.InvincibilityEnd();
+                if(_playerAnimation != null)
+                {
+                    _playerAnimation.InvincibilityEnd();
+                }
+                else
+                {
+                    _monsterAnimation.InvincibilityEnd();
+                }
+                
+                
+               
             }
         }
     }
@@ -67,7 +79,19 @@ public class ResourceController : MonoBehaviour
 				// 데미지일 경우 (음수)
         if (change < 0)
         {
-            _animation.Damage(); // 맞는 애니메이션 실행
+            if(_playerAnimation != null)
+            {
+                _playerAnimation.Hit(); // 맞는 애니메이션 실행
+            }
+            else
+            {
+                _monsterAnimation.Damage(); // 맞는 애니메이션 실행
+            }
+           
+            if(_base != null)
+            {
+                _base.SetDamageStop(_base.DamagedTime);
+            }
             
         }
 

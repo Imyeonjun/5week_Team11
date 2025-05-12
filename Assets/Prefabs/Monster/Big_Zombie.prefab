@@ -244,6 +244,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 3339818022554858214}
   weaponPivot: {fileID: 4749471630534485767}
   WeaponPrefab: {fileID: 2073097891239373987, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
+  damagedTime: 0.5
   followRange: 15
 --- !u!114 &-4471263276096418424
 MonoBehaviour:

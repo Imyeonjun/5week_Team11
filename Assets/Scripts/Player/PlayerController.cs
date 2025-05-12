@@ -145,5 +145,18 @@ public class PlayerController : MonoBehaviour
         {
             _resource.ChangeHealth(-amount);
         }
+
+        // if(animationHandler != null)
+        // {
+        //     animationHandler.Hit();
+        // }
+    }
+
+    public void PlayerHit()
+    {
+        if(animationHandler != null)
+        {
+            animationHandler.Hit();
+        }
     }
 }

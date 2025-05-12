@@ -13,6 +13,11 @@ public class MonsterBase : MonoBehaviour
     [SerializeField] public MonsterWeaponHandler WeaponPrefab; // 장착할 무기 프리팹 (없으면 자식에서 찾아 사용)
     protected MonsterWeaponHandler _weaponHandler; // 장착된 무기
 
+    [SerializeField] private float damagedTime = 0.3f;
+    public float DamagedTime => damagedTime;
+    protected bool isDamage = false;
+    protected float damagedDuration = 0.0f;
+
     protected bool isAttacking; // 공격 중 여부
     private float timeSinceLastAttack = float.MaxValue; // 마지막 공격 이후 경과 시간
 
@@ -43,9 +48,24 @@ public class MonsterBase : MonoBehaviour
     {
         
     }
+
+    public void SetDamageStop(float duration)
+    {
+        isDamage = true;
+        damagedDuration = duration;
+    }
     
     protected virtual void Update()
     {
+        if(isDamage)
+        {
+            damagedDuration -= Time.deltaTime;
+            if(damagedDuration <= 0.0f)
+            {
+                isDamage = false;
+                _animator?.InvincibilityEnd();
+            }
+        }
         HandleAction();
         Rotate(lookDirection);
         HandleAttackDelay();
@@ -53,6 +73,11 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void FixedUpdate()
     {
+        if(isDamage)
+        {
+            _rigidbody.velocity = Vector2.zero;
+            return;
+        }
         Movment(movementDirection);
         if(knockbackDuration > 0.0f)
         {
