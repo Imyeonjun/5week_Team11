@@ -25,8 +25,12 @@ public class PlayerStatus : MonoBehaviour
         levelText.text = $"LV.{level}";
     }
 
-    public void Update() //레벨업 확인용 코드, 레벨업 수단 생기면 LevelUp()과 병합할 것
+    public void Update()
     {
-        if (level >= 1) levelText.gameObject.SetActive(true);
+        if (level >= 1)
+        {
+            levelText.text = $"LV.{level}";
+            levelText.gameObject.SetActive(true);
+        }
     }
 }
