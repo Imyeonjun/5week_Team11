@@ -14,9 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
     private PlayerWeaponHandler weaponHandler;
+    private AnimationHandler animationHandler;
 
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
+    public Vector2 LookDirection { get { return lookDirection; } }
+
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
 
@@ -27,13 +30,14 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        animationHandler = GetComponent<AnimationHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _resource = GetComponent<ResourceController>();
         if (WeaponPrefab != null)
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
             weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
-        
+
     }
     private void Start()
     {
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement(movementDirection);
-        if(knockbackDuration > 0.0f)
+        if (knockbackDuration > 0.0f)
         {
             knockbackDuration -= Time.fixedDeltaTime;
         }
@@ -73,11 +77,11 @@ public class PlayerController : MonoBehaviour
             lookDirection = lookDirection.normalized;
         }
 
-        isAttacking = Input.GetMouseButtonDown(0);
+        isAttacking = Input.GetMouseButton(0); //누르면 화살 계속 나오게 수정 (GetMouseButtonDown -> GetMouseButton)
 
     }
-    
-    
+
+
     private void Rotate(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -90,7 +94,7 @@ public class PlayerController : MonoBehaviour
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
 
-       
+
     }
 
     private void Movement(Vector2 direction)
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody.velocity = direction;
+        animationHandler.Move(direction);
     }
 
     public void ApplyKnockback(Transform other, float power, float duration)

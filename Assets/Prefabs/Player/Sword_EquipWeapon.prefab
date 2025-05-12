@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6126279702550087745}
   - component: {fileID: 8248210845010236477}
   m_Layer: 0
-  m_Name: Bow_EquipWeapon
+  m_Name: Sword_EquipWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 120
-  m_Sprite: {fileID: 21300000, guid: 19dadef938c15b04ba619ccabe2c85c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eade6e3af6ba0cd4ba5b3ef147639d12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

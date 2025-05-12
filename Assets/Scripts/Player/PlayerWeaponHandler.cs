@@ -39,12 +39,43 @@ public class PlayerWeaponHandler : MonoBehaviour
     [SerializeField] private float knockbackTime = 0.5f;
     public float KnockbackTime { get { return knockbackTime; } set { KnockbackTime = value; } }
 
+    [Header("Ranged Attack Data")]
+    [SerializeField] private Transform projectileSpawnPosition;
+    [SerializeField] private int bulletIndex;
+
+    public int BulletIndex { get { return bulletIndex; } }
+
+    [SerializeField] private float bulletSize = 1f;
+
+    public float BulletSize { get { return bulletSize; } }
+
+    [SerializeField] private float duration;
+
+    public float Duration { get { return duration; } }
+
+    [SerializeField] private float spread;
+
+    public float Spread { get { return spread; } }
+
+    [SerializeField] private int numberofProjectilesPershot;
+
+    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } }
+
+    [SerializeField] private float multipleProjectileAngle;
+
+    public float MultipleProjectileAngle { get { return multipleProjectileAngle; } }
+
+    [SerializeField] private Color projectileColor;
+
+    public Color ProjectileColor { get { return projectileColor; } }
+
     private static readonly int isAttack = Animator.StringToHash("isAttack");
 
     public PlayerController Controller { get; private set; }
 
     private Animator animator;
     private SpriteRenderer weaponRenderer;
+    private ProjectileManager projectileManager;
 
  
     protected virtual void Awake()
@@ -59,19 +90,45 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        projectileManager = ProjectileManager.Instance;
     }
 
     public void Attack()
     {
         AttackAnimation();
 
+        float projectileAngleSpace = multipleProjectileAngle;
+        int numberOfProjectilePerShot = numberofProjectilesPershot;
+
+        float minAlge = -(numberOfProjectilePerShot / 2f) * projectileAngleSpace;
+
+        for (int i = 0; i < numberOfProjectilePerShot; i++)
+        {
+            float angle = minAlge + projectileAngleSpace * i;
+            float randomSpread = Random.Range(-spread, spread);
+            angle += randomSpread;
+            CreateProjectile(Controller.LookDirection, angle);
+        }
+
+    }
+
+    private void CreateProjectile(Vector2 _lookDirection, float angle)
+    {
+        projectileManager.ShootBullet(
+            this,
+            projectileSpawnPosition.position,
+            RotateVector2(_lookDirection, angle)
+            );
+    }
+    private static Vector2 RotateVector2(Vector2 v, float degree)
+    {
+        return Quaternion.Euler(0, 0, degree) * v;
     }
 
     public void AttackAnimation()
     {
         animator.SetTrigger(isAttack);
-        Debug.Log("무기공격");
+        
     }
 
     public void Rotate(bool isLeft)
