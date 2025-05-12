@@ -3,6 +3,7 @@ using UnityEngine;
 // 근접 무기 전용 핸들러 (WeaponHandler 상속)
 public class MonsterClose : MonsterWeaponHandler
 {
+
     [Header("Melee Attack Info")]
     public Vector2 collideBoxSize = Vector2.one; // 공격 범위 (충돌 박스 크기)
 

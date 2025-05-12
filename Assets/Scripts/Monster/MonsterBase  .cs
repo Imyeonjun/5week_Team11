@@ -57,15 +57,15 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void Update()
     {
-        if(isDamage)
-        {
-            damagedDuration -= Time.deltaTime;
-            if(damagedDuration <= 0.0f)
-            {
-                isDamage = false;
-                _animator?.InvincibilityEnd();
-            }
-        }
+        //if(isDamage)
+        //{
+        //    damagedDuration -= Time.deltaTime;
+        //    if(damagedDuration <= 0.0f)
+        //    {
+        //        isDamage = false;
+        //        _animator?.InvincibilityEnd();
+        //    }
+        //}
         HandleAction();
         Rotate(lookDirection);
         HandleAttackDelay();
