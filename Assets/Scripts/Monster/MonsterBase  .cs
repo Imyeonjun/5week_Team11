@@ -119,10 +119,11 @@ public class MonsterBase : MonoBehaviour
 		    // 무기 회전 처리
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
 
-            Vector3 localScale = weaponPivot.localScale;
-            localScale.y = isLeft ? -1f : 1f;
-            weaponPivot.localScale = localScale;
+            //Vector3 localScale = weaponPivot.localScale;
+            //localScale.y = isLeft ? -1f : 1f;
+            //weaponPivot.localScale = localScale;
         }
+        _weaponHandler?.Rotate(isLeft);
     }
 
     private void HandleAttackDelay()
