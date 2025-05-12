@@ -5569,8 +5569,8 @@ CapsuleCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1331582424}
   - {fileID: 1899984436}
   - {fileID: 240026245}
-  - {fileID: 1331582424}
   - {fileID: 263931509}
   - {fileID: 867695895}
