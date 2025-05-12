@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     private void Rotate(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
-
 
     }
 
