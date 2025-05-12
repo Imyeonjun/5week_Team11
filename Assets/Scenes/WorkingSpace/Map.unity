@@ -184,15 +184,10 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 30966303b1d94854b9e6236033f615ad, type: 3}
   - {fileID: 3024446763080684696, guid: 056e6c82e32a9f74b96eebe5875937db, type: 3}
   - {fileID: 3024446763080684696, guid: 5eff8ea65d7543040b0b6f1b3b443600, type: 3}
-  - {fileID: 3024446763080684696, guid: 08142473ff077f145b9965c525dd25f4, type: 3}
-  - {fileID: 3024446763080684696, guid: 9274eee45026f634d85538db8059b8d1, type: 3}
-  - {fileID: 3024446763080684696, guid: 815d5abb3574cbd4fb5312ddad04cd34, type: 3}
-  - {fileID: 3024446763080684696, guid: 3e0e905a43399174daf3793b1918e725, type: 3}
-  - {fileID: 3024446763080684696, guid: f10f91d3fa53c7e44a69f38b5dec88df, type: 3}
-  - {fileID: 3024446763080684696, guid: 19769c6128c2750479c286114e33b92b, type: 3}
-  stageWidth: 10
-  stageHeight: 10
-  roomSpacing: 5
+  - {fileID: 3024446763080684696, guid: f93d869558925d1489bc5a531ddd65c8, type: 3}
+  stageWidth: 3
+  stageHeight: 3
+  roomSpacing: 10
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0
