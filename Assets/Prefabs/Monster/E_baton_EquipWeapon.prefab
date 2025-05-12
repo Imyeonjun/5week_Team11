@@ -84,7 +84,7 @@ MonoBehaviour:
   attackRange: 1
   target:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   isOnKnockback: 0
   knockbackPower: 0.1
   knockbackTime: 0.5
