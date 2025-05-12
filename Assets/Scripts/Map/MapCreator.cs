@@ -82,7 +82,16 @@ public class MapCreator : MonoBehaviour
 
         // 플레이어 시작 위치 지정 및 완료 상태 설정
         Vector2Int startRoom = roomPositions[0];
-        playerStartPos = new Vector2(startRoom.x * roomSpacing, startRoom.y * roomSpacing);
+        GameObject startRoomGO = map[startRoom.x, startRoom.y];
+        Tilemap tilemap = startRoomGO.GetComponentInChildren<Tilemap>();
+        if (tilemap != null)
+        {
+            playerStartPos = tilemap.transform.position + tilemap.localBounds.center;
+        }
+        else
+        {
+            playerStartPos = startRoomGO.transform.position;
+        }
         IsGenerationComplete = true;
 
         foreach (Vector2Int pos in roomPositions)
