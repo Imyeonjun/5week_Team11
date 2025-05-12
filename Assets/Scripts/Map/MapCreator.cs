@@ -82,7 +82,18 @@ public class MapCreator : MonoBehaviour
             }
         }
 
-        // 2. 복도 연결
+        // 2. 고립된 방 제거
+        MapValidator validator = GetComponent<MapValidator>();
+        if (validator != null)
+        {
+            validator.RemoveIsolatedRooms(map, firstPlacedRoom); // BFS 기반 연결 확인
+        }
+        else
+        {
+            Debug.LogWarning("MapValidator가 존재하지 않습니다!");
+        }
+
+        // 3. 복도 연결
         for (int x = 0; x < stageWidth; x++)
         {
             for (int y = 0; y < stageHeight; y++)
@@ -115,17 +126,6 @@ public class MapCreator : MonoBehaviour
                     }
                 }
             }
-        }
-
-        // 3. 고립된 방 제거
-        MapValidator validator = GetComponent<MapValidator>();
-        if (validator != null)
-        {
-            validator.RemoveIsolatedRooms(map, firstPlacedRoom); // BFS 기반 연결 확인
-        }
-        else
-        {
-            Debug.LogWarning("MapValidator가 존재하지 않습니다!");
         }
     }
 }
