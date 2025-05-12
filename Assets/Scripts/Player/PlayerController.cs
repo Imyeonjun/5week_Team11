@@ -7,14 +7,13 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    private ResourceController _resource;
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
-    private PlayerWeaponHandler weaponHandler;
-    private AnimationHandler animationHandler;
+    public PlayerWeaponHandler weaponHandler;
+    private AnimationHandler animationHandler; //애니메이션 임시 확인용 (BaseController 만들고 바꾸기)
 
     private Vector2 movementDirection = Vector2.zero;
     private Vector2 lookDirection = Vector2.zero;
@@ -32,7 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         animationHandler = GetComponent<AnimationHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _resource = GetComponent<ResourceController>();
         if (WeaponPrefab != null)
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
@@ -77,10 +75,9 @@ public class PlayerController : MonoBehaviour
             lookDirection = lookDirection.normalized;
         }
 
-        isAttacking = Input.GetMouseButton(0); //누르면 화살 계속 나오게 수정 (GetMouseButtonDown -> GetMouseButton)
+        isAttacking = Input.GetMouseButton(0);
 
     }
-
 
     private void Rotate(Vector2 direction)
     {
@@ -93,7 +90,6 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
-
 
     }
 
@@ -136,27 +132,6 @@ public class PlayerController : MonoBehaviour
         {
             timeSinceLastAttack = 0;
             Attack();
-        }
-    }
-
-    public void ApplyDamage(float amount)
-    {
-        if (_resource != null)
-        {
-            _resource.ChangeHealth(-amount);
-        }
-
-        // if(animationHandler != null)
-        // {
-        //     animationHandler.Hit();
-        // }
-    }
-
-    public void PlayerHit()
-    {
-        if(animationHandler != null)
-        {
-            animationHandler.Hit();
         }
     }
 }
