@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSetter : MonoBehaviour
+public class PlayerStartSetter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Transform player; // 이미 존재하는 플레이어
+    [SerializeField] private MapCreator mapCreator; // MapCreator 참조
+
     void Start()
     {
-        
+        StartCoroutine(SetPlayerStartWhenReady());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SetPlayerStartWhenReady()
     {
-        
+        // 맵 생성 완료까지 대기
+        while (!mapCreator.IsGenerationComplete)
+            yield return null;
+
+        Vector2 startPos = mapCreator.GetPlayerStartPosition();
+        player.position = startPos;
     }
 }
+
