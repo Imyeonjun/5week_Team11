@@ -1,92 +1,156 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MapCreator : MonoBehaviour
 {
-    public GameObject[] roomTemplates; // 템플릿 프리팹 불러오기
+    [SerializeField] private GameObject corridorHorizontalPrefab;
+    [SerializeField] private GameObject corridorVerticalPrefab;
+    public GameObject[] roomTemplates;
 
-    [Header("스테이지 구성 프리팹 갯수")]
-    public int stageWidth = 5;
-    public int stageHeight = 5;
+    [Header("스테이지 설정")]
+    public int stageWidth = 10;
+    public int stageHeight = 10;
+    public int minRoomCount = 5;
+    public float roomSpacing = 12f;
 
-    [Header("프리팹 간격")]
-    public float roomSpacing = 10f;
+    public bool IsGenerationComplete { get; private set; } = false;
+    private Vector2 playerStartPos;
+    public Vector2 GetPlayerStartPosition() => playerStartPos;
 
     void Start()
     {
-        CreatStage();
+        minRoomCount = Random.Range(5, 11);
+        CreateStage();
     }
 
-    void CreatStage()
+    void CreateStage()
     {
         GameObject[,] map = new GameObject[stageWidth, stageHeight];
-        Vector2Int firstPlacedRoom = new Vector2Int(-1, -1);
+        List<Vector2Int> roomPositions = GenerateRoomPath(minRoomCount, stageWidth, stageHeight);
 
-        for (int x = 0; x < stageWidth; x++)
+        Dictionary<Vector2Int, HashSet<string>> requiredOpens = new Dictionary<Vector2Int, HashSet<string>>();
+
+        foreach (Vector2Int pos in roomPositions)
         {
-            for (int y = 0; y < stageHeight; y++)
+            requiredOpens[pos] = new HashSet<string>();
+        }
+
+        foreach (Vector2Int pos in roomPositions)
+        {
+            Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
+
+            foreach (var dir in directions)
             {
-                Vector2 pos = new Vector2(x * roomSpacing, y * roomSpacing);
-
-                RoomTemplate prevRoomLeft = null;
-                RoomTemplate prevRoomDown = null;
-
-                if (x > 0 && map[x - 1, y] != null)
-                    prevRoomLeft = map[x - 1, y].GetComponent<RoomTemplate>();
-
-                if (y > 0 && map[x, y - 1] != null)
-                    prevRoomDown = map[x, y - 1].GetComponent<RoomTemplate>();
-
-                // 조건에 맞는 프리팹 리스트 만들기
-                List<GameObject> candidates = new List<GameObject>();
-
-                foreach (GameObject prefab in roomTemplates)
+                Vector2Int next = pos + dir;
+                if (roomPositions.Contains(next))
                 {
-                    RoomTemplate candidate = prefab.GetComponent<RoomTemplate>();
-                    bool fits = true;
-
-                    if (prevRoomLeft != null)
-                        fits &= prevRoomLeft.openRight && candidate.openLeft;
-
-                    if (prevRoomDown != null)
-                        fits &= prevRoomDown.openTop && candidate.openBottom;
-
-                    if (fits)
-                        candidates.Add(prefab);
-                }
-
-                if (candidates.Count > 0)
-                {
-                    int randIndex = Random.Range(0, candidates.Count);
-                    GameObject chosen = candidates[randIndex];
-                    RoomTemplate candidate = chosen.GetComponent<RoomTemplate>();
-
-                    map[x, y] = Instantiate(chosen, pos, Quaternion.identity);
-
-                    // 첫 방 저장: 비어있지 않은 방만
-                    if (firstPlacedRoom.x == -1 && !candidate.isEmptyRoom)
-                    {
-                        firstPlacedRoom = new Vector2Int(x, y);
-                    }
+                    if (dir == Vector2Int.right) { requiredOpens[pos].Add("Right"); requiredOpens[next].Add("Left"); }
+                    if (dir == Vector2Int.left) { requiredOpens[pos].Add("Left"); requiredOpens[next].Add("Right"); }
+                    if (dir == Vector2Int.up) { requiredOpens[pos].Add("Top"); requiredOpens[next].Add("Bottom"); }
+                    if (dir == Vector2Int.down) { requiredOpens[pos].Add("Bottom"); requiredOpens[next].Add("Top"); }
                 }
             }
         }
 
-        MapValidator validator = GetComponent<MapValidator>();
-
-        if (validator != null)
+        foreach (Vector2Int pos in roomPositions)
         {
-            validator.RemoveIsolatedRooms(map, firstPlacedRoom);
+            Vector2 worldPos = new Vector2(pos.x * roomSpacing, pos.y * roomSpacing);
+            HashSet<string> needed = requiredOpens[pos];
+
+            var candidates = roomTemplates.Where(prefab =>
+            {
+                RoomTemplate rt = prefab.GetComponent<RoomTemplate>();
+                return (!needed.Contains("Top") || rt.openTop)
+                    && (!needed.Contains("Bottom") || rt.openBottom)
+                    && (!needed.Contains("Left") || rt.openLeft)
+                    && (!needed.Contains("Right") || rt.openRight);
+            }).ToList();
+
+            if (candidates.Count == 0)
+            {
+                Debug.LogWarning($"조건에 맞는 방 프리팹 없음: {pos} → 기본 첫 번째 사용");
+                candidates.Add(roomTemplates[0]);
+            }
+
+            GameObject prefab = candidates[Random.Range(0, candidates.Count)];
+            GameObject room = Instantiate(prefab, worldPos, Quaternion.identity);
+            map[pos.x, pos.y] = room;
+        }
+
+        // 플레이어 시작 위치 지정 및 완료 상태 설정
+        Vector2Int startRoom = roomPositions[0];
+        GameObject startRoomGO = map[startRoom.x, startRoom.y];
+        Tilemap tilemap = startRoomGO.GetComponentInChildren<Tilemap>();
+        if (tilemap != null)
+        {
+            playerStartPos = tilemap.transform.position + tilemap.localBounds.center;
         }
         else
         {
-            Debug.LogWarning("MapValidator가 존재하지 않습니다!");
+            playerStartPos = startRoomGO.transform.position;
+        }
+        IsGenerationComplete = true;
+
+        foreach (Vector2Int pos in roomPositions)
+        {
+            Vector2Int[] directions = { Vector2Int.right, Vector2Int.up };
+
+            foreach (var dir in directions)
+            {
+                Vector2Int next = pos + dir;
+                if (roomPositions.Contains(next))
+                {
+                    Vector2 start = new Vector2(pos.x * roomSpacing, pos.y * roomSpacing);
+                    Vector2 end = new Vector2(next.x * roomSpacing, next.y * roomSpacing);
+                    RoomTemplate roomA = map[pos.x, pos.y].GetComponent<RoomTemplate>();
+                    RoomTemplate roomB = map[next.x, next.y].GetComponent<RoomTemplate>();
+
+                    RoomConnecter.TryCreateCorridor(start, end, roomA, roomB, corridorHorizontalPrefab, corridorVerticalPrefab);
+                }
+            }
         }
     }
 
-    //int RandomStageWide()
-    //{
-    //    //스테이지 크기 랜덤값 만들기
-    //}
+    List<Vector2Int> GenerateRoomPath(int minRoomCount, int width, int height)
+    {
+        HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
+        Queue<Vector2Int> queue = new Queue<Vector2Int>();
+
+        Vector2Int start = new Vector2Int(width / 2, height / 2);
+        visited.Add(start);
+        queue.Enqueue(start);
+
+        Vector2Int[] directions = {
+            Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
+        };
+
+        System.Random rnd = new System.Random();
+
+        while (visited.Count < minRoomCount && queue.Count > 0)
+        {
+            Vector2Int current = queue.Dequeue();
+            directions = directions.OrderBy(x => rnd.Next()).ToArray();
+
+            foreach (var dir in directions)
+            {
+                Vector2Int next = current + dir;
+                if (next.x < 0 || next.y < 0 || next.x >= width || next.y >= height)
+                    continue;
+
+                if (!visited.Contains(next))
+                {
+                    visited.Add(next);
+                    queue.Enqueue(next);
+
+                    if (visited.Count >= minRoomCount)
+                        break;
+                }
+            }
+        }
+
+        return new List<Vector2Int>(visited);
+    }
 }
