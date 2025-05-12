@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class MonsterProjectileController : MonoBehaviour
@@ -57,10 +58,10 @@ public class MonsterProjectileController : MonoBehaviour
 
                 if(rangeWeapon.IsOnKnockback)
                 {
-                    MonsterBase controller = collision.GetComponent<MonsterBase>();
-                    if(controller != null)
+                    PlayerController playerController = collision.GetComponent<PlayerController>();
+                    if (playerController != null)
                     {
-                        controller.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
+                        playerController.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
                     }
                 }
             }
