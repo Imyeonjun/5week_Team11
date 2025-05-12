@@ -7,11 +7,20 @@ public class SkillPickUp : MonoBehaviour
 {
     
     LayerMask levelCollisionLayer;
-    List<Skill> skills;
+    public Skill skill;
 
+    public void Awake()
+    {
+
+    }
+
+    public void GetRandomSkill()
+    {
+
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Skill skill = new Skill();        
+             
         
         if(collision.gameObject.layer != 6)
         {
@@ -20,7 +29,7 @@ public class SkillPickUp : MonoBehaviour
 
         else
         {
-            //skill.AddComponent<Skill>();
+            
             Debug.Log("½ºÅ³ È¹µæ");
             Destroy(this.gameObject);
             

@@ -84,8 +84,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
-        skill = GetComponentInChildren<Skill>(); //스킬 추가하기
-
+        
         animator.speed = 1f / delay;
         transform.localScale = Vector3.one * weaponSize;
     }
