@@ -188,8 +188,16 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 9a1e48a9cea9bde47bc8232d9ec61446, type: 3}
   - {fileID: 3024446763080684696, guid: 6acb57be5dc54ab42ba793c741d08fd4, type: 3}
   - {fileID: 3024446763080684696, guid: 119eeab7fdace51428f27b5a180b286c, type: 3}
+  - {fileID: 3024446763080684696, guid: 6802c20bc32516940be036c541930f78, type: 3}
+  - {fileID: 3024446763080684696, guid: a7a4caf4f174ef44f814c0dbc07e9b83, type: 3}
+  - {fileID: 3024446763080684696, guid: 4b69d1b5d70b8bb4db223ca64c8e2df4, type: 3}
+  - {fileID: 3024446763080684696, guid: 4f3c6e7aae2e92648bd031a03657b3c2, type: 3}
+  - {fileID: 3024446763080684696, guid: 6a79e62abe5324d45a26b2f8b05445ce, type: 3}
+  - {fileID: 3024446763080684696, guid: 9f96b7ebd6df7fc49b2687b9027a67e0, type: 3}
+  - {fileID: 3024446763080684696, guid: e372f9910e62fd245a62e12880f159b3, type: 3}
   stageWidth: 10
-  stageHeight: 6
+  stageHeight: 10
+  minRoomCount: 1
   roomSpacing: 12
 --- !u!1 &1144519247
 GameObject:

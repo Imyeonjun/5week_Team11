@@ -505,7 +505,6 @@ MonoBehaviour:
   openBottom: 1
   openLeft: 0
   openRight: 0
-  isEmptyRoom: 0
 --- !u!1 &3208030460476950547
 GameObject:
   m_ObjectHideFlags: 0
