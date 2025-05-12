@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class PlayerLevelEXP : MonoBehaviour
 {
-    private SkillCardMaker skillCardMaker;
+    private SkillCardManager skillCardManager;
     private TextMeshProUGUI levelText;
     public RectTransform levelBar;
     [SerializeField] private int level = 0;
@@ -23,7 +23,7 @@ public class PlayerLevelEXP : MonoBehaviour
     public void Start()
     {
         levelText.gameObject.SetActive(false);
-        skillCardMaker = GetComponentInChildren<SkillCardMaker>();
+        skillCardManager = GetComponentInChildren<SkillCardManager>();
     }
 
     public void Update()
@@ -55,7 +55,7 @@ public class PlayerLevelEXP : MonoBehaviour
         //MaxEXPChanger(maxEXP); 
         levelText.text = $"LV.{level}";
         exp -= maxEXP;
-        skillCardMaker.MakePrefabs();
+        skillCardManager.CardChoice();
     }
 
     //public void maxexpchanger(int maxEXP) //레벨업 될 때마다 최대 exp 변경

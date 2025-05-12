@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class SkillPickUp : MonoBehaviour
 {
-
     LayerMask levelCollisionLayer;
     public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
-    public skillList skillList;
+    private List<SkillListElements> skillList = new List<SkillListElements>();
 
     //public void Awake()
     //{
@@ -19,36 +18,23 @@ public class SkillPickUp : MonoBehaviour
     //        weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
     //}
 
-    public skillList GetRandomSkill()
-    {
-        skillList[] values = (skillList[])System.Enum.GetValues(typeof(skillList));
-        int index = Random.Range(0, values.Length);
-        return values[index];
-    }
-
     public void ApplyRandomSkill()
     {
-        skillList = GetRandomSkill();
+        GetRandomSkill();
         //ApplySkill(skillList);
     }
 
-    public void ApplySkill(skillList list)
+    public void GetRandomSkill()
     {
-        switch (list)
-        {
-            case skillList.AttackPowerUP:
-                playerWeaponHandler.Power = skill.AttackPowerUP();
-                Debug.Log("공격력 증가!");
-                break;
-            case skillList.AttackSpeedUP:
-                playerWeaponHandler.Delay = skill.AttackSpeedUp();
-                Debug.Log("공격속도 증가!");
-                break;
-            case skillList.AttackProjectileUP:
-                playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
-                Debug.Log("화살 수 증가!");
-                break;
-        }
+        int index = Random.Range(0, skillList.Count);
+        ApplySkill(index);
+        
+    }
+
+
+    public void ApplySkill(int num)
+    {
+        
     }
 }
 

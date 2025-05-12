@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillCardMaker: MonoBehaviour
+public class SkillCardManager : MonoBehaviour
 {
-    [SerializeField] private GameObject cardPrefab;
-    [SerializeField] private RectTransform startPoint;
-    [SerializeField] private float width = 300f;
+    public GameObject cardPrefab;
+    public GameObject skillCardBg;
+    public RectTransform startPoint;
+    public SkillPickUp skillPickUp;
+
+    private float width = 300f;
     private float interval;
     private float totalwidth;
 
@@ -19,13 +20,25 @@ public class SkillCardMaker: MonoBehaviour
         interval = -totalwidth / 2;
     }
 
+    public void CardChoice()
+    {
+        skillCardBg.SetActive(true);
+        MakePrefabs();
+    }
+
     public void MakePrefabs()
     {
-        for (int i = 0; i < 3;  i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject card = Instantiate(cardPrefab, startPoint);
             RectTransform rect = card.GetComponent<RectTransform>();
             rect.anchoredPosition = new Vector2(interval + i * width, 0);
         }
     }
+
+    public void ChoiceCard()
+    {
+        skillPickUp.ApplyRandomSkill();
+    }
 }
+
