@@ -14,8 +14,8 @@ public class UIManager : MonoBehaviour
 {
     HomeUI homeUI;
     GameUI gameUI;
-    SelectSkillUI skillUI;
-    GameOverUI gameOverUI;
+    //SelectSkillUI skillUI;
+    //GameOverUI gameOverUI;
     private UIState currentState;
 
     private void Awake()
@@ -24,10 +24,10 @@ public class UIManager : MonoBehaviour
         homeUI.Init(this);
         gameUI = GetComponentInChildren<GameUI>(true);
         gameUI.Init(this);
-        skillUI = GetComponentInChildren<SelectSkillUI>(true);
-        skillUI.Init(this);
-        gameOverUI = GetComponentInChildren<GameOverUI>(true);
-        gameOverUI.Init(this);
+        //skillUI = GetComponentInChildren<SelectSkillUI>(true);
+        //skillUI.Init(this);
+        //gameOverUI = GetComponentInChildren<GameOverUI>(true);
+        //gameOverUI.Init(this);
 
         ChangeState(UIState.Home);
     }
@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         currentState = state;
         homeUI.SetActive(currentState);
         gameUI.SetActive(currentState);
-        gameOverUI.SetActive(currentState);
+        //skillUI.SetActive(currentState);
+        //gameOverUI.SetActive(currentState);
     }
 }
