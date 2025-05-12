@@ -16,6 +16,10 @@ public class MapCreator : MonoBehaviour
     public int minRoomCount = 5;
     public float roomSpacing = 12f;
 
+    public bool IsGenerationComplete { get; private set; } = false;
+    private Vector2 playerStartPos;
+    public Vector2 GetPlayerStartPosition() => playerStartPos;
+
     void Start()
     {
         minRoomCount = Random.Range(5, 11);
@@ -27,7 +31,6 @@ public class MapCreator : MonoBehaviour
         GameObject[,] map = new GameObject[stageWidth, stageHeight];
         List<Vector2Int> roomPositions = GenerateRoomPath(minRoomCount, stageWidth, stageHeight);
 
-        // 먼저 어떤 위치에 어떤 방향이 필요한지 계산
         Dictionary<Vector2Int, HashSet<string>> requiredOpens = new Dictionary<Vector2Int, HashSet<string>>();
 
         foreach (Vector2Int pos in roomPositions)
@@ -52,7 +55,6 @@ public class MapCreator : MonoBehaviour
             }
         }
 
-        // 조건에 맞는 프리팹만 배치
         foreach (Vector2Int pos in roomPositions)
         {
             Vector2 worldPos = new Vector2(pos.x * roomSpacing, pos.y * roomSpacing);
@@ -78,7 +80,11 @@ public class MapCreator : MonoBehaviour
             map[pos.x, pos.y] = room;
         }
 
-        // 복도 연결
+        // 플레이어 시작 위치 지정 및 완료 상태 설정
+        Vector2Int startRoom = roomPositions[0];
+        playerStartPos = new Vector2(startRoom.x * roomSpacing, startRoom.y * roomSpacing);
+        IsGenerationComplete = true;
+
         foreach (Vector2Int pos in roomPositions)
         {
             Vector2Int[] directions = { Vector2Int.right, Vector2Int.up };
