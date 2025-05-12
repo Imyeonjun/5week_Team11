@@ -48,7 +48,8 @@ public class MonsterProjectileController : MonoBehaviour
         }
         else if(rangeWeapon.target.value == (rangeWeapon.target.value | (1 << collision.gameObject.layer)))
         {
-            ResourceController resource = collision.GetComponent<ResourceController>();
+            ResourceController resource = collision.GetComponentInParent<ResourceController>();
+
             if(resource != null)
             {
                 resource.ChangeHealth(-rangeWeapon.Power);

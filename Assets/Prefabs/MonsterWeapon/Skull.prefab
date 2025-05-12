@@ -154,7 +154,7 @@ MonoBehaviour:
   levelCollisionLayer:
     serializedVersion: 2
     m_Bits: 256
-  fxOnDestory: 0
+  fxOnDestory: 1
 --- !u!1 &8102391028993472413
 GameObject:
   m_ObjectHideFlags: 0
