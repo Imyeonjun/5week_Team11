@@ -46,17 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  weaponSize: 1
+  weaponSize: 0.8
   power: 1
   speed: 1
-  attackRange: 1
+  attackRange: 1.3
   target:
     serializedVersion: 2
     m_Bits: 64
-  isOnKnockback: 0
-  knockbackPower: 0.1
+  isOnKnockback: 1
+  knockbackPower: 0.5
   knockbackTime: 0.5
-  collideBoxSize: {x: 1, y: 1}
+  collideBoxSize: {x: 2, y: 2}
 --- !u!1 &9153695753555921249
 GameObject:
   m_ObjectHideFlags: 0

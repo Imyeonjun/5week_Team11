@@ -73,11 +73,11 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void FixedUpdate()
     {
-        if(isDamage)
-        {
-            _rigidbody.velocity = Vector2.zero;
-            return;
-        }
+        //if(isDamage)
+        //{
+        //    _rigidbody.velocity = Vector2.zero;
+        //    return;
+        //}
         Movment(movementDirection);
         if(knockbackDuration > 0.0f)
         {

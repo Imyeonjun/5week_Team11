@@ -85,6 +85,7 @@ public class ResourceController : MonoBehaviour
             if(_playerAnimation != null)
             {
                 _playerAnimation.Hit(); // 맞는 애니메이션 실행
+                
             }
             else
             {
