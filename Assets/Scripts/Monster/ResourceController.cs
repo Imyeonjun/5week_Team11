@@ -6,7 +6,7 @@ public class ResourceController : MonoBehaviour
 
     private MonsterBase _base;
     private MonsterAnimation _animation;
-    private MonsterStat _stat;
+    private CharacterStat _stat;
     
     private float timeSinceLastChange = float.MaxValue; // 마지막 체력 변경 이후 경과 시간
 
@@ -17,9 +17,16 @@ public class ResourceController : MonoBehaviour
     {
         _base = GetComponent<MonsterBase>();
         _animation = GetComponent<MonsterAnimation>();
-        _stat = GetComponent<MonsterStat>();
+        _stat = GetComponent<CharacterStat>();
 
-       
+       if(_stat != null)
+       {
+         CurrentHealth = _stat.Health;
+       }
+       else
+       {
+        CurrentHealth = 100f;
+       }
     }
 
     private void Start()

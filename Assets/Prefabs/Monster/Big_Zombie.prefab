@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6828846345135537749}
   - component: {fileID: 3339818022554858214}
   - component: {fileID: 1843574282528641531}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2679495967542997402}
   - component: {fileID: -4471263276096418424}
   - component: {fileID: 6304865070164921908}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Big_Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4749471630534485767}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

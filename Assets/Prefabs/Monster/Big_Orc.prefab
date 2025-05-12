@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8367195007450608804}
   - component: {fileID: 9064905335610787894}
   - component: {fileID: 8572658812990312298}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: OrcSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8045735681579626745}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 8193456879508827597}
   - component: {fileID: 5510992391670945783}
   - component: {fileID: 6957217807694900645}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Big_Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

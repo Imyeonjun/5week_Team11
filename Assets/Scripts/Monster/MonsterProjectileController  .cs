@@ -52,14 +52,28 @@ public class MonsterProjectileController : MonoBehaviour
             if(resource != null)
             {
                 resource.ChangeHealth(-rangeWeapon.Power);
-                if(rangeWeapon.IsOnKnockback)
+
+
+                PlayerController player = collision.GetComponent<PlayerController>();
+                if (player != null)
                 {
-                    MonsterBase controller = collision.GetComponent<MonsterBase>();
-                    if(controller != null)
-                    {
-                        controller.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
-                    }
+                    player.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
                 }
+
+                // 몬스터인지 확인하고 넉백 적용 (필요한 경우)
+                MonsterBase monster = collision.GetComponent<MonsterBase>();
+                if (monster != null)
+                {
+                    monster.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
+                }
+                // if(rangeWeapon.IsOnKnockback)
+                // {
+                //     MonsterBase controller = collision.GetComponent<MonsterBase>();
+                //     if(controller != null)
+                //     {
+                //         controller.ApplyKnockback(transform, rangeWeapon.KnockbackPower, rangeWeapon.KnockbackTime);
+                //     }
+                // }
             }
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);
         }

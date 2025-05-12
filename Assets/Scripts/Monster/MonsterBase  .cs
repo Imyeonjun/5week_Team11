@@ -5,7 +5,7 @@ public class MonsterBase : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody; // 이동을 위한 물리 컴포넌트
     protected MonsterAnimation _animator; // 애니메이션을 위한 컴포넌트
-    protected MonsterStat _stat; // 몬스터의 능력치를 위한 컴포넌트
+    protected CharacterStat _stat; // 몬스터의 능력치를 위한 컴포넌트
     
     [SerializeField] private SpriteRenderer characterRenderer; // 좌우 반전을 위한 렌더러
     [SerializeField] private Transform weaponPivot; // 무기를 회전시킬 기준 위치
@@ -30,7 +30,7 @@ public class MonsterBase : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<MonsterAnimation>();
-        _stat = GetComponent<MonsterStat>();
+        _stat = GetComponent<CharacterStat>();
 
          if(WeaponPrefab != null)
 	      _weaponHandler = Instantiate(WeaponPrefab, weaponPivot);

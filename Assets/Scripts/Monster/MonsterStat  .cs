@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 캐릭터의 기본 능력치를 저장하고 관리하는 클래스
-public class MonsterStat : MonoBehaviour
+public class CharacterStat : MonoBehaviour
 {
 		// 체력 (1 ~ 100 사이 값만 허용)
     [Range(1,100)] [SerializeField] private int health = 10;

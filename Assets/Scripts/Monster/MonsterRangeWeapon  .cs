@@ -39,6 +39,12 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
     public override void Attack()
     {
         base.Attack();
+
+        // ResourceController resource = hit.collider.GetComponent<ResourceController>();
+        // if (resource != null)
+        // {
+        //     resource.ChangeHealth(-Power); // 데미지 적용
+        // }
         
         float projectilesAngleSpace = multipleProjectilesAngel; // 총알 간 각도 간격
         int numberOfProjectilesPerShot = numberofProjectilesPerShot; // 발사할 총알 수
@@ -61,7 +67,7 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
     
     private void CreateProjectile(Vector2 _lookDirection, float angle)
     {
-
+        ProjectileManager.ShootBullet(this, projectileSpawnPosition.position, RotateVector2(_lookDirection, angle));
     }
     
     // 방향 벡터를 주어진 각도만큼 회전

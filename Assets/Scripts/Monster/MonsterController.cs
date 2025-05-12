@@ -11,7 +11,7 @@ public class MonsterController : MonsterBase
     {
         this.monsterManager = monsterManager;
         this.target = target;
-        _stat = GetComponent<MonsterStat>();
+        _stat = GetComponent<CharacterStat>();
     }
 
     protected float DistanceToTarget()
