@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Player.meta
 guid: eb5d45901ef582d4ca98b0f3c393fa36
+========
+guid: 810af8d948eef404c9ce920dae71634d
+>>>>>>>> Test_Combine:Assets/Artworks.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

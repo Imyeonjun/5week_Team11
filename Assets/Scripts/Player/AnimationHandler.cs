@@ -12,18 +12,17 @@ public class AnimationHandler : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    public void Move(Vector2 direction)
+    public void Move(Vector2 direction) //PlayerController에서 이동 애니메이션
     {
         animator.SetBool(isMove, direction.magnitude > 0.5f);
     }
 
-    public void Hit()
+    public void Hit() //피격 애니메이션
     {
         animator.SetBool(isHit, true);
     }
 
-    public void InvincibilityEnd()
+    public void InvincibilityEnd() //피격 애니메이션 종료
     {
         animator.SetBool(isHit, false);
     }

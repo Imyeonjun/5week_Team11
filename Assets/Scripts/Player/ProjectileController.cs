@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -17,6 +16,8 @@ public class ProjectileController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private SpriteRenderer spriteRenderer;
 
+    public bool fxOnDestroy = true;
+
     ProjectileManager projectileManager;
 
     private void Awake()
@@ -24,6 +25,8 @@ public class ProjectileController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         pivot = transform.GetChild(0);
+
+        
     }
 
     private void Update()
@@ -34,7 +37,7 @@ public class ProjectileController : MonoBehaviour
 
         if (currentDuration > playerWeaponHandler.Duration)
         {
-            DestroyProjectile(transform.position);
+            DestroyProjectile(transform.position, false);
         }
 
         _rigidbody.velocity = direction * playerWeaponHandler.Speed;
@@ -44,24 +47,26 @@ public class ProjectileController : MonoBehaviour
     {
         if (levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer)))
         {
-            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f);
+            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f, fxOnDestroy);
         }
         else if (playerWeaponHandler.target.value == (playerWeaponHandler.target.value | (1 << collision.gameObject.layer)))
         {
-            //ResourceController resourceController = collision.GetComponent<ResourceController>();
-            //if (resourceController != null)
-            //{
-            //    resourceController.ChangeHealth(-playerWeaponHandler.Power);
-            //    if (playerWeaponHandler.IsOnKnockback)
-            //    {
-            //        PlayerController controller = collision.GetComponent<PlayerController>();
-            //        if (controller != null)
-            //        {
-            //            controller.ApplyKnockback(transform, playerWeaponHandler.KnockbackPower, playerWeaponHandler.KnockbackTime);
-            //        }
-            //    }
-            //}
-            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f);
+            ResourceController resourceController = collision.GetComponent<ResourceController>();
+            if (resourceController != null)
+            {
+               resourceController.ChangeHealth(-playerWeaponHandler.Power);
+               if (playerWeaponHandler.IsOnKnockback)
+               {
+                   PlayerController controller = collision.GetComponent<PlayerController>();
+                   if (controller != null)
+                   {
+                       controller.ApplyKnockback(transform, playerWeaponHandler.KnockbackPower, playerWeaponHandler.KnockbackTime);
+                   }
+               }
+            }
+
+
+            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f, fxOnDestroy);
         }
     }
 
@@ -85,8 +90,13 @@ public class ProjectileController : MonoBehaviour
         isReady = true;
     }
 
-    private void DestroyProjectile(Vector3 position)
+    private void DestroyProjectile(Vector3 position, bool createFx)
     {
+        //if (createFx)
+        //{
+        //    projectileManager.CreatImpactParticleAtPosition(position, rangeWeaponHandler);
+        //}
+
         Destroy(this.gameObject);
     }
 

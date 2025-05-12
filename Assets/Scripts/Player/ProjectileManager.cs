@@ -23,6 +23,7 @@ public class ProjectileManager : MonoBehaviour
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, playerWeaponHandler, this);
+        
     }
 
     //public void CreatImpactParticleAtPosition(Vector3 position, PlayerWeaponHandler weaponHandler)
