@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SkillPickUp : MonoBehaviour
 {
-    
+
     LayerMask levelCollisionLayer;
     public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
@@ -50,21 +50,5 @@ public class SkillPickUp : MonoBehaviour
                 break;
         }
     }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if(collision.gameObject.layer != 6)
-        {
-            return;
-        }
-
-        else
-        {
-            ApplySkill(skillList);
-            
-            Destroy(this.gameObject);
-            
-        }
-    }
 }
+

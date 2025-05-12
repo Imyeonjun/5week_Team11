@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillCard : MonoBehaviour
+public class SkillCardShower : MonoBehaviour
 {
-    private GameObject skillCardBg;
+    public GameObject skillCardBg;
     void Start()
     {
-        skillCardBg = GetComponentInChildren<GameObject>();
-    }
-
-    void SkillCards()
-    {
-
+        skillCardBg = GetComponent<GameObject>();
     }
 }

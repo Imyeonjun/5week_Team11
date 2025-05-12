@@ -4,10 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerLevelEXP : MonoBehaviour
 {
+    private SkillCardMaker skillCardMaker;
     private TextMeshProUGUI levelText;
-    public GameObject levelLayer;
     public RectTransform levelBar;
     [SerializeField] private int level = 0;
     [SerializeField] private int exp = 0;
@@ -22,14 +22,11 @@ public class PlayerStatus : MonoBehaviour
 
     public void Start()
     {
-        Canvas canvas = GetComponent<Canvas>(); //레벨 텍스트가 경험치바 앞으로 가게 하기 위해서 레이어 지정
-        canvas.overrideSorting = true;
-        canvas.sortingOrder = 100;
-
         levelText.gameObject.SetActive(false);
+        skillCardMaker = GetComponentInChildren<SkillCardMaker>();
     }
 
-    public void Update() 
+    public void Update()
     {
         if (displayIsReady == false && level >= 1) //레벨업 확인용 코드, 완성 시 Levelup()과 병합
         {
@@ -51,15 +48,17 @@ public class PlayerStatus : MonoBehaviour
             Levelup();
         }
     }
+
     public void Levelup()
     {
         level++;
-        //MaxEXPChanger(maxEXP); 레벨업 될 때마다 최대 EXP 변경
+        //MaxEXPChanger(maxEXP); 
         levelText.text = $"LV.{level}";
         exp -= maxEXP;
+        skillCardMaker.MakePrefabs();
     }
 
-    //public void MaxEXPChanger(int maxEXP)
+    //public void maxexpchanger(int maxEXP) //레벨업 될 때마다 최대 exp 변경
     //{
     //}
 }
