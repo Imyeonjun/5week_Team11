@@ -10,16 +10,6 @@ public class SkillCardManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillPickUp skillPickUp;
 
-    private float width = 300f;
-    private float interval;
-    private float totalwidth;
-
-    void Start()
-    {
-        totalwidth = width * 2;
-        interval = -totalwidth / 2;
-    }
-
     public void CardChoice()
     {
         skillCardBg.SetActive(true);
@@ -28,6 +18,10 @@ public class SkillCardManager : MonoBehaviour
 
     public void MakePrefabs()
     {
+        float width = 300f;
+        float totalwidth = width * 2;
+        float interval = -totalwidth / 2;
+
         for (int i = 0; i < 3; i++)
         {
             GameObject card = Instantiate(cardPrefab, startPoint);
