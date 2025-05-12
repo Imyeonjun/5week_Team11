@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -15,8 +16,6 @@ public class ProjectileController : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer spriteRenderer;
-
-    public bool fxOnDestroy = true;
 
     ProjectileManager projectileManager;
 
@@ -35,7 +34,7 @@ public class ProjectileController : MonoBehaviour
 
         if (currentDuration > playerWeaponHandler.Duration)
         {
-            DestroyProjectile(transform.position, false);
+            DestroyProjectile(transform.position);
         }
 
         _rigidbody.velocity = direction * playerWeaponHandler.Speed;
@@ -45,7 +44,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer)))
         {
-            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f, fxOnDestroy);
+            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f);
         }
         else if (playerWeaponHandler.target.value == (playerWeaponHandler.target.value | (1 << collision.gameObject.layer)))
         {
@@ -62,9 +61,7 @@ public class ProjectileController : MonoBehaviour
             //        }
             //    }
             //}
-
-
-            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f, fxOnDestroy);
+            DestroyProjectile(collision.ClosestPoint(transform.position) - direction * 0.2f);
         }
     }
 
@@ -88,13 +85,8 @@ public class ProjectileController : MonoBehaviour
         isReady = true;
     }
 
-    private void DestroyProjectile(Vector3 position, bool createFx)
+    private void DestroyProjectile(Vector3 position)
     {
-        //if (createFx)
-        //{
-        //    projectileManager.CreatImpactParticleAtPosition(position, rangeWeaponHandler);
-        //}
-
         Destroy(this.gameObject);
     }
 
