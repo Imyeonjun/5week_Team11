@@ -81,7 +81,6 @@ public static class RoomTemplateExtensions
         if (tilemap.HasTile(cell))
         {
             tilemap.SetTile(cell, null);
-            Debug.Log($"[RoomConnecter] 타일 제거: {cell}");
         }
     }
 }
