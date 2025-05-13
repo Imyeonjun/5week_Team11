@@ -33,7 +33,13 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
     protected override void Start()
     {
         base.Start();
+        Debug.Log("[MonsterRangeWeapon] Start() 호출됨 in " + gameObject.name);
+
         ProjectileManager = MonsterProjectileManager.Instance; // 총알 매니저 인스턴스 가져오기
+        if (ProjectileManager == null)
+        {
+            Debug.LogError("[MonsterRangeWeapon] ProjectileManager가 NULL. 씬 안의 Manager 확인.");
+        }
     }
 
     public override void Attack()
