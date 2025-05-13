@@ -10,11 +10,12 @@ public class SkillCardManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillList skillList;
     public Skill skill;
-    public PlayerWeaponHandler playerWeaponHandler;
+    public PlayerController playerController;
 
     public void Start()
     {
         skillCardBg.SetActive(false); //연출 관련 오브젝트는 의도를 명확히 하기
+        skill.Initialize(playerController.WeaponHandler);
     }
 
     public void ShowSkillCard()
@@ -31,7 +32,7 @@ public class SkillCardManager : MonoBehaviour
 
         List<int> list = new(); //랜덤숫자 뽑기용 리스트
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)  //여러 리스트 중에서 서로 다른 스킬 3개 뽑기
         {
             int index;
             do
@@ -42,12 +43,11 @@ public class SkillCardManager : MonoBehaviour
 
             list.Add(index);
 
-            SkillElements skill = skillList.skillLists[index];
-
-            GameObject card = Instantiate(cardPrefab, startPoint);
+            GameObject card = Instantiate(cardPrefab, startPoint); 
             RectTransform rect = card.GetComponent<RectTransform>();
             rect.anchoredPosition = new Vector2(interval + i * width, 0);
 
+            SkillElements skill = skillList.skillLists[index];
             SkillCardSet cardSript = card.GetComponent<SkillCardSet>();
             cardSript.setCard(skill, index, this);
         }
@@ -56,28 +56,30 @@ public class SkillCardManager : MonoBehaviour
     public void ApplySkill(int skillIndex)
     {
         var selectSkill = skillList.skillLists[skillIndex];
-       // PlayerWeaponHandler playerWeaponHandler = player.weapohandler;
 
         switch(selectSkill.name)
         {
             case "공격력 증가":
-                playerWeaponHandler.Power = skill.AttackPowerUP();
-                Debug.Log($"공격력: {playerWeaponHandler.Power}");
+                skill.AttackPowerUP();
+                Debug.Log($"공격력 5 증가");
                 break;
 
             case "공격속도 증가":
-                playerWeaponHandler.Delay = skill.AttackSpeedUp();
-                Debug.Log($"공격속도: {playerWeaponHandler.Delay}");
+                skill.AttackSpeedUp();
+                Debug.Log($"공격속도 10% 증가");
                 break;
 
-            case "이동속도 증가":
-                playerWeaponHandler.Speed = skill.MoveSpeedUp();
-                Debug.Log($"이동속도: {playerWeaponHandler.Speed}");
-                return;
+            case "투사체 속도 증가":
+                skill.MoveSpeedUp();
+                Debug.Log($"투사체 속도 20% 증가");
+                break;
 
             //case "투사체 증가":
             //    playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
             //    break;
         }
+
+        skillCardBg.SetActive(false);
+        return;
     }
 }

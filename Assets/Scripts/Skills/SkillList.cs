@@ -15,8 +15,8 @@ public class SkillList : MonoBehaviour
     public void Start()
     {
         skillLists.Add(new SkillElements { name = "공격력 증가", description = "공격력이 5 증가합니다." });
-        skillLists.Add(new SkillElements { name = "공격속도 증가", description = "공격속도가 30% 증가합니다." });
-        skillLists.Add(new SkillElements { name = "이동속도 증가", description = "이동속도가 20% 증가합니다." });
+        skillLists.Add(new SkillElements { name = "공격속도 증가", description = "공격속도가 10% 빨라집니다." });
+        skillLists.Add(new SkillElements { name = "이동속도 증가", description = "이동속도가 20% 빨라집니다." });
         //skillLists.Add(new SkillElements { name = "투사체 증가", description = "화살 3개를 발사하게 됩니다." });
     }
 }

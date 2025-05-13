@@ -389,7 +389,7 @@ MonoBehaviour:
   startPoint: {fileID: 544070012}
   skillList: {fileID: 67099764}
   skill: {fileID: 67099765}
-  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
+  playerController: {fileID: 1641287801}
 --- !u!114 &67099764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335fd03970316f5469edfa1fc210f97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
+  player: {fileID: 1641287801}
 --- !u!1 &149844243
 GameObject:
   m_ObjectHideFlags: 0

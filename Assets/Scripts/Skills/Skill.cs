@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
@@ -9,25 +10,29 @@ public class Skill : MonoBehaviour
     //공격력 증가
     //공격속도 증가
     //화살의 방향 변화
-    
-    public PlayerWeaponHandler playerWeaponHandler;
 
-    public float AttackPowerUP() //공격력 5 증가
+    public PlayerController player;
+    private PlayerWeaponHandler playerWeaponHandler;
+
+    public void Initialize(PlayerWeaponHandler handler) //인스턴스 확실히 지정해주기 위해서 사용
     {
-        float baseAttackPower = playerWeaponHandler.Power;
-        return baseAttackPower + 5;
-    }
-    public float AttackSpeedUp() //공격속도 30% 증가
-    {
-        float baseAttackSpeed = playerWeaponHandler.Delay;
-        return baseAttackSpeed * 1.3f;
+       playerWeaponHandler = handler;
     }
 
-    public float MoveSpeedUp() //이동속도 20% 증가
+    public void AttackPowerUP() //공격력 5 증가
     {
-        float baseMoveSpeed = playerWeaponHandler.Speed;
-        return baseMoveSpeed * 1.2f;
+        playerWeaponHandler.Power += 5f;
     }
+    public void AttackSpeedUp() //공격속도 10% 증가
+    {
+        playerWeaponHandler.Delay -= playerWeaponHandler.Delay * - 0.1f;
+    }
+
+    public void MoveSpeedUp() //투사체 속도 20% 증가
+    {
+        playerWeaponHandler.Speed *= 1.2f;
+    }
+
     //public int AttackProjectileUP()
     //{
     //    int baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;

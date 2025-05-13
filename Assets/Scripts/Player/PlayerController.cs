@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerWeaponHandler WeaponPrefab;
 
     private PlayerWeaponHandler weaponHandler;
+    public PlayerWeaponHandler WeaponHandler {  get { return weaponHandler; } }
+
     private AnimationHandler animationHandler;
 
     private Vector2 movementDirection = Vector2.zero;
@@ -37,7 +39,6 @@ public class PlayerController : MonoBehaviour
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
             weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
-
     }
     private void Start()
     {
