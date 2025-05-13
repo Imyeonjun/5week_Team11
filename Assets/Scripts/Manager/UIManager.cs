@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
     public void ChangePlayerHP(float currentHP, float maxHP)
     {
         gameUI.UpdateHPSlider(currentHP / maxHP);
+        gameUI.UpdateHPText(currentHP, maxHP); // 현재 체력 텍스트로 표시
     }
 
     public void ChangeState(UIState state)

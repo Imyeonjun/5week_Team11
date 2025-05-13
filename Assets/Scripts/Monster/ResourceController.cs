@@ -107,7 +107,7 @@ public class ResourceController : MonoBehaviour
         {
             Death();
         }
-        Debug.Log(CurrentHealth);
+        //Debug.Log(CurrentHealth);
 
         return true;
     }

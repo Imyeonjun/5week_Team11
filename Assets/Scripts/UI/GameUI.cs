@@ -8,6 +8,7 @@ public class GameUI : BaseUI
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private Slider hpSlider;
+    [SerializeField] private TextMeshProUGUI hpText;
 
     private void Start()
     {
@@ -32,6 +33,11 @@ public class GameUI : BaseUI
     protected override UIState GetUIState()
     {
         return UIState.Game;
+    }
+
+    public void UpdateHPText(float currentHP, float maxHP)
+    {
+        hpText.text = $"{Mathf.CeilToInt(currentHP)} / {Mathf.CeilToInt(maxHP)}"; // 현재 체력 텍스트로 표시
     }
 
 }
