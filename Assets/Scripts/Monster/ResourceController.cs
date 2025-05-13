@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ResourceController : MonoBehaviour
@@ -63,6 +64,7 @@ public class ResourceController : MonoBehaviour
         }
     }
 
+    private Action<float, float> OnChangeHealth;
 		// 체력 변경 함수 (피해 or 회복)
     public bool ChangeHealth(float change)
     {
@@ -78,7 +80,8 @@ public class ResourceController : MonoBehaviour
         CurrentHealth += change;
         CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
         CurrentHealth = CurrentHealth < 0 ? 0 : CurrentHealth;
-
+        //체력변경 이벤트 호출
+        OnChangeHealth?.Invoke(CurrentHealth, MaxHealth);
 				// 데미지일 경우 (음수)
         if (change < 0)
         {
@@ -108,7 +111,16 @@ public class ResourceController : MonoBehaviour
 
         return true;
     }
+    
+    public void AddHealthChangeEvent (Action<float, float> action) //외부에서 체력 변경 이벤트를 등록
+    {
+        OnChangeHealth += action;
+    }
 
+    public void RemoveHealthChangeEvent (Action<float, float> action) //외부에서 체력 변경 이벤트를 제거
+    {
+        OnChangeHealth -= action;
+    }
     private void Death()
     {
         if(_base !=null)
