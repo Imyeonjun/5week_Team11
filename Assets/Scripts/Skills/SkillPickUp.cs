@@ -8,7 +8,7 @@ public class SkillPickUp : MonoBehaviour
     LayerMask levelCollisionLayer;
     public PlayerWeaponHandler playerWeaponHandler;
     public Skill skill;
-    private List<SkillListElements> skillList = new List<SkillListElements>();
+    private SkillList skillList;
 
     //public void Awake()
     //{
@@ -30,7 +30,6 @@ public class SkillPickUp : MonoBehaviour
         ApplySkill(index);
         
     }
-
 
     public void ApplySkill(int num)
     {
