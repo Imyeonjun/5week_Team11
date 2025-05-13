@@ -111,7 +111,12 @@ public class ResourceController : MonoBehaviour
 
     private void Death()
     {
-        _base.Death(); // 사망 애니메이션 실행 
+        if(_base !=null)
+            _base.Death(); // 사망 애니메이션 실행 
+        
+        else if(_player != null)
+            _player.Death();
+
     }
 
 }
