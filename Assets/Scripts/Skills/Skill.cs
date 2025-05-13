@@ -32,6 +32,4 @@ public class Skill : MonoBehaviour
         int finalAttackShot = 3;
         return finalAttackShot;
     }
-
-   
 }

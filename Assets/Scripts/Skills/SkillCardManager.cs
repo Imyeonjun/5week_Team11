@@ -42,8 +42,13 @@ public class SkillCardManager : MonoBehaviour
             rect.anchoredPosition = new Vector2(interval + i * width, 0);
 
             SkillCardSet cardSript = card.GetComponent<SkillCardSet>();
-            cardSript.setCard(skill, index);
+            cardSript.setCard(skill, index, this);
         }
+    }
+
+    public void ApplySkill(int skillIndex)
+    {
+
     }
 }
 
