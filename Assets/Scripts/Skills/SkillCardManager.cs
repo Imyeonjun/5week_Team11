@@ -12,6 +12,11 @@ public class SkillCardManager : MonoBehaviour
     public Skill skill;
     public PlayerWeaponHandler playerWeaponHandler;
 
+    public void Start()
+    {
+        skillCardBg.SetActive(false); //연출 관련 오브젝트는 의도를 명확히 하기
+    }
+
     public void ShowSkillCard()
     {
         skillCardBg.SetActive(true);
@@ -51,6 +56,7 @@ public class SkillCardManager : MonoBehaviour
     public void ApplySkill(int skillIndex)
     {
         var selectSkill = skillList.skillLists[skillIndex];
+       // PlayerWeaponHandler playerWeaponHandler = player.weapohandler;
 
         switch(selectSkill.name)
         {
