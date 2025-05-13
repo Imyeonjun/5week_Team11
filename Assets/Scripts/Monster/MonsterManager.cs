@@ -82,21 +82,18 @@ public class MonsterManager : MonoBehaviour
 
         GameObject player = GameObject.FindWithTag("Player");
 
-        if (player != null)
-        {
             // ✅ Init 호출 → 플레이어를 타겟으로 설정
             monsterController.Init(this, player.transform);
-        }
 
         activeEnemies.Add(monsterController);
     }
-    // 적이 사망했을 때 호출되는 메서드
-    // public void RemoveEnemyOnDeath(MonsterController enemy)
-    // {
-    //     activeEnemies.Remove(enemy);
-    //     if (enemySpawnComplite && activeEnemies.Count == 0)
-    //         // gameManager.EndOfWave();
-    // }
+    //적이 사망했을 때 호출되는 메서드
+     public void RemoveEnemyOnDeath(MonsterController enemy)
+    {
+        activeEnemies.Remove(enemy);
+        if (enemySpawnComplite && activeEnemies.Count == 0)
+              miniManager.EndOfWave();
+     }
 
     // 기즈모를 그려 영역을 시각화 (선택된 경우에만 표시)
     private void OnDrawGizmosSelected()

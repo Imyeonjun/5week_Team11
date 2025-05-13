@@ -30,8 +30,8 @@ public class MiniGameManager : MonoBehaviour
         monsterManager.Init(this);
 
         resourceController = playerController.GetComponent<ResourceController>();
-        //resourceController.RemoveHealthChangeEvent(uiManager.ChangePlayerHP);
-        //resourceController.AddHealthChangeEvent(uiManager.ChangePlayerHP);
+        resourceController.RemoveHealthChangeEvent(uiManager.ChangePlayerHP);
+        resourceController.AddHealthChangeEvent(uiManager.ChangePlayerHP);
     }
 
     private void Start()

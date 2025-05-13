@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         animationHandler = GetComponent<AnimationHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        
+        characterStat = GetComponent<CharacterStat>();
+
         //_resource = GetComponent<ResourceController>();
         if (WeaponPrefab != null)
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         this.miniManager = miniManager;
         camera = Camera.main;
-        characterStat = GetComponent<CharacterStat>();
+        
     }
     
     private void Update()

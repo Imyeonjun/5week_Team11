@@ -28,4 +28,9 @@ public class HomeUI : BaseUI
     {
         return UIState.Home;
     }
+
+    public void OnClickStart()
+    {
+        MiniGameManager.Instance.StartGame();
+    }
 }
