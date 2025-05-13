@@ -43,6 +43,11 @@ public class UIManager : MonoBehaviour
         gameUI.UpdateWaveText(waveIndex);
     }
 
+    public void ChangeCount(int count) // 몬스터 카운트 추가
+    {
+        gameUI.UpdateCountMonster(count);
+    }
+
     public void ChangePlayerHP(float currentHP, float maxHP)
     {
         gameUI.UpdateHPSlider(currentHP / maxHP);

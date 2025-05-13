@@ -24,6 +24,11 @@ public class GameUI : BaseUI
         waveText.text = wave.ToString();
     }
 
+    public void UpdateCountMonster(int count) // 몬스터 카운트 추가
+    {
+        countText.text = count.ToString();
+    }
+
     protected override UIState GetUIState()
     {
         return UIState.Game;

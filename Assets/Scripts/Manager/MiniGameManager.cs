@@ -14,6 +14,7 @@ public class MiniGameManager : MonoBehaviour
     private MonsterManager monsterManager;
 
     private UIManager uiManager;
+    public UIManager UIManager => uiManager;
 
     public static bool isFirstLoading = true;
 

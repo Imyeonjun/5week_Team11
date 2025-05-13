@@ -86,11 +86,14 @@ public class MonsterManager : MonoBehaviour
             monsterController.Init(this, player.transform);
 
         activeEnemies.Add(monsterController);
+        miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
     }
     //적이 사망했을 때 호출되는 메서드
      public void RemoveEnemyOnDeath(MonsterController enemy)
     {
         activeEnemies.Remove(enemy);
+
+        miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
         if (enemySpawnComplite && activeEnemies.Count == 0)
               miniManager.EndOfWave();
      }
