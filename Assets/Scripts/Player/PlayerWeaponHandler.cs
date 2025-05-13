@@ -59,7 +59,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] private int numberofProjectilesPershot;
 
-    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } set { numberofProjectilesPershot = value; } }
+    public int NumberofProjectilesPerShot { get { return numberofProjectilesPershot; } }
 
     [SerializeField] private float multipleProjectileAngle;
 

@@ -12,24 +12,26 @@ public class Skill : MonoBehaviour
     
     public PlayerWeaponHandler playerWeaponHandler;
 
-    public float AttackPowerUP()
+    public float AttackPowerUP() //공격력 5 증가
     {
         float baseAttackPower = playerWeaponHandler.Power;
-        float bonusAttackPower = 5;
-        float finalAttackPower = baseAttackPower + bonusAttackPower;
-        return finalAttackPower;
+        return baseAttackPower + 5;
     }
-    public float AttackSpeedUp()
+    public float AttackSpeedUp() //공격속도 30% 증가
     {
         float baseAttackSpeed = playerWeaponHandler.Delay;
-        float finalAttackSpeed = 0.3f;
-        return finalAttackSpeed;
+        return baseAttackSpeed * 1.3f;
     }
 
-    public int AttackProjectileUP()
+    public float MoveSpeedUp() //이동속도 20% 증가
     {
-        int baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;
-        int finalAttackShot = 3;
-        return finalAttackShot;
+        float baseMoveSpeed = playerWeaponHandler.Speed;
+        return baseMoveSpeed * 1.2f;
     }
+    //public int AttackProjectileUP()
+    //{
+    //    int baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;
+    //    int finalAttackShot = 3;
+    //    return finalAttackShot;
+    //}
 }

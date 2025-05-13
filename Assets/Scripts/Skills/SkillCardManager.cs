@@ -62,18 +62,22 @@ public class SkillCardManager : MonoBehaviour
         {
             case "공격력 증가":
                 playerWeaponHandler.Power = skill.AttackPowerUP();
-                Debug.Log("공격력 증가");
-                Debug.Log(playerWeaponHandler.Power);
+                Debug.Log($"공격력: {playerWeaponHandler.Power}");
                 break;
 
             case "공격속도 증가":
                 playerWeaponHandler.Delay = skill.AttackSpeedUp();
-                
+                Debug.Log($"공격속도: {playerWeaponHandler.Delay}");
                 break;
 
-            case "투사체 증가":
-                playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
-                break;
+            case "이동속도 증가":
+                playerWeaponHandler.Speed = skill.MoveSpeedUp();
+                Debug.Log($"이동속도: {playerWeaponHandler.Speed}");
+                return;
+
+            //case "투사체 증가":
+            //    playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
+            //    break;
         }
     }
 }
