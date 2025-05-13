@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 4717647057108704470}
   - component: {fileID: 3339938399963259825}
   - component: {fileID: 8006763989281327988}
-  - component: {fileID: 6159717454924576214}
+  - component: {fileID: 4397031087607862748}
   m_Layer: 5
   m_Name: SkillCard
   m_TagString: Untagged
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6159717454924576214
+--- !u!114 &4397031087607862748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,12 +368,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4601305661052299600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd7c7e016dce6e40b6c59e4f77f035e, type: 3}
+  m_Script: {fileID: 11500000, guid: 68ad17e9a2959234b9d8f0532b8eb592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 0}
-  startPoint: {fileID: 0}
-  width: 300
 --- !u!1 &4862003446688114223
 GameObject:
   m_ObjectHideFlags: 0
