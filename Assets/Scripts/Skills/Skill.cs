@@ -23,9 +23,10 @@ public class Skill : MonoBehaviour
     {
         playerWeaponHandler.Power += 5f;
     }
+
     public void AttackSpeedUp() //공격속도 10% 증가
     {
-        playerWeaponHandler.Delay -= playerWeaponHandler.Delay * - 0.1f;
+        playerWeaponHandler.Delay *= 0.9f;
     }
 
     public void MoveSpeedUp() //투사체 속도 20% 증가
@@ -33,10 +34,8 @@ public class Skill : MonoBehaviour
         playerWeaponHandler.Speed *= 1.2f;
     }
 
-    //public int AttackProjectileUP()
-    //{
-    //    int baseAttackShot = playerWeaponHandler.NumberofProjectilesPerShot;
-    //    int finalAttackShot = 3;
-    //    return finalAttackShot;
-    //}
+    public void AttackProjectileUP() //투사체 갯수 하나 증가
+    {
+        playerWeaponHandler.NumberofProjectilesPerShot += 1;
+    }
 }

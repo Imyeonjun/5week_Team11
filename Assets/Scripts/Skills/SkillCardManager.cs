@@ -14,7 +14,7 @@ public class SkillCardManager : MonoBehaviour
 
     public void Start()
     {
-        skillCardBg.SetActive(false); //연출 관련 오브젝트는 의도를 명확히 하기
+        skillCardBg.SetActive(false);
         skill.Initialize(playerController.WeaponHandler);
     }
 
@@ -74,12 +74,19 @@ public class SkillCardManager : MonoBehaviour
                 Debug.Log($"투사체 속도 20% 증가");
                 break;
 
-            //case "투사체 증가":
-            //    playerWeaponHandler.NumberofProjectilesPerShot = skill.AttackProjectileUP();
-            //    break;
+            case "투사체 증가":
+                skill.AttackProjectileUP();
+                Debug.Log($"투사체 갯수 하나 증가");
+                break;
         }
 
         skillCardBg.SetActive(false);
+
+        foreach (Transform child in startPoint)
+        {
+            Destroy(child.gameObject);
+        }
+
         return;
     }
 }
