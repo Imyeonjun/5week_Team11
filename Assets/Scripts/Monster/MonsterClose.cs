@@ -3,6 +3,8 @@ using UnityEngine;
 // 근접 무기 전용 핸들러 (WeaponHandler 상속)
 public class MonsterClose : MonsterWeaponHandler
 {
+    public PlayerController playerController;
+
     [Header("Melee Attack Info")]
     public Vector2 collideBoxSize = Vector2.one; // 공격 범위 (충돌 박스 크기)
 
@@ -44,10 +46,10 @@ public class MonsterClose : MonsterWeaponHandler
                 // 넉백 효과가 설정되어 있을 경우 적용
                 if(IsOnKnockback)
                 {
-                    MonsterBase monsterBase = hit.collider.GetComponent<MonsterBase>();
-                    if(monsterBase != null)
+                    PlayerController playerController = hit.collider.GetComponent<PlayerController>();
+                    if(playerController != null)
                     {
-                        monsterBase.ApplyKnockback(transform, KnockbackPower, KnockbackTime);
+                        playerController.ApplyKnockback(transform, KnockbackPower, KnockbackTime);
                     }
                 }
             }

@@ -180,15 +180,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e0639117b987c4aa6c3b965d137030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corridorHorizontalPrefab: {fileID: 3024446763080684696, guid: ead366cfcd8a9684e8753fc8acd84517, type: 3}
+  corridorVerticalPrefab: {fileID: 3024446763080684696, guid: d30396b1219f1cf45bdc464ca9085eae, type: 3}
   roomTemplates:
-  - {fileID: 3024446763080684696, guid: 30966303b1d94854b9e6236033f615ad, type: 3}
-  - {fileID: 3024446763080684696, guid: 056e6c82e32a9f74b96eebe5875937db, type: 3}
-  - {fileID: 3024446763080684696, guid: 5eff8ea65d7543040b0b6f1b3b443600, type: 3}
-  - {fileID: 3024446763080684696, guid: 08142473ff077f145b9965c525dd25f4, type: 3}
-  - {fileID: 3024446763080684696, guid: 9274eee45026f634d85538db8059b8d1, type: 3}
-  stageWidth: 5
-  stageHeight: 5
-  roomSpacing: 3
+  - {fileID: 3024446763080684696, guid: d20718441bc8897429bddef4a3767e20, type: 3}
+  - {fileID: 3024446763080684696, guid: 64327e29270482f4793cb9aa1de4eb22, type: 3}
+  - {fileID: 3024446763080684696, guid: 9a1e48a9cea9bde47bc8232d9ec61446, type: 3}
+  - {fileID: 3024446763080684696, guid: 6acb57be5dc54ab42ba793c741d08fd4, type: 3}
+  - {fileID: 3024446763080684696, guid: 119eeab7fdace51428f27b5a180b286c, type: 3}
+  - {fileID: 3024446763080684696, guid: 6802c20bc32516940be036c541930f78, type: 3}
+  - {fileID: 3024446763080684696, guid: a7a4caf4f174ef44f814c0dbc07e9b83, type: 3}
+  - {fileID: 3024446763080684696, guid: 4b69d1b5d70b8bb4db223ca64c8e2df4, type: 3}
+  - {fileID: 3024446763080684696, guid: 4f3c6e7aae2e92648bd031a03657b3c2, type: 3}
+  - {fileID: 3024446763080684696, guid: 6a79e62abe5324d45a26b2f8b05445ce, type: 3}
+  - {fileID: 3024446763080684696, guid: 9f96b7ebd6df7fc49b2687b9027a67e0, type: 3}
+  - {fileID: 3024446763080684696, guid: e372f9910e62fd245a62e12880f159b3, type: 3}
+  stageWidth: 10
+  stageHeight: 10
+  minRoomCount: 1
+  roomSpacing: 12
 --- !u!1 &1144519247
 GameObject:
   m_ObjectHideFlags: 0

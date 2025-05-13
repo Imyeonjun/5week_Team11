@@ -18,10 +18,11 @@ public class FollowCamera : MonoBehaviour
         offsetY = transform.position.y - target.position.y;
     }
 
-    void Update()
+    public void Update()
     {
         if (target == null)
             return;
+        
 
         Vector3 pos = transform.position;
         pos.x = target.position.x + offsetX;

@@ -18,6 +18,10 @@ public class MonsterController : MonsterBase
     {
         return Vector3.Distance(transform.position, target.position);
     }
+    protected Vector2 DirectionToTarget()
+    {
+        return (target.position - transform.position).normalized;
+    }
 
     protected override void HandleAction()
     {
@@ -41,7 +45,7 @@ public class MonsterController : MonsterBase
             {
                 int layerMaskTarget = _weaponHandler.target;
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, _weaponHandler.AttackRange * 1.5f,
-                    (1 << LayerMask.NameToLayer("Level")) | layerMaskTarget);
+                    (1 << LayerMask.NameToLayer("Level1")) | layerMaskTarget);
 
                 if (hit.collider != null && layerMaskTarget == (layerMaskTarget | (1 << hit.collider.gameObject.layer)))
                 {
@@ -57,10 +61,6 @@ public class MonsterController : MonsterBase
 
     }
 
-    protected Vector2 DirectionToTarget()
-    {
-        return (target.position - transform.position).normalized;
-    }
 
     public override void Death()
     {

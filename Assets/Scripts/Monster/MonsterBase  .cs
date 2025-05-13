@@ -57,15 +57,15 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void Update()
     {
-        if(isDamage)
-        {
-            damagedDuration -= Time.deltaTime;
-            if(damagedDuration <= 0.0f)
-            {
-                isDamage = false;
-                _animator?.InvincibilityEnd();
-            }
-        }
+        //if(isDamage)
+        //{
+        //    damagedDuration -= Time.deltaTime;
+        //    if(damagedDuration <= 0.0f)
+        //    {
+        //        isDamage = false;
+        //        _animator?.InvincibilityEnd();
+        //    }
+        //}
         HandleAction();
         Rotate(lookDirection);
         HandleAttackDelay();
@@ -73,11 +73,11 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void FixedUpdate()
     {
-        if(isDamage)
-        {
-            _rigidbody.velocity = Vector2.zero;
-            return;
-        }
+        //if(isDamage)
+        //{
+        //    _rigidbody.velocity = Vector2.zero;
+        //    return;
+        //}
         Movment(movementDirection);
         if(knockbackDuration > 0.0f)
         {
@@ -119,10 +119,11 @@ public class MonsterBase : MonoBehaviour
 		    // 무기 회전 처리
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
 
-            Vector3 localScale = weaponPivot.localScale;
-            localScale.y = isLeft ? -1f : 1f;
-            weaponPivot.localScale = localScale;
+            //Vector3 localScale = weaponPivot.localScale;
+            //localScale.y = isLeft ? -1f : 1f;
+            //weaponPivot.localScale = localScale;
         }
+        _weaponHandler?.Rotate(isLeft);
     }
 
     private void HandleAttackDelay()

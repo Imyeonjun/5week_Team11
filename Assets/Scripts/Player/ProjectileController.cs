@@ -19,6 +19,7 @@ public class ProjectileController : MonoBehaviour
     public bool fxOnDestroy = true;
 
     ProjectileManager projectileManager;
+    public MonsterBase monsterBase;
 
     private void Awake()
     {
@@ -57,10 +58,10 @@ public class ProjectileController : MonoBehaviour
                resourceController.ChangeHealth(-playerWeaponHandler.Power);
                if (playerWeaponHandler.IsOnKnockback)
                {
-                   PlayerController controller = collision.GetComponent<PlayerController>();
-                   if (controller != null)
+                   MonsterBase monsterBase = collision.GetComponent<MonsterBase>();
+                   if (monsterBase != null)
                    {
-                       controller.ApplyKnockback(transform, playerWeaponHandler.KnockbackPower, playerWeaponHandler.KnockbackTime);
+                       monsterBase.ApplyKnockback(transform, playerWeaponHandler.KnockbackPower, playerWeaponHandler.KnockbackTime);
                    }
                }
             }
