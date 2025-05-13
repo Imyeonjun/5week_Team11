@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MonsterSpawner : MonoBehaviour
+public class MonsterSetter : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private MapCreator mapCreator;
