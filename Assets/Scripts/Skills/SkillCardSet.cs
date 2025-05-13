@@ -19,7 +19,7 @@ public class SkillCardSet : MonoBehaviour
         skillIndex = index;
         skillCardManager = card;
 
-        cardButton.onClick.RemoveAllListeners();
-        cardButton.onClick.AddListener (() => skillCardManager.ApplySkill(skillIndex));
+        cardButton.onClick.RemoveAllListeners(); 
+        cardButton.onClick.AddListener (() => skillCardManager.ApplySkill(skillIndex)); //버튼에 리스트 할당
     }
 }

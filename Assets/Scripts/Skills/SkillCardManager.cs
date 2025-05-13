@@ -32,7 +32,7 @@ public class SkillCardManager : MonoBehaviour
 
         List<int> list = new(); //랜덤숫자 뽑기용 리스트
 
-        for (int i = 0; i < 3; i++)  //여러 리스트 중에서 서로 다른 스킬 3개 뽑기
+        for (int i = 0; i < 3; i++)  //리스트 내에서 서로 다른 스킬 3개 뽑기
         {
             int index;
             do
@@ -43,11 +43,11 @@ public class SkillCardManager : MonoBehaviour
 
             list.Add(index);
 
-            GameObject card = Instantiate(cardPrefab, startPoint); 
+            GameObject card = Instantiate(cardPrefab, startPoint);
             RectTransform rect = card.GetComponent<RectTransform>();
-            rect.anchoredPosition = new Vector2(interval + i * width, 0);
+            rect.anchoredPosition = new Vector2(interval + i * width, 0);  //프리팹 생성 간격
 
-            SkillElements skill = skillList.skillLists[index];
+            SkillElements skill = skillList.skillLists[index]; //스킬리스트 내용
             SkillCardSet cardSript = card.GetComponent<SkillCardSet>();
             cardSript.setCard(skill, index, this);
         }
@@ -80,13 +80,12 @@ public class SkillCardManager : MonoBehaviour
                 break;
         }
 
-        skillCardBg.SetActive(false);
-
         foreach (Transform child in startPoint)
         {
             Destroy(child.gameObject);
         }
 
+        skillCardBg.SetActive(false);
         return;
     }
 }
