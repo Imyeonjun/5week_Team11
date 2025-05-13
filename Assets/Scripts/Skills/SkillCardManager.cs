@@ -10,7 +10,7 @@ public class SkillCardManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillList skillList;
 
-    public void CardChoice()
+    public void ShowSkillCard()
     {
         skillCardBg.SetActive(true);
         MakePrefabs();
@@ -30,9 +30,9 @@ public class SkillCardManager : MonoBehaviour
             do
             {
                 index = Random.Range(0, skillList.skillLists.Count);
-            } 
-            while 
-            (list.Contains(index));
+            }
+            while (list.Contains(index));
+
             list.Add(index);
 
             SkillElements skill = skillList.skillLists[index];
@@ -44,10 +44,6 @@ public class SkillCardManager : MonoBehaviour
             SkillCardSet cardSript = card.GetComponent<SkillCardSet>();
             cardSript.setCard(skill, index);
         }
-    }
-
-    public void ApplySkill()
-    {
     }
 }
 

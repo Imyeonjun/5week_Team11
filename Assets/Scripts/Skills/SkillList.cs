@@ -12,7 +12,7 @@ public class SkillList : MonoBehaviour
 {
     public List<SkillElements> skillLists = new();
 
-    public void SkillLists()
+    public void Start()
     {
         skillLists.Add(new SkillElements { name = "공격력 증가", description = "공격력이 5 증가합니다." });
         skillLists.Add(new SkillElements { name = "공격속도 증가", description = "공격속도가 30% 증가합니다." });
