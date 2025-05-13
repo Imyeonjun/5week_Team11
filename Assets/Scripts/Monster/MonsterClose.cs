@@ -37,11 +37,11 @@ public class MonsterClose : MonsterWeaponHandler
             {
                 resource.ChangeHealth(-Power); // 데미지 적용
 
-                PlayerController player = hit.collider.GetComponent<PlayerController>();
-                if(player != null)
-                {
-                    player.PlayerHit();
-                }
+                //PlayerController player = hit.collider.GetComponent<PlayerController>();
+                //if(player != null)
+                //{
+                //    player.PlayerHit();
+                //}
                 
                 // 넉백 효과가 설정되어 있을 경우 적용
                 if(IsOnKnockback)
