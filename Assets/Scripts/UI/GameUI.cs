@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameUI : BaseUI
 {
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private Slider hpSlider;
 
     private void Start()
