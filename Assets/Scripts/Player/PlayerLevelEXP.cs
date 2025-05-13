@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerLevelEXP : MonoBehaviour
+public class PlayerLevelEXP : MonoBehaviour //시스템 구축용 샘플 스크립트, 추후 GameManager로 넘길 것
 {
     private SkillCardManager skillCardManager;
     private TextMeshProUGUI levelText;
