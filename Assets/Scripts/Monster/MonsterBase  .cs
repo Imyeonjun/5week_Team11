@@ -152,7 +152,7 @@ public class MonsterBase : MonoBehaviour
             _weaponHandler?.Attack();
     }
     
-    public void ApplyKnockback(Transform other, float power, float duration)
+    public virtual void ApplyKnockback(Transform other, float power, float duration)
     {
         knockbackDuration = duration;
         // 상대 방향을 반대로 밀어냄

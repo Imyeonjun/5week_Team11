@@ -66,8 +66,9 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
         }
     }
     
-    private void CreateProjectile(Vector2 _lookDirection, float angle)
+    public void CreateProjectile(Vector2 _lookDirection, float angle)
     {
+        
         ProjectileManager.ShootBullet(this, projectileSpawnPosition.position, RotateVector2(_lookDirection, angle));
     }
     
