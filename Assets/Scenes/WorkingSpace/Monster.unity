@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefabs:
+  - {fileID: 2509619048263307959, guid: 82acc2e8c6e784a21a7c9e2102b729ff, type: 3}
   - {fileID: 3830893296652230246, guid: 3be32f2c4b064074c9175d9559e6e247, type: 3}
 --- !u!4 &551731003
 Transform:
@@ -248,6 +249,7 @@ MonoBehaviour:
   - {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
   - {fileID: 7034878535447316923, guid: 52c7572b3f5464af68d51b5bfef67e13, type: 3}
   - {fileID: 3912334455481989776, guid: 44ce88ca486c6404e97401dbaef512f2, type: 3}
+  - {fileID: 343931522944889263, guid: 889236ba8576d49b4b7caea2de298006, type: 3}
   spawnAreas:
   - serializedVersion: 2
     x: 0
