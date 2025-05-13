@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb34f000636887409823e1b337ac1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1899984436}
   mapCreator: {fileID: 263931508}
   monsterPrefab: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
 --- !u!1 &1331582420
