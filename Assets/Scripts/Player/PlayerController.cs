@@ -182,5 +182,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Destroy(gameObject, 2f);
+        miniManager.GameOver();
     }
 }
