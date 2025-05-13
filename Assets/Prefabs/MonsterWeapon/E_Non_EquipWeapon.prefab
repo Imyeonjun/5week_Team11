@@ -89,13 +89,13 @@ MonoBehaviour:
   knockbackPower: 1
   knockbackTime: 0.5
   projectileSpawnPosition: {fileID: 7297284180766997797}
-  bulletIndex: 0
+  bulletIndex: 1
   bulletSize: 1
   duration: 10
   spread: 1
   numberofProjectilesPerShot: 1
   multipleProjectilesAngel: 0
-  projectileColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  projectileColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
 --- !u!1 &8892238551146696544
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 120
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
