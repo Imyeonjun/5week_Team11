@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private ResourceController _resource;
+    private CharacterStat characterStat;
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
@@ -26,23 +27,29 @@ public class PlayerController : MonoBehaviour
     private bool isAttacking;
     private float timeSinceLastAttack = float.MaxValue;
 
+    private MiniGameManager miniManager;
     private Camera camera;
 
     private void Awake()
     {
         animationHandler = GetComponent<AnimationHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _resource = GetComponent<ResourceController>();
+        
+        //_resource = GetComponent<ResourceController>();
         if (WeaponPrefab != null)
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
             weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
 
     }
-    private void Start()
+
+    public void Init(MiniGameManager miniManager)
     {
+        this.miniManager = miniManager;
         camera = Camera.main;
+        characterStat = GetComponent<CharacterStat>();
     }
+    
     private void Update()
     {
         HandleAction();
@@ -81,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     private void Rotate(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -93,7 +99,6 @@ public class PlayerController : MonoBehaviour
         {
             weaponPivot.rotation = Quaternion.Euler(0, 0, rotZ);
         }
-
 
     }
 
@@ -139,26 +144,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ApplyDamage(float amount)
-    {
-        if (_resource != null)
-        {
-            _resource.ChangeHealth(-amount);
-        }
+    //public void ApplyDamage(float amount)
+    //{
+    //    if (_resource != null)
+    //    {
+    //        _resource.ChangeHealth(-amount);
+    //    }
 
-        // if(animationHandler != null)
-        // {
-        //     animationHandler.Hit();
-        // }
-    }
+    //    if (animationHandler != null)
+    //    {
+    //        animationHandler.Hit();
+    //    }
+    //}
 
-    public void PlayerHit()
-    {
-        if(animationHandler != null)
-        {
-            animationHandler.Hit();
-        }
-    }
+    //public void PlayerHit()
+    //{
+    //    if (animationHandler != null)
+    //    {
+    //        animationHandler.Hit();
+    //    }
+    //}
     public void Death()
     {
         _rigidbody.velocity = Vector3.zero;

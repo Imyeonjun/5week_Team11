@@ -24,6 +24,13 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private float timeBetweenSpawns = 0.2f;
     [SerializeField] private float timeBetweenWaves = 1f;
 
+    MiniGameManager miniManager;
+
+    public void Init(MiniGameManager miniManager)
+    {
+        this.miniManager = miniManager;
+    }
+
     public void StartWave(int waveCount)
     {
         if(waveRoutine != null)
@@ -105,11 +112,11 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartWave(1);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        StartWave(1);
+    //    }
+    //}
 }

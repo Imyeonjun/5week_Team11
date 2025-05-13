@@ -16,7 +16,7 @@ public class HomeUI : BaseUI
 
     public void OnClickStartButton()
     {
-        //GameManager.instance.StartGame();
+        MiniGameManager.Instance.StartGame();
     }
 
     public void OnClickExitButton()
