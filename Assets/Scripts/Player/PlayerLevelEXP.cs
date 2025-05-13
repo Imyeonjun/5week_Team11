@@ -55,7 +55,6 @@ public class PlayerLevelEXP : MonoBehaviour
         //MaxEXPChanger(maxEXP); 
         levelText.text = $"LV.{level}";
         exp -= maxEXP;
-        skillCardManager.CardChoice();
     }
 
     //public void maxexpchanger(int maxEXP) //레벨업 될 때마다 최대 exp 변경

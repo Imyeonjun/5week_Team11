@@ -8,7 +8,6 @@ public class SkillCardManager : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject skillCardBg;
     public RectTransform startPoint;
-    public SkillPickUp skillPickUp;
     public SkillList skillList;
 
     public void CardChoice()
@@ -31,18 +30,24 @@ public class SkillCardManager : MonoBehaviour
             do
             {
                 index = Random.Range(0, skillList.skillLists.Count);
-            } while (usedIndexes.Contains(index));
+            } 
+            while 
+            (list.Contains(index));
+            list.Add(index);
 
+            SkillElements skill = skillList.skillLists[index];
 
             GameObject card = Instantiate(cardPrefab, startPoint);
             RectTransform rect = card.GetComponent<RectTransform>();
             rect.anchoredPosition = new Vector2(interval + i * width, 0);
+
+            SkillCardSet cardSript = card.GetComponent<SkillCardSet>();
+            cardSript.setCard(skill, index);
         }
     }
 
-    public void ChoiceCard()
+    public void ApplySkill()
     {
-        skillPickUp.GetRandomSkill();
     }
 }
 
