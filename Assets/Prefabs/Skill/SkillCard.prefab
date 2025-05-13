@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 4958976083349875904}
   descriptionText: {fileID: 7844386311594338661}
-  skillIndex: 0
+  cardButton: {fileID: 8006763989281327988}
 --- !u!1 &4862003446688114223
 GameObject:
   m_ObjectHideFlags: 0

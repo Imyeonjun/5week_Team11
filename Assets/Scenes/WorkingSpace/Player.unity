@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 67099762}
   - component: {fileID: 67099763}
   - component: {fileID: 67099764}
+  - component: {fileID: 67099765}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -387,6 +388,8 @@ MonoBehaviour:
   skillCardBg: {fileID: 715866915}
   startPoint: {fileID: 544070012}
   skillList: {fileID: 67099764}
+  skill: {fileID: 67099765}
+  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
 --- !u!114 &67099764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +402,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a21c7218d69e14495bd5c47c07c49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &67099765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67099761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335fd03970316f5469edfa1fc210f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeaponHandler: {fileID: 8248210845010236477, guid: 8c44f306d57476b469ae1e42c769747c, type: 3}
 --- !u!1 &149844243
 GameObject:
   m_ObjectHideFlags: 0
