@@ -34,7 +34,7 @@ public class MiniGameManager : MonoBehaviour
         resourceController.RemoveHealthChangeEvent(uiManager.ChangePlayerHP);
         resourceController.AddHealthChangeEvent(uiManager.ChangePlayerHP);
 
-        uiManager.ChangePlayerHP(resourceController.CurrentHealth, resourceController.MaxHealth);
+        //uiManager.ChangePlayerHP(resourceController.CurrentHealth, resourceController.MaxHealth);
     }
 
     private void Start()
