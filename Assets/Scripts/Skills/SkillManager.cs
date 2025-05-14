@@ -12,6 +12,7 @@ public class SkillManager : MonoBehaviour
     public SkillList skillList;
     public Skill skill;
     public PlayerController playerController;
+    public CombinationSkill combiSkill;
 
     public void Start()
     {

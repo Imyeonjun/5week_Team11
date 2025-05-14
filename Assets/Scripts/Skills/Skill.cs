@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Skill : CombinationSkill
+public class Skill : MonoBehaviour
 {
     //스킬 리스트
     //화살 개수 증가
