@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4239399803123829373}
   - component: {fileID: 8088107320675606129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 5531383385167786142}
   - component: {fileID: 8784983391522815933}
   - component: {fileID: 7368207762851720812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3580564430038035954}
   - component: {fileID: 3283143037891586680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Template_2-6Room
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 7248175919267857273}
   - component: {fileID: 2032801746269829614}
   - component: {fileID: 5800515518922197212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 6141032713586684151}
   - component: {fileID: 290261803139965224}
   - component: {fileID: 7748126444061769468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
