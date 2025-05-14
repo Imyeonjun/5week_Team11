@@ -42,6 +42,8 @@ public class MiniGameManager : MonoBehaviour
 
     private void Start()
     {
+        currentStageIndex = 0;
+
         if (!isFirstLoading)
         {
             StartGame();
