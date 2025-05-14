@@ -1776,6 +1776,9 @@ MonoBehaviour:
   countText: {fileID: 1635241170}
   hpSlider: {fileID: 921252506}
   hpText: {fileID: 12369758}
+  playerController: {fileID: 0}
+  resourceController: {fileID: 0}
+  characterStat: {fileID: 0}
 --- !u!1 &1211722257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8214,7 +8217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35ca72ad292f49229db5f889af292a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 23
   speed: 3
 --- !u!114 &1899984442
 MonoBehaviour:
