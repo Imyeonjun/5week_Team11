@@ -45,10 +45,14 @@ public class PlayerController : MonoBehaviour
             weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
     }
 
+    public void Start()
+    {
+        camera = Camera.main;
+    }
     public void Init(MiniGameManager miniManager)
     {
         this.miniManager = miniManager;
-        camera = Camera.main;
+
         
     }
     

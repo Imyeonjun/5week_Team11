@@ -90,7 +90,7 @@ public class SkillManager : MonoBehaviour
 
         if (powerUp != null & attackSpeedUp != null) //파워업 1 + 공속업 1 = 불화살
         {
-            if (!isReadyForFireArrow) combinationSkill.FireArrow();
+            if (isReadyForFireArrow) combinationSkill.FireArrow();
         }
     }
 }
