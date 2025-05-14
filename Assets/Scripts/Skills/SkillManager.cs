@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,8 @@ public class SkillManager : MonoBehaviour
     {
         var selectSkill = skillList.skillLists[skillIndex];
         string skillName = selectSkill.name;
+        int skillStack = selectSkill.stack; //SkillCardSet에서 선택한 skillIndex에 따라 리스트에 스킬 스택 저장
+        skillStack++;
 
         switch (skillName)
         {
@@ -85,15 +88,19 @@ public class SkillManager : MonoBehaviour
                 break;
         }
 
-        selectSkill.stack++;
-
         foreach (Transform child in startPoint) // 카드 프리팹 제거
         {
             Destroy(child.gameObject);
         }
 
         skillCardBg.SetActive(false);
-        IsCombine(skillIndex);
+        IsCombine(skillStack);
         return;
+    }
+
+    private void IsCombine(int skillStack)
+    {
+        bool isCombinePower = 
+        if()
     }
 }
