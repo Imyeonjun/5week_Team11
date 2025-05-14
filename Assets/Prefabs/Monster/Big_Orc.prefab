@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 6957217807694900645}
   - component: {fileID: 8703843062846212638}
   - component: {fileID: 7209158385042767625}
-  - component: {fileID: 6374691998467870920}
+  - component: {fileID: 2912181727239320621}
   m_Layer: 7
   m_Name: Big_Orc
   m_TagString: Untagged
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 3
---- !u!114 &6374691998467870920
+--- !u!114 &2912181727239320621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,19 +316,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7034878535447316923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4420b82d6cd57b042bc6e18e6d4f8e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 10
-  target:
-    serializedVersion: 2
-    m_Bits: 0
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  playerController: {fileID: 0}
-  collideBoxSize: {x: 1, y: 1}

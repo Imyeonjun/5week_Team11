@@ -6,7 +6,7 @@ public class MonsterController : MonsterBase
     private Transform target;
     
     [SerializeField] private float followRange = 15f;
-    
+
     public void Init(MonsterManager monsterManager, Transform target)
     {
         this.monsterManager = monsterManager;

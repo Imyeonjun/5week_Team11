@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4918134112831381292}
   - component: {fileID: 8329144002871677932}
   - component: {fileID: 5524282100718448041}
-  - component: {fileID: 301165706930997799}
+  - component: {fileID: 7549963345004753247}
   m_Layer: 7
   m_Name: Ranged_wogol_Enemy
   m_TagString: Untagged
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 3
---- !u!114 &301165706930997799
+--- !u!114 &7549963345004753247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,22 +179,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3912334455481989776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4420b82d6cd57b042bc6e18e6d4f8e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 10
-  target:
-    serializedVersion: 2
-    m_Bits: 0
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  playerController: {fileID: 0}
-  collideBoxSize: {x: 1, y: 1}
 --- !u!1 &4740838320077420114
 GameObject:
   m_ObjectHideFlags: 0

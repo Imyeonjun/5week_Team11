@@ -38,10 +38,6 @@ public class MonsterBase : MonoBehaviour
         _animator = GetComponent<MonsterAnimation>();
         _stat = GetComponent<CharacterStat>();
 
-        if (_stat == null) Debug.LogError($"❌ _stat is NULL on {gameObject.name}");
-        if (_rigidbody == null) Debug.LogError($"❌ _rigidbody is NULL on {gameObject.name}");
-        if (_animator == null) Debug.LogError($"❌ _animator is NULL on {gameObject.name}");
-
         if (WeaponPrefab != null)
 	      _weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
 	    else
