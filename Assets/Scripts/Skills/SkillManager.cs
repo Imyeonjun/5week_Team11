@@ -84,9 +84,9 @@ public class SkillManager : MonoBehaviour
         SkillElements attackSpeedUp = skillList.skillLists.Find(s => s.name == "공격속도 증가");
         SkillElements projectileSpeedUp = skillList.skillLists.Find(s => s.name == "투사체 속도 증가");
 
-        bool isReadyForProjectilePerShot = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
+        bool isReadyForFireArrow = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
 
-        if (isReadyForProjectilePerShot) combinationSkill.PlusProjectilesPerShot(); //화살 갯수 증가
+        if (isReadyForFireArrow) combinationSkill.PlusProjectilesPerShot(); //화살 갯수 증가
     }
 }
 
