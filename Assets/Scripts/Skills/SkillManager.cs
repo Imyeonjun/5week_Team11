@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillCardManager : MonoBehaviour
+public class SkillManager : MonoBehaviour
 {
     public GameObject cardPrefab;
     public GameObject skillCardBg;

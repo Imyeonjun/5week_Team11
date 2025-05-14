@@ -8,11 +8,11 @@ public class SkillCardSet : MonoBehaviour
     public Text nameText;
     public Text descriptionText;
     public Button cardButton; 
-    private SkillCardManager skillCardManager;
+    private SkillManager skillCardManager;
 
     private int skillIndex;
 
-    public void setCard(SkillElements skill, int index, SkillCardManager card)
+    public void setCard(SkillElements skill, int index, SkillManager card)
     {
         nameText.text = skill.name;
         descriptionText.text = skill.description;

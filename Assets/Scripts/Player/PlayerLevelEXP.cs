@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class PlayerLevelEXP : MonoBehaviour //시스템 구축용 샘플 스크립트, 추후 GameManager로 넘길 것
 {
-    private SkillCardManager skillCardManager;
+    private SkillManager skillCardManager;
     private TextMeshProUGUI levelText;
     public RectTransform levelBar;
     [SerializeField] private int level = 0;
@@ -23,7 +23,7 @@ public class PlayerLevelEXP : MonoBehaviour //시스템 구축용 샘플 스크립트, 추후 
     public void Start()
     {
         levelText.gameObject.SetActive(false);
-        skillCardManager = GetComponentInChildren<SkillCardManager>();
+        skillCardManager = GetComponentInChildren<SkillManager>();
     }
 
     public void Update()
