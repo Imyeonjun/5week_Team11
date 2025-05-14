@@ -17,8 +17,14 @@ public class MapCreator : MonoBehaviour
     public float roomSpacing = 12f;
 
     public bool IsGenerationComplete { get; private set; } = false;
+
     private Vector2 playerStartPos;
+    private GameObject[,] map;
+    private List<Vector2Int> roomPositions;
+
     public Vector2 GetPlayerStartPosition() => playerStartPos;
+    public List<Vector2Int> RoomPositions => roomPositions;
+    public GameObject GetRoomAt(Vector2Int pos) => map[pos.x, pos.y];
 
     void Start()
     {
@@ -28,8 +34,8 @@ public class MapCreator : MonoBehaviour
 
     void CreateStage()
     {
-        GameObject[,] map = new GameObject[stageWidth, stageHeight];
-        List<Vector2Int> roomPositions = GenerateRoomPath(minRoomCount, stageWidth, stageHeight);
+        map = new GameObject[stageWidth, stageHeight];
+        roomPositions = GenerateRoomPath(minRoomCount, stageWidth, stageHeight);
 
         Dictionary<Vector2Int, HashSet<string>> requiredOpens = new Dictionary<Vector2Int, HashSet<string>>();
 
@@ -80,7 +86,6 @@ public class MapCreator : MonoBehaviour
             map[pos.x, pos.y] = room;
         }
 
-        // 플레이어 시작 위치 지정 및 완료 상태 설정
         Vector2Int startRoom = roomPositions[0];
         GameObject startRoomGO = map[startRoom.x, startRoom.y];
         Tilemap tilemap = startRoomGO.GetComponentInChildren<Tilemap>();
