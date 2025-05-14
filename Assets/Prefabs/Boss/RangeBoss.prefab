@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 9044884867931846514}
   - component: {fileID: 1224868531466987450}
   - component: {fileID: 5971937098952354060}
+  - component: {fileID: 1121518007959159060}
   - component: {fileID: 4107703263981984916}
-  - component: {fileID: 3622069050715747217}
   m_Layer: 7
   m_Name: RangeBoss
   m_TagString: Untagged
@@ -156,6 +156,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 3
+--- !u!114 &1121518007959159060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782058060291424743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4420b82d6cd57b042bc6e18e6d4f8e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4107703263981984916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,37 +182,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
   dropChance: 0.3
---- !u!114 &3622069050715747217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782058060291424743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6069acf39fd423ea277dbbda61b00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 10
-  target:
-    serializedVersion: 2
-    m_Bits: 0
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  projectileSpawnPosition: {fileID: 0}
-  bulletIndex: 0
-  bulletSize: 1
-  duration: 0
-  spread: 0
-  numberofProjectilesPerShot: 0
-  multipleProjectilesAngel: 0
-  projectileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2608681282479591970
 GameObject:
   m_ObjectHideFlags: 0

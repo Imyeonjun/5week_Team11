@@ -151,8 +151,8 @@ GameObject:
   - component: {fileID: 4719780277418496297}
   - component: {fileID: 961666228869180172}
   - component: {fileID: 4235668037508011471}
+  - component: {fileID: -8841242857078293639}
   - component: {fileID: 5521112825316012442}
-  - component: {fileID: 4003498338100951509}
   m_Layer: 7
   m_Name: CloseBoss
   m_TagString: Untagged
@@ -293,6 +293,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 3
+--- !u!114 &-8841242857078293639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391401540146012196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4420b82d6cd57b042bc6e18e6d4f8e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5521112825316012442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,28 +319,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
   dropChance: 0.3
---- !u!114 &4003498338100951509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8391401540146012196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1
-  weaponSize: 1
-  power: 1
-  speed: 1
-  attackRange: 3
-  target:
-    serializedVersion: 2
-    m_Bits: 64
-  isOnKnockback: 0
-  knockbackPower: 0.1
-  knockbackTime: 0.5
-  playerController: {fileID: 0}
-  collideBoxSize: {x: 1, y: 1}
