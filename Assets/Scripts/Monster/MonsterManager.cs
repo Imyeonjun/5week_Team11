@@ -6,28 +6,20 @@ using Random = UnityEngine.Random;
 
 public class MonsterManager : MonoBehaviour
 {
-    private Coroutine waveRoutine;
-
-    private bool enemySpawnComplite;
-
-    [SerializeField] private float timeBetweenSpawns = 0.2f;
-    [SerializeField] private float timeBetweenWaves = 1f;
-
     [SerializeField] MonsterSetter monsterSetter;
 
     MiniGameManager miniManager;
 
+    private bool enemySpawnComplite;
 
     public void Init(MiniGameManager miniManager)
     {
         this.miniManager = miniManager;
     }
 
-    public void StartWave(int waveCount)
+    public void StartWave()
     {
-        if (waveRoutine != null)
-            StopCoroutine(waveRoutine);
-        waveRoutine = StartCoroutine(SpawnWave(waveCount));
+        SpawnMonster();
     }
 
     public void StopWave()
@@ -35,24 +27,11 @@ public class MonsterManager : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator SpawnWave(int waveCount)
+    private void SpawnMonster()
     {
-        enemySpawnComplite = false;
-        yield return new WaitForSeconds(timeBetweenWaves);
-        for (int i = 0; i < waveCount; i++)
-        {
-            yield return new WaitForSeconds(timeBetweenSpawns);
-            SpawnRandomEnemy();
-        }
-
+        monsterSetter.Init(); // 몬스터 일괄 생성
+        miniManager.UIManager.ChangeCount(monsterSetter.activeEnemies.Count);
         enemySpawnComplite = true;
-    }
-
-    private void SpawnRandomEnemy()
-    {
-        monsterSetter.Init();
-
-        miniManager.UIManager.ChangeCount(monsterSetter.activeEnemies.Count); // 몬스터 카운트 추가
     }
 
     //적이 사망했을 때 호출되는 메서드
@@ -62,7 +41,7 @@ public class MonsterManager : MonoBehaviour
 
         miniManager.UIManager.ChangeCount(monsterSetter.activeEnemies.Count); // 몬스터 카운트 추가
         if (enemySpawnComplite && monsterSetter.activeEnemies.Count == 0)
-            miniManager.EndOfWave();
+            miniManager.ClearStage();
     }
 
     //private void Update()

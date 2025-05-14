@@ -9,14 +9,13 @@ public class MiniGameManager : MonoBehaviour
     public PlayerController playerController { get; private set; }
     private ResourceController resourceController;
 
-    [SerializeField] private int currentWaveIndex = 0;
-
     public MonsterSetter monsterSetter;
-
     private MonsterManager monsterManager;
 
-    private UIManager uiManager;
     public UIManager UIManager => uiManager;
+    private UIManager uiManager;
+
+    [SerializeField] private int currentStageIndex = 0;
 
     public static bool isFirstLoading = true;
 
@@ -51,22 +50,25 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartGame() //게임 시작 함수
     {
         uiManager.SetPlayGame();
-        StartNextWave();
+
+        SetStage();
     }
 
-    void StartNextWave()
+    private void SetStage()
     {
-        currentWaveIndex += 1;
-        monsterManager.StartWave(1 + currentWaveIndex / 5);
-        uiManager.ChangeWave(currentWaveIndex / 5);
+        currentStageIndex += 1;
+
+        monsterManager.StartWave();
+
+        uiManager.ChangeWave(currentStageIndex);
     }
 
-    public void EndOfWave()
+    public void ClearStage()
     {
-        StartNextWave();
+        SetStage();
     }
 
     public void GameOver()
@@ -74,6 +76,4 @@ public class MiniGameManager : MonoBehaviour
         monsterManager.StopWave();
         uiManager.SetGameOver();
     }
-
-
 }
