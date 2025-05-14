@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7689491605281843894}
   - component: {fileID: 9213556823796189760}
   - component: {fileID: 9090834636625792262}
-  - component: {fileID: 6712272946457949376}
   - component: {fileID: 3892899345643486575}
-  - component: {fileID: 4100224083565707004}
   - component: {fileID: 303792168593558002}
   - component: {fileID: -6975038655421292934}
+  - component: {fileID: 8840553178444982539}
+  - component: {fileID: 706592111883088564}
   m_Layer: 7
   m_Name: Ranged_Dragon
   m_TagString: Untagged
@@ -112,18 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6712272946457949376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343931522944889263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f311e70b067846e9879e83e99a42e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3892899345643486575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,20 +129,6 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 797213643652038536, guid: 2990b2533bc0d42a99c83dcdddd5b08f, type: 3}
   damagedTime: 0.3
   followRange: 15
---- !u!114 &4100224083565707004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343931522944889263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35ca72ad292f49229db5f889af292a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  speed: 2
 --- !u!114 &303792168593558002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +156,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
   dropChance: 0.1
+--- !u!114 &8840553178444982539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931522944889263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d976741efe0f748b4ca8af3d7e84de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
+--- !u!114 &706592111883088564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931522944889263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  weaponSize: 1
+  power: 1
+  speed: 1
+  attackRange: 10
+  target:
+    serializedVersion: 2
+    m_Bits: 0
+  isOnKnockback: 0
+  knockbackPower: 0.1
+  knockbackTime: 0.5
+  playerController: {fileID: 0}
+  collideBoxSize: {x: 1, y: 1}
 --- !u!1 &2997505609105560617
 GameObject:
   m_ObjectHideFlags: 0

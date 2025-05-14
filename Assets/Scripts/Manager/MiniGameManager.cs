@@ -71,9 +71,9 @@ public class MiniGameManager : MonoBehaviour
 
     public void ClearStage()
     {
-        StartCoroutine(HandleStageClear());
-
         mapResseter.ClearMap();
+
+
         SetStage();
     }
 
@@ -87,18 +87,5 @@ public class MiniGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds); // 지정된 시간만큼 대기
         monsterManager.StartWave(); // 지연 후 실행
-    }
-
-    private IEnumerator HandleStageClear()
-    {
-        // 1. 클리어 문구 표시
-        uiManager.ShowClearText();
-
-        // 2. 1초 대기
-        yield return new WaitForSeconds(1f);
-
-        // 3. 클리어 문구 숨기기
-        uiManager.HideClearText();
-
     }
 }

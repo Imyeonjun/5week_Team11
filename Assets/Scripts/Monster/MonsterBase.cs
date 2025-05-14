@@ -33,11 +33,16 @@ public class MonsterBase : MonoBehaviour
     
     protected virtual void Awake()
     {
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<MonsterAnimation>();
         _stat = GetComponent<CharacterStat>();
 
-         if(WeaponPrefab != null)
+        if (_stat == null) Debug.LogError($"❌ _stat is NULL on {gameObject.name}");
+        if (_rigidbody == null) Debug.LogError($"❌ _rigidbody is NULL on {gameObject.name}");
+        if (_animator == null) Debug.LogError($"❌ _animator is NULL on {gameObject.name}");
+
+        if (WeaponPrefab != null)
 	      _weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
 	    else
 	      _weaponHandler = GetComponentInChildren<MonsterWeaponHandler>(); // 이미 붙어 있는 무기 사용
