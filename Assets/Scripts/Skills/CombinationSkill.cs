@@ -7,8 +7,6 @@ public class CombinationSkill : MonoBehaviour //To Do: Skill -> combinationSkill
     public PlayerController player;
     private PlayerWeaponHandler playerWeaponHandler;
     public GameObject fireTrailPrefab;
-    public Transform firePoint;
-    private 
 
     public void Initialize(PlayerWeaponHandler handler) 
     {
@@ -19,7 +17,7 @@ public class CombinationSkill : MonoBehaviour //To Do: Skill -> combinationSkill
     {
         if (fireTrailPrefab && firePoint)
         {
-            Instantiate(fireTrailPrefab, firePoint.position, firePoint.rotation);
+            ProjectileManager.Instance.ShootBullet(playerWeaponHandler, firePoint.position, firePoint.right, true);
             Debug.Log("불화살 발사");
         }
     }

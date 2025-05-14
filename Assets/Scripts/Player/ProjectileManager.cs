@@ -10,6 +10,7 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] private GameObject[] projectilePrefabs;
     [SerializeField] private ParticleSystem impactParticleSystem;
+    [SerializeField] private ParticleSystem fireTrailParticleSystem;
 
     private void Awake()
     {
@@ -23,8 +24,24 @@ public class ProjectileManager : MonoBehaviour
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, playerWeaponHandler, this);
-        
     }
+
+    public void ShootBullet(PlayerWeaponHandler playerWeaponHandler, Vector2 startPosition, Vector2 direction, GameObject trailEffect)
+    {
+        GameObject origin = projectilePrefabs[handler.BulletIndex];
+        GameObject obj = Instantiate(origin, startPos, Quaternion.identity);
+
+        if (trailEffect)
+        {
+            GameObject effect = Instantiate(trailEffect, obj.transform);
+            effect.transform.localPosition = new Vector3(0, 0, 0.5f);
+        }
+
+        var proj = obj.GetComponent<ProjectileController>();
+        proj.Init(dir, handler, this);
+    }
+
+
 
     //public void CreatImpactParticleAtPosition(Vector3 position, PlayerWeaponHandler weaponHandler)
     //{
