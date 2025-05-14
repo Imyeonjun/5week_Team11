@@ -12,9 +12,10 @@ public class CombinationSkill : MonoBehaviour //To Do: Skill -> combinationSkill
         playerWeaponHandler = handler;
     }
 
-    public void FireArrow() //To Do: 데미지 등 실제 기능 추가할 것
+    public void PlusProjectilesPerShot() //To Do: 데미지 등 실제 기능 추가할 것
     {
-        Debug.Log("불화살 발사");
+        playerWeaponHandler.NumberofProjectilesPerShot += 1;
+        Debug.Log("화살 갯수 + 1");
     }
 
 }

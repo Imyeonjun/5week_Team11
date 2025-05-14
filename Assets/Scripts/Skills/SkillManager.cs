@@ -13,7 +13,7 @@ public class SkillManager : MonoBehaviour
     public Skill skill;
     public CombinationSkill combinationSkill;
     public PlayerController playerController;
-    [SerializeField] private bool fireArrowOn = false; //디버그용 필드
+    [SerializeField] private bool CombiSkillOn = false; //디버그용
 
     public void Start()
     {
@@ -67,8 +67,6 @@ public class SkillManager : MonoBehaviour
             case "공격속도 증가": skill.AttackSpeedUp(); break;
 
             case "투사체 속도 증가": skill.ProjectileSpeedUp(); break;
-
-            case "투사체 갯수 증가": skill.AttackProjectileUP(); break;
         }
 
         foreach (Transform child in startPoint) // 카드 프리팹 제거
@@ -85,14 +83,10 @@ public class SkillManager : MonoBehaviour
         SkillElements powerUp = skillList.skillLists.Find(s => s.name == "공격력 증가");
         SkillElements attackSpeedUp = skillList.skillLists.Find(s => s.name == "공격속도 증가");
         SkillElements projectileSpeedUp = skillList.skillLists.Find(s => s.name == "투사체 속도 증가");
-        SkillElements AttackProjectileUp = skillList.skillLists.Find(s => s.name == "투사체 갯수 증가");
 
         bool isReadyForFireArrow = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
 
-        if (powerUp != null & attackSpeedUp != null | fireArrowOn == true) //파워업 1 + 공속업 1 = 불화살
-        {
-            if (isReadyForFireArrow) combinationSkill.FireArrow();
-        }
+        if (isReadyForFireArrow) combinationSkill.PlusProjectilesPerShot(); //화살 갯수 증가
     }
 }
 
