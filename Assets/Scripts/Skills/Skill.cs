@@ -16,7 +16,7 @@ public class Skill : MonoBehaviour
 
     public void Initialize(PlayerWeaponHandler handler) //인스턴스 확실히 지정해주기 위해서 사용
     {
-       playerWeaponHandler = handler;
+        playerWeaponHandler = handler;
     }
 
     public void AttackPowerUP() //공격력 5 증가

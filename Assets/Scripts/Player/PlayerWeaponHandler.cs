@@ -47,7 +47,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] private float bulletSize = 1f;
 
-    public float BulletSize { get { return bulletSize; } }
+    public float BulletSize { get { return bulletSize; } set { bulletSize = value; } }
 
     [SerializeField] private float duration;
 
