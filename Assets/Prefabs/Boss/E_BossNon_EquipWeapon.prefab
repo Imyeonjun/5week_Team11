@@ -194,6 +194,7 @@ MonoBehaviour:
   isOnKnockback: 1
   knockbackPower: 1
   knockbackTime: 0.5
+  useAttackAnimation: 1
   projectileSpawnPosition: {fileID: 4905981026256931575}
   bulletIndex: 2
   bulletSize: 2

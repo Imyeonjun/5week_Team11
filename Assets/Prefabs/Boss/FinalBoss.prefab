@@ -137,12 +137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 8307519596264355029}
   weaponPivot: {fileID: 1217962578627391828}
-  WeaponPrefab: {fileID: 2256623412697317685, guid: 6662a505b48f8449aba32b69d9600577, type: 3}
+  WeaponPrefab: {fileID: 50696334929173814, guid: af0cc993d5a4e469c90882f7bdf82693, type: 3}
   damagedTime: 0.3
   target: {fileID: 0}
   followRange: 15
   meleeWeapon: {fileID: -6004939775857984123, guid: 72bb49aef0a2046ce8df7b823c730b21, type: 3}
-  rangeWeapon: {fileID: 2256623412697317685, guid: 6662a505b48f8449aba32b69d9600577, type: 3}
+  rangeWeapon: {fileID: 50696334929173814, guid: af0cc993d5a4e469c90882f7bdf82693, type: 3}
   meleeAttackRange: 3
   rangeAttackRange: 10
 --- !u!114 &8618621841063089957
