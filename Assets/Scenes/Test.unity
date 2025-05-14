@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 1270388874}
   - component: {fileID: 1270388875}
   m_Layer: 0
-  m_Name: MonsterSpawner
+  m_Name: MonsterSetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -541,6 +541,8 @@ MonoBehaviour:
   player: {fileID: 1899984436}
   mapCreator: {fileID: 263931508}
   monsterPrefab: {fileID: 1914763427369189305, guid: bc96f50c7d3074e078c9c832323eb07f, type: 3}
+  monsterManager: {fileID: 1591177725}
+  enemyPrefabs: []
 --- !u!1 &1331582420
 GameObject:
   m_ObjectHideFlags: 0
