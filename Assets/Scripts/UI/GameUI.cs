@@ -9,10 +9,12 @@ public class GameUI : BaseUI
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private GameObject stageClearText;
+    [SerializeField] private GameObject stageStartText;
 
-    public PlayerController playerController;
-    public ResourceController resourceController;
-    public CharacterStat characterStat;
+    private PlayerController playerController;
+    private ResourceController resourceController;
+    private CharacterStat characterStat;
 
     private void Start()
     {
@@ -48,5 +50,13 @@ public class GameUI : BaseUI
     {
         hpText.text = $"{Mathf.CeilToInt(currentHP)} / {Mathf.CeilToInt(maxHP)}"; // 현재 체력 텍스트로 표시
     }
+    public void ShowClearText()
+    {
+        stageClearText.SetActive(true);
+    }
 
+    public void HideClearText()
+    {
+        stageClearText.SetActive(false);
+    }
 }
