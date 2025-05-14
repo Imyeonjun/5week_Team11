@@ -63,23 +63,29 @@ public class SkillManager : MonoBehaviour
             case "공격력 증가":
                 skill.AttackPowerUP();
                 Debug.Log($"공격력 5 증가");
+                Debug.Log($"공격력 스택: {selectSkill.stack}");
                 break;
 
             case "공격속도 증가":
                 skill.AttackSpeedUp();
                 Debug.Log($"공격속도 10% 증가");
+                Debug.Log($"공격속도 스택: {selectSkill.stack}");
                 break;
 
             case "투사체 속도 증가":
                 skill.MoveSpeedUp();
                 Debug.Log($"투사체 속도 20% 증가");
+                Debug.Log($"투사체 속도 스택: {selectSkill.stack}");
                 break;
 
             case "투사체 증가":
                 skill.AttackProjectileUP();
                 Debug.Log($"투사체 갯수 하나 증가");
+                Debug.Log($"투사체 갯수 스택: {selectSkill.stack}");
                 break;
         }
+
+        selectSkill.stack++;
 
         foreach (Transform child in startPoint) // 카드 프리팹 제거
         {
@@ -89,10 +95,5 @@ public class SkillManager : MonoBehaviour
         skillCardBg.SetActive(false);
         IsCombine(skillIndex);
         return;
-    }
-
-    public void IsCombine(int skillIndex)
-    {
-
     }
 }

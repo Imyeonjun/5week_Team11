@@ -6,6 +6,7 @@ public class SkillElements
 {
     public string name;
     public string description;
+    public int stack = 0;
 }
 
 public class SkillList : MonoBehaviour
