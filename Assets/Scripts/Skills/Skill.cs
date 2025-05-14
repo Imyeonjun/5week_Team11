@@ -29,12 +29,12 @@ public class Skill : MonoBehaviour
         playerWeaponHandler.Delay *= 0.9f;
     }
 
-    public void MoveSpeedUp() //투사체 속도 20% 증가
+    public void ProjectileSpeedUp() //투사체 속도 20% 증가
     {
         playerWeaponHandler.Speed *= 1.2f;
     }
 
-    public void AttackProjectileUP() //투사체 갯수 하나 증가
+    public void AttackProjectileUP() //투사체 갯수 증가
     {
         playerWeaponHandler.NumberofProjectilesPerShot += 1;
     }

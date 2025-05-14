@@ -12,7 +12,7 @@ public class SkillManager : MonoBehaviour
     public SkillList skillList;
     public Skill skill;
     public PlayerController playerController;
-    public CombinationSkill combiSkill;
+    public CombinationSkill combinationSkill;
 
     public void Start()
     {
@@ -37,10 +37,8 @@ public class SkillManager : MonoBehaviour
         for (int i = 0; i < 3; i++)  //리스트 내에서 서로 다른 스킬 3개 뽑기
         {
             int index;
-            do
-            {
-                index = Random.Range(0, skillList.skillLists.Count);
-            }
+
+            do index = Random.Range(0, skillList.skillLists.Count);
             while (list.Contains(index));
 
             list.Add(index);
@@ -63,29 +61,13 @@ public class SkillManager : MonoBehaviour
 
         switch (skillName)
         {
-            case "공격력 증가":
-                skill.AttackPowerUP();
-                Debug.Log($"공격력 5 증가");
-                Debug.Log($"공격력 스택: {selectSkill.stack}");
-                break;
+            case "공격력 증가": skill.AttackPowerUP(); break;
 
-            case "공격속도 증가":
-                skill.AttackSpeedUp();
-                Debug.Log($"공격속도 10% 증가");
-                Debug.Log($"공격속도 스택: {selectSkill.stack}");
-                break;
+            case "공격속도 증가": skill.AttackSpeedUp(); break;
 
-            case "투사체 속도 증가":
-                skill.MoveSpeedUp();
-                Debug.Log($"투사체 속도 20% 증가");
-                Debug.Log($"투사체 속도 스택: {selectSkill.stack}");
-                break;
+            case "투사체 속도 증가": skill.ProjectileSpeedUp(); break;
 
-            case "투사체 증가":
-                skill.AttackProjectileUP();
-                Debug.Log($"투사체 갯수 하나 증가");
-                Debug.Log($"투사체 갯수 스택: {selectSkill.stack}");
-                break;
+            case "투사체 갯수 증가": skill.AttackProjectileUP(); break;
         }
 
         foreach (Transform child in startPoint) // 카드 프리팹 제거
@@ -94,12 +76,22 @@ public class SkillManager : MonoBehaviour
         }
 
         skillCardBg.SetActive(false);
-        IsCombine(skillIndex);
+        SkillCombineCheck();
         return;
     }
-
-    private void IsCombine(int skillIndex)
+    private void SkillCombineCheck()
     {
-        
+        SkillElements powerUp = skillList.skillLists.Find(s => s.name == "공격력 증가");
+        SkillElements attackSpeedUp = skillList.skillLists.Find(s => s.name == "공격속도 증가");
+        SkillElements projectileSpeedUp = skillList.skillLists.Find(s => s.name == "투사체 속도 증가");
+        SkillElements AttackProjectileUp = skillList.skillLists.Find(s => s.name == "투사체 갯수 증가");
+
+        bool isReadyForFireArrow = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
+
+        if (powerUp != null & attackSpeedUp != null) //파워업 1 + 공속업 1 = 불화살
+        {
+            if (!isReadyForFireArrow) combinationSkill.FireArrow();
+        }
     }
 }
+

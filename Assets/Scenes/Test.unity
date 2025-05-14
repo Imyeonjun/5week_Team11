@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 67099763}
   - component: {fileID: 67099764}
   - component: {fileID: 67099765}
+  - component: {fileID: 67099766}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -180,8 +181,8 @@ MonoBehaviour:
   startPoint: {fileID: 326201076}
   skillList: {fileID: 67099764}
   skill: {fileID: 67099765}
-  playerController: {fileID: 0}
-  combiSkill: {fileID: 0}
+  playerController: {fileID: 1899984438}
+  combinationSkill: {fileID: 67099766}
 --- !u!114 &67099764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +207,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335fd03970316f5469edfa1fc210f97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1899984438}
+--- !u!114 &67099766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67099761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ba06b44187c2243b897cbbff797f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1899984438}
 --- !u!1 &240026243
 GameObject:
   m_ObjectHideFlags: 0
