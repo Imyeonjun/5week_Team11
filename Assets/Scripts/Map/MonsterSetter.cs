@@ -11,7 +11,7 @@ public class MonsterSetter : MonoBehaviour
 
     [SerializeField] private List<GameObject> enemyPrefabs; // 생성할 적 프리팹 리스트
 
-    private List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
+    public List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
 
     public void Init()
     {

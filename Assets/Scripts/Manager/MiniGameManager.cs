@@ -55,7 +55,6 @@ public class MiniGameManager : MonoBehaviour
     {
         uiManager.SetPlayGame();
         StartNextWave();
-        monsterSetter.Init();
     }
 
     void StartNextWave()
