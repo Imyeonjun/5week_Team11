@@ -61,14 +61,4 @@ public class UIManager : MonoBehaviour
         gameUI.SetActive(currentState);
         gameOverUI.SetActive(currentState);
     }
-
-    public void ShowClearText()
-    {
-        gameUI.ShowClearText();
-    }
-
-    public void HideClearText()
-    {
-        gameUI.HideClearText();
-    }
 }
