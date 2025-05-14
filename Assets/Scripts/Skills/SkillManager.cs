@@ -58,8 +58,7 @@ public class SkillManager : MonoBehaviour
     {
         var selectSkill = skillList.skillLists[skillIndex];
         string skillName = selectSkill.name;
-        int skillStack = selectSkill.stack; //SkillCardSet에서 선택한 skillIndex에 따라 리스트에 스킬 스택 저장
-        skillStack++;
+        selectSkill.stack++;
 
         switch (skillName)
         {
@@ -94,13 +93,12 @@ public class SkillManager : MonoBehaviour
         }
 
         skillCardBg.SetActive(false);
-        IsCombine(skillStack);
+        IsCombine(skillIndex);
         return;
     }
 
-    private void IsCombine(int skillStack)
+    private void IsCombine(int skillIndex)
     {
-        bool isCombinePower = 
-        if()
+        
     }
 }

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CombinationSkill : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerController player;
+    private PlayerWeaponHandler playerWeaponHandler;
+    public void Initialize(PlayerWeaponHandler handler) //인스턴스 확실히 지정해주기 위해서 사용
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerWeaponHandler = handler;
     }
 }

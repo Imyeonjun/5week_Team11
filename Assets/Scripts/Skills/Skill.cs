@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Skill : MonoBehaviour
+public class Skill : CombinationSkill
 {
     //스킬 리스트
     //화살 개수 증가
@@ -16,7 +16,7 @@ public class Skill : MonoBehaviour
 
     public void Initialize(PlayerWeaponHandler handler) //인스턴스 확실히 지정해주기 위해서 사용
     {
-       playerWeaponHandler = handler;
+        playerWeaponHandler = handler;
     }
 
     public void AttackPowerUP() //공격력 5 증가
