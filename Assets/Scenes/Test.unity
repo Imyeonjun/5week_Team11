@@ -551,6 +551,7 @@ MonoBehaviour:
   corridorHorizontalPrefab: {fileID: 3024446763080684696, guid: ead366cfcd8a9684e8753fc8acd84517, type: 3}
   corridorVerticalPrefab: {fileID: 3024446763080684696, guid: d30396b1219f1cf45bdc464ca9085eae, type: 3}
   miniManager: {fileID: 904280297}
+  playerSetter: {fileID: 867695894}
   roomTemplates:
   - {fileID: 3024446763080684696, guid: d20718441bc8897429bddef4a3767e20, type: 3}
   - {fileID: 3024446763080684696, guid: 64327e29270482f4793cb9aa1de4eb22, type: 3}
@@ -1254,6 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapResseter: {fileID: 1334087306}
+  mapCreator: {fileID: 263931508}
   currentStageIndex: 0
 --- !u!1 &921252504
 GameObject:
@@ -2114,7 +2116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739fb6ae24e0fbc4d84804e68b743d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapCreator: {fileID: 263931508}
 --- !u!1 &1369417447
 GameObject:
   m_ObjectHideFlags: 0

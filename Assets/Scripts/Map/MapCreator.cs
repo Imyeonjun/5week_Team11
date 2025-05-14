@@ -9,6 +9,7 @@ public class MapCreator : MonoBehaviour
     [SerializeField] private GameObject corridorHorizontalPrefab;
     [SerializeField] private GameObject corridorVerticalPrefab;
     [SerializeField] private MiniGameManager miniManager;
+    [SerializeField] private PlayerSetter playerSetter;
 
     public GameObject[] roomTemplates;
 
@@ -31,14 +32,15 @@ public class MapCreator : MonoBehaviour
     public List<Vector2Int> RoomPositions => roomPositions;
     public GameObject GetRoomAt(Vector2Int pos) => map[pos.x, pos.y];
 
-    void Start()
+    void Update()
     {
         minRoomCount = 5 + miniManager.currentStageIndex;
-        CreateStage();
     }
 
-    void CreateStage()
+    public void CreateStage()
     {
+        Debug.Log("¸Ê »ý¼º");
+
         map = new GameObject[stageWidth, stageHeight];
         roomPositions = GenerateRoomPath(minRoomCount, stageWidth, stageHeight);
 
@@ -122,6 +124,8 @@ public class MapCreator : MonoBehaviour
                 }
             }
         }
+
+        playerSetter.SetPlayer();
     }
 
     List<Vector2Int> GenerateRoomPath(int minRoomCount, int width, int height)
