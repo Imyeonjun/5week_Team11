@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class MonsterManager : MonoBehaviour
 {
     [SerializeField] MonsterSetter monsterSetter;
+    [SerializeField] BossSetter bossSetter;
 
     MiniGameManager miniManager;
 
@@ -17,20 +18,22 @@ public class MonsterManager : MonoBehaviour
         this.miniManager = miniManager;
     }
 
-    public void StartWave()
-    {
-        SpawnMonster();
-    }
-
     public void StopWave()
     {
         StopAllCoroutines();
     }
 
-    private void SpawnMonster()
+    public void SpawnMonster()
     {
         monsterSetter.Init(); // 몬스터 일괄 생성
         miniManager.UIManager.ChangeCount(monsterSetter.activeEnemies.Count);
+    }
+
+    public void SpawnBoss()
+    {
+        // 보스를 특정 위치에 생성
+        bossSetter.SpawnBoss(new Vector2(0f, 3f));
+
     }
 
     //적이 사망했을 때 호출되는 메서드

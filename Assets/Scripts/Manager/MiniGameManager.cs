@@ -11,6 +11,7 @@ public class MiniGameManager : MonoBehaviour
 
     [SerializeField] private MapResseter mapResseter;
     [SerializeField] private MapCreator mapCreator;
+    [SerializeField] private BossRoomCreator bossRoomCreator;
     private MonsterManager monsterManager;
 
     public UIManager UIManager => uiManager;
@@ -62,17 +63,27 @@ public class MiniGameManager : MonoBehaviour
     {
         currentStageIndex += 1;
 
-        mapCreator.CreateStage();
+        if (currentStageIndex % 5 == 0)
+        {
+            bossRoomCreator.CreateBossRoom();
 
-        StartCoroutine(DelayStartWave(3f)); // 3초 후 SetStage 실행
+            StartCoroutine(DelaySpawnBoss(3f)); // 3초 후 SetStage 실행
 
-        uiManager.ChangeWave(currentStageIndex);
+            uiManager.ChangeWave(currentStageIndex);
+        }
+        else
+        {
+            mapCreator.CreateStage();
+
+            StartCoroutine(DelaySpawnMonster(3f)); // 3초 후 SetStage 실행
+
+            uiManager.ChangeWave(currentStageIndex);
+        }
     }
 
     public void ClearStage()
     {
         mapResseter.ClearMap();
-
 
         SetStage();
     }
@@ -83,9 +94,14 @@ public class MiniGameManager : MonoBehaviour
         uiManager.SetGameOver();
     }
 
-    public IEnumerator DelayStartWave(float delaySeconds)
+    public IEnumerator DelaySpawnMonster(float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds); // 지정된 시간만큼 대기
-        monsterManager.StartWave(); // 지연 후 실행
+        monsterManager.SpawnMonster(); // 지연 후 실행
+    }
+    public IEnumerator DelaySpawnBoss(float delaySeconds)
+    {
+        yield return new WaitForSeconds(delaySeconds); // 지정된 시간만큼 대기
+        monsterManager.SpawnBoss(); // 지연 후 실행
     }
 }

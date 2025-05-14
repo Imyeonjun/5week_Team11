@@ -582,6 +582,7 @@ Transform:
   m_Children:
   - {fileID: 867695895}
   - {fileID: 1334087305}
+  - {fileID: 603531086}
   m_Father: {fileID: 654264574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332161960
@@ -845,6 +846,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473052961}
   m_CullTransparentMesh: 1
+--- !u!1 &485462527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485462528}
+  - component: {fileID: 485462529}
+  m_Layer: 0
+  m_Name: BossSetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485462528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485462527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1770143115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485462529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485462527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db20e17064b78f4e925a81ebc8b259e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  monsterManager: {fileID: 0}
+  bossPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &518597417
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +943,53 @@ MonoBehaviour:
   - {fileID: 3830893296652230246, guid: 3be32f2c4b064074c9175d9559e6e247, type: 3}
   - {fileID: 2509619048263307959, guid: 1e60e703519e54eec829f0cd049c260f, type: 3}
   - {fileID: 3163491449098956083, guid: 6cadee0eaba74417fb25944bc287c284, type: 3}
+--- !u!1 &603531085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603531086}
+  - component: {fileID: 603531087}
+  m_Layer: 0
+  m_Name: BossRoomCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603531086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603531085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 263931509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603531087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603531085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23705bac454f9964c8ed65ad3bc365d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossRoomPrefab: {fileID: 3024446763080684696, guid: 0eb19591c82df004eae4cd5a235fd8c1, type: 3}
+  playerSetter: {fileID: 867695894}
+  spawnPosition: {x: 0, y: 0}
 --- !u!1 &654264573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapResseter: {fileID: 1334087306}
   mapCreator: {fileID: 263931508}
-  currentStageIndex: 0
+  bossRoomCreator: {fileID: 603531087}
+  currentStageIndex: 3
 --- !u!1 &921252504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3278,7 @@ Transform:
   - {fileID: 1270388874}
   - {fileID: 518597418}
   - {fileID: 738279843}
+  - {fileID: 485462528}
   m_Father: {fileID: 904280296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1770143116
@@ -3195,6 +3294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterSetter: {fileID: 1270388875}
+  bossSetter: {fileID: 0}
 --- !u!1 &1815191318
 GameObject:
   m_ObjectHideFlags: 0
