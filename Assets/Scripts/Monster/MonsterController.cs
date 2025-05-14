@@ -3,7 +3,7 @@ using UnityEngine;
 public class MonsterController : MonsterBase
 {
     private MonsterManager monsterManager;
-    private Transform target;
+    public Transform target;
     
     [SerializeField] private float followRange = 15f;
     

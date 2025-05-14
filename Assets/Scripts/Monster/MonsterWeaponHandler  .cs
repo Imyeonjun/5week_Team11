@@ -38,16 +38,18 @@ public class MonsterWeaponHandler : MonoBehaviour
     
     private Animator animator;
     private SpriteRenderer weaponRenderer;
+    [SerializeField] protected bool useAttackAnimation = true;
+
 
     protected virtual void Awake()
     {
         _base = GetComponentInParent<MonsterBase>();
         animator = GetComponentInChildren<Animator>();
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
-        
+
         // 공격 속도에 따라 애니메이션 재생 속도 조절
-        animator.speed = 1.0f / delay; 
-        
+        animator.speed = 1.0f / delay;
+
         // 무기 크기 설정
         transform.localScale = Vector3.one * weaponSize;
     }
@@ -64,7 +66,11 @@ public class MonsterWeaponHandler : MonoBehaviour
 
     public void AttackAnimation()
     {
-        animator.SetTrigger(IsAttack);
+        if (useAttackAnimation && animator != null)
+        {
+            animator.SetTrigger(IsAttack);
+        }
+        
     }
 
     public virtual void Rotate(bool isLeft)
@@ -72,5 +78,8 @@ public class MonsterWeaponHandler : MonoBehaviour
         weaponRenderer.flipY = isLeft;
     }
     
-    
+    public void Init(MonsterBase monsterBase)
+    {
+        _base = monsterBase;
+    }
 }

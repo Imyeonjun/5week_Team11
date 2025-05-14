@@ -253,6 +253,7 @@ MonoBehaviour:
   - {fileID: 343931522944889263, guid: 889236ba8576d49b4b7caea2de298006, type: 3}
   - {fileID: 782058060291424743, guid: ebdd192b0f25b482ea153104dcbfb0f9, type: 3}
   - {fileID: 8391401540146012196, guid: 2f85369bb52bc494483a2ea24c1e263c, type: 3}
+  - {fileID: 148848549936652259, guid: 672457164aa9e4182a33ddf22965c29f, type: 3}
   spawnAreas:
   - serializedVersion: 2
     x: 0
@@ -5251,7 +5252,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008183181, y: -0.38120645}
+  m_Offset: {x: 0.018101618, y: -0.14316386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5262,7 +5263,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.93489015, y: 0.9680244}
+  m_Size: {x: 0.83570564, y: 1.0473719}
   m_EdgeRadius: 0
 --- !u!50 &1172844122
 Rigidbody2D:
