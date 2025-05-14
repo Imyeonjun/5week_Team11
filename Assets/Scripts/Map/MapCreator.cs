@@ -167,12 +167,4 @@ public class MapCreator : MonoBehaviour
 
         return new List<Vector2Int>(visited);
     }
-
-    public void ResetData()
-    {
-        map = null;
-        roomPositions?.Clear();
-        IsGenerationComplete = false;
-        playerStartPos = Vector2.zero;
-    }
 }
