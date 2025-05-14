@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class MonsterManager : MonoBehaviour
 {
     private Coroutine waveRoutine;
-        
+
     [SerializeField]
     private List<GameObject> enemyPrefabs; // 생성할 적 프리팹 리스트
 
@@ -20,7 +20,7 @@ public class MonsterManager : MonoBehaviour
     private List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
 
     private bool enemySpawnComplite;
-    
+
     [SerializeField] private float timeBetweenSpawns = 0.2f;
     [SerializeField] private float timeBetweenWaves = 1f;
 
@@ -33,9 +33,9 @@ public class MonsterManager : MonoBehaviour
 
     public void StartWave(int waveCount)
     {
-        if(waveRoutine != null)
+        if (waveRoutine != null)
             StopCoroutine(waveRoutine);
-        waveRoutine =  StartCoroutine(SpawnWave(waveCount));
+        waveRoutine = StartCoroutine(SpawnWave(waveCount));
     }
 
     public void StopWave()
@@ -49,7 +49,7 @@ public class MonsterManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
         for (int i = 0; i < waveCount; i++)
         {
-            yield return new WaitForSeconds(timeBetweenSpawns); 
+            yield return new WaitForSeconds(timeBetweenSpawns);
             SpawnRandomEnemy();
         }
 
@@ -82,21 +82,21 @@ public class MonsterManager : MonoBehaviour
 
         GameObject player = GameObject.FindWithTag("Player");
 
-            // ✅ Init 호출 → 플레이어를 타겟으로 설정
-            monsterController.Init(this, player.transform);
+        // ✅ Init 호출 → 플레이어를 타겟으로 설정
+        monsterController.Init(this, player.transform);
 
         activeEnemies.Add(monsterController);
         miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
     }
     //적이 사망했을 때 호출되는 메서드
-     public void RemoveEnemyOnDeath(MonsterController enemy)
+    public void RemoveEnemyOnDeath(MonsterController enemy)
     {
         activeEnemies.Remove(enemy);
 
         miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
         if (enemySpawnComplite && activeEnemies.Count == 0)
-              miniManager.EndOfWave();
-     }
+            miniManager.EndOfWave();
+    }
 
     // 기즈모를 그려 영역을 시각화 (선택된 경우에만 표시)
     private void OnDrawGizmosSelected()
