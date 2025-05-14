@@ -11,8 +11,9 @@ public class SkillManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillList skillList;
     public Skill skill;
-    public PlayerController playerController;
     public CombinationSkill combinationSkill;
+    public PlayerController playerController;
+    [SerializeField] private bool fireArrowOn = false; //디버그용 필드
 
     public void Start()
     {
@@ -88,7 +89,7 @@ public class SkillManager : MonoBehaviour
 
         bool isReadyForFireArrow = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
 
-        if (powerUp != null & attackSpeedUp != null) //파워업 1 + 공속업 1 = 불화살
+        if (powerUp != null & attackSpeedUp != null | fireArrowOn == true) //파워업 1 + 공속업 1 = 불화살
         {
             if (isReadyForFireArrow) combinationSkill.FireArrow();
         }
