@@ -56,8 +56,9 @@ public class SkillManager : MonoBehaviour
     public void ApplySkill(int skillIndex)
     {
         var selectSkill = skillList.skillLists[skillIndex];
+        string skillName = selectSkill.name;
 
-        switch(selectSkill.name)
+        switch (skillName)
         {
             case "공격력 증가":
                 skill.AttackPowerUP();
@@ -80,12 +81,18 @@ public class SkillManager : MonoBehaviour
                 break;
         }
 
-        foreach (Transform child in startPoint)
+        foreach (Transform child in startPoint) // 카드 프리팹 제거
         {
             Destroy(child.gameObject);
         }
 
         skillCardBg.SetActive(false);
+        IsCombine(skillIndex);
         return;
+    }
+
+    public void IsCombine(int skillIndex)
+    {
+
     }
 }
