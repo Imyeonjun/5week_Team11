@@ -890,11 +890,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db20e17064b78f4e925a81ebc8b259e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  monsterManager: {fileID: 0}
+  player: {fileID: 1899984436}
+  monsterManager: {fileID: 1770143116}
   bossPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8391401540146012196, guid: 2f85369bb52bc494483a2ea24c1e263c, type: 3}
+  - {fileID: 782058060291424743, guid: ebdd192b0f25b482ea153104dcbfb0f9, type: 3}
 --- !u!1 &518597417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterSetter: {fileID: 1270388875}
-  bossSetter: {fileID: 0}
+  bossSetter: {fileID: 485462529}
 --- !u!1 &1815191318
 GameObject:
   m_ObjectHideFlags: 0
