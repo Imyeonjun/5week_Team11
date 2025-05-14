@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6462205067529770557}
   - component: {fileID: 1349335835831127938}
   - component: {fileID: 145377014899254108}
-  - component: {fileID: 3393743179424244302}
   - component: {fileID: 9044884867931846514}
-  - component: {fileID: 8928871222171540208}
   - component: {fileID: 1224868531466987450}
+  - component: {fileID: 5971937098952354060}
+  - component: {fileID: 4107703263981984916}
+  - component: {fileID: 3622069050715747217}
   m_Layer: 7
   m_Name: RangeBoss
   m_TagString: Untagged
@@ -111,18 +112,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3393743179424244302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782058060291424743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f311e70b067846e9879e83e99a42e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9044884867931846514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,20 +129,6 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 50696334929173814, guid: af0cc993d5a4e469c90882f7bdf82693, type: 3}
   damagedTime: 0.3
   followRange: 15
---- !u!114 &8928871222171540208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782058060291424743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35ca72ad292f49229db5f889af292a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  speed: 2
 --- !u!114 &1224868531466987450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +142,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+--- !u!114 &5971937098952354060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782058060291424743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d976741efe0f748b4ca8af3d7e84de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
+--- !u!114 &4107703263981984916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782058060291424743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81513dbd0ca4af24abf98ffc3aa546aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthItemPrefab: {fileID: 3163491449098956083, guid: 6cadee0eaba74417fb25944bc287c284, type: 3}
+  dropChance: 0.3
+--- !u!114 &3622069050715747217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782058060291424743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6069acf39fd423ea277dbbda61b00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  weaponSize: 1
+  power: 1
+  speed: 1
+  attackRange: 10
+  target:
+    serializedVersion: 2
+    m_Bits: 0
+  isOnKnockback: 0
+  knockbackPower: 0.1
+  knockbackTime: 0.5
+  projectileSpawnPosition: {fileID: 0}
+  bulletIndex: 0
+  bulletSize: 1
+  duration: 0
+  spread: 0
+  numberofProjectilesPerShot: 0
+  multipleProjectilesAngel: 0
+  projectileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2608681282479591970
 GameObject:
   m_ObjectHideFlags: 0

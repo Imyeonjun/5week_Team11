@@ -148,10 +148,11 @@ GameObject:
   - component: {fileID: 8955616072893674931}
   - component: {fileID: 4954941909419091286}
   - component: {fileID: 3496213291334338168}
-  - component: {fileID: 2849824326977743314}
   - component: {fileID: 4719780277418496297}
-  - component: {fileID: 2792931300160309707}
   - component: {fileID: 961666228869180172}
+  - component: {fileID: 4235668037508011471}
+  - component: {fileID: 5521112825316012442}
+  - component: {fileID: 4003498338100951509}
   m_Layer: 7
   m_Name: CloseBoss
   m_TagString: Untagged
@@ -248,18 +249,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.815133}
   m_EdgeRadius: 0
---- !u!114 &2849824326977743314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8391401540146012196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f311e70b067846e9879e83e99a42e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4719780277418496297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,20 +266,6 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 3638731218046376947, guid: 242a10a8c4b074272a96c262d217f6cd, type: 3}
   damagedTime: 0.3
   followRange: 15
---- !u!114 &2792931300160309707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8391401540146012196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35ca72ad292f49229db5f889af292a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 30
-  speed: 3
 --- !u!114 &961666228869180172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,3 +279,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+--- !u!114 &4235668037508011471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391401540146012196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d976741efe0f748b4ca8af3d7e84de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
+--- !u!114 &5521112825316012442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391401540146012196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81513dbd0ca4af24abf98ffc3aa546aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthItemPrefab: {fileID: 3163491449098956083, guid: 6cadee0eaba74417fb25944bc287c284, type: 3}
+  dropChance: 0.3
+--- !u!114 &4003498338100951509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391401540146012196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
+  weaponSize: 1
+  power: 1
+  speed: 1
+  attackRange: 3
+  target:
+    serializedVersion: 2
+    m_Bits: 0
+  isOnKnockback: 0
+  knockbackPower: 0.1
+  knockbackTime: 0.5
+  playerController: {fileID: 0}
+  collideBoxSize: {x: 1, y: 1}

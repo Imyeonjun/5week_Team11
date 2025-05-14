@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883921409191485849}
-  - component: {fileID: -5444481179213803044}
+  - component: {fileID: 2013950303827074713}
   m_Layer: 0
   m_Name: E_baton_EquipWeapon
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 6181793582765310923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5444481179213803044
+--- !u!114 &2013950303827074713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,28 +42,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6016370484392413362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6069acf39fd423ea277dbbda61b00d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
   weaponSize: 1
   power: 1
   speed: 1
-  attackRange: 10
+  attackRange: 3
   target:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isOnKnockback: 0
   knockbackPower: 0.1
   knockbackTime: 0.5
-  projectileSpawnPosition: {fileID: 0}
-  bulletIndex: 0
-  bulletSize: 1
-  duration: 0
-  spread: 0
-  numberofProjectilesPerShot: 0
-  multipleProjectilesAngel: 0
-  projectileColor: {r: 0, g: 0, b: 0, a: 0}
+  playerController: {fileID: 0}
+  collideBoxSize: {x: 1, y: 1}
 --- !u!1 &9155428506066277820
 GameObject:
   m_ObjectHideFlags: 0
