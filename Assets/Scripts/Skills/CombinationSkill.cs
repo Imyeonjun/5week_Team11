@@ -6,7 +6,6 @@ public class CombinationSkill : MonoBehaviour //To Do: Skill -> combinationSkill
 {
     public PlayerController player;
     private PlayerWeaponHandler playerWeaponHandler;
-    public GameObject fireTrailPrefab;
 
     public void Initialize(PlayerWeaponHandler handler) 
     {
@@ -15,11 +14,7 @@ public class CombinationSkill : MonoBehaviour //To Do: Skill -> combinationSkill
 
     public void FireArrow() //To Do: 데미지 등 실제 기능 추가할 것
     {
-        if (fireTrailPrefab && firePoint)
-        {
-            ProjectileManager.Instance.ShootBullet(playerWeaponHandler, firePoint.position, firePoint.right, true);
-            Debug.Log("불화살 발사");
-        }
+        Debug.Log("불화살 발사");
     }
 
 }

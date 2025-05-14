@@ -11,8 +11,8 @@ public class SkillManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillList skillList;
     public Skill skill;
-    public PlayerController playerController;
     public CombinationSkill combinationSkill;
+    public PlayerController playerController;
     [SerializeField] private bool fireArrowOn = false; //디버그용 필드
 
     public void Start()
