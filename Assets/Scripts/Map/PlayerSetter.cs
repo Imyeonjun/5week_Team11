@@ -21,8 +21,6 @@ public class PlayerSetter : MonoBehaviour
 
         Vector2 startPos = mapCreator.GetPlayerStartPosition();
         player.position = startPos;
-
-     
     }
 }
 

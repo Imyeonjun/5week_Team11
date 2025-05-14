@@ -78,7 +78,7 @@ public class MonsterBase : MonoBehaviour
         //    _rigidbody.velocity = Vector2.zero;
         //    return;
         //}
-        Movment(movementDirection);
+        Movment(MovementDirection);
         if(knockbackDuration > 0.0f)
         {
             knockbackDuration -= Time.fixedDeltaTime; // 넉백 시간 감소
@@ -152,7 +152,7 @@ public class MonsterBase : MonoBehaviour
             _weaponHandler?.Attack();
     }
     
-    public void ApplyKnockback(Transform other, float power, float duration)
+    public virtual void ApplyKnockback(Transform other, float power, float duration)
     {
         knockbackDuration = duration;
         // 상대 방향을 반대로 밀어냄

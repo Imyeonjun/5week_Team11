@@ -33,7 +33,13 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
     protected override void Start()
     {
         base.Start();
+        Debug.Log("[MonsterRangeWeapon] Start() 호출됨 in " + gameObject.name);
+
         ProjectileManager = MonsterProjectileManager.Instance; // 총알 매니저 인스턴스 가져오기
+        if (ProjectileManager == null)
+        {
+            Debug.LogError("[MonsterRangeWeapon] ProjectileManager가 NULL. 씬 안의 Manager 확인.");
+        }
     }
 
     public override void Attack()
@@ -53,10 +59,10 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
         float minAngle = -(numberOfProjectilesPerShot / 2f) * projectilesAngleSpace;
 
 
-				// 각 총알마다 회전 각도 계산 후 발사
+	    // 각 총알마다 회전 각도 계산 후 발사
         for (int i = 0; i < numberOfProjectilesPerShot; i++)
         {
-            Debug.Log("투사체 준비.");
+            //Debug.Log("투사체 준비.");
             float angle = minAngle + projectilesAngleSpace * i; // 기본 각도
             float randomSpread = Random.Range(-spread, spread); // 랜덤 퍼짐 적용
             angle += randomSpread;
@@ -66,8 +72,9 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
         }
     }
     
-    private void CreateProjectile(Vector2 _lookDirection, float angle)
+    public void CreateProjectile(Vector2 _lookDirection, float angle)
     {
+        
         ProjectileManager.ShootBullet(this, projectileSpawnPosition.position, RotateVector2(_lookDirection, angle));
     }
     

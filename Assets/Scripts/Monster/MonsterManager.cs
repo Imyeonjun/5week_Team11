@@ -24,6 +24,13 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private float timeBetweenSpawns = 0.2f;
     [SerializeField] private float timeBetweenWaves = 1f;
 
+    MiniGameManager miniManager;
+
+    public void Init(MiniGameManager miniManager)
+    {
+        this.miniManager = miniManager;
+    }
+
     public void StartWave(int waveCount)
     {
         if(waveRoutine != null)
@@ -75,21 +82,21 @@ public class MonsterManager : MonoBehaviour
 
         GameObject player = GameObject.FindWithTag("Player");
 
-        if (player != null)
-        {
             // ✅ Init 호출 → 플레이어를 타겟으로 설정
             monsterController.Init(this, player.transform);
-        }
 
         activeEnemies.Add(monsterController);
+        miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
     }
-    // 적이 사망했을 때 호출되는 메서드
-    // public void RemoveEnemyOnDeath(MonsterController enemy)
-    // {
-    //     activeEnemies.Remove(enemy);
-    //     if (enemySpawnComplite && activeEnemies.Count == 0)
-    //         // gameManager.EndOfWave();
-    // }
+    //적이 사망했을 때 호출되는 메서드
+     public void RemoveEnemyOnDeath(MonsterController enemy)
+    {
+        activeEnemies.Remove(enemy);
+
+        miniManager.UIManager.ChangeCount(activeEnemies.Count); // 몬스터 카운트 추가
+        if (enemySpawnComplite && activeEnemies.Count == 0)
+              miniManager.EndOfWave();
+     }
 
     // 기즈모를 그려 영역을 시각화 (선택된 경우에만 표시)
     private void OnDrawGizmosSelected()
@@ -105,11 +112,11 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartWave(1);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        StartWave(1);
+    //    }
+    //}
 }
