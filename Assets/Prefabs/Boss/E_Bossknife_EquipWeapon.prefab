@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134246872592334048}
-  - component: {fileID: 3638731218046376947}
+  - component: {fileID: 7244482619339289298}
   m_Layer: 0
   m_Name: E_Bossknife_EquipWeapon
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 7934189773142176124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3638731218046376947
+--- !u!114 &7244482619339289298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,22 +42,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872737016973954402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d3e4505a0ee4db398e14719251c414, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be4ff89cc919ec48989648f8d8811f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  weaponSize: 1.3
-  power: 3
-  speed: 2
-  attackRange: 4
+  weaponSize: 1
+  power: 1
+  speed: 1
+  attackRange: 3
   target:
     serializedVersion: 2
     m_Bits: 64
-  isOnKnockback: 1
-  knockbackPower: 0.5
+  isOnKnockback: 0
+  knockbackPower: 0.1
   knockbackTime: 0.5
   playerController: {fileID: 0}
-  collideBoxSize: {x: 2, y: 2}
+  collideBoxSize: {x: 1, y: 1}
 --- !u!1 &8285334423236918465
 GameObject:
   m_ObjectHideFlags: 0

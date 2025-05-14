@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81513dbd0ca4af24abf98ffc3aa546aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthItemPrefab: {fileID: 3163491449098956083, guid: 6cadee0eaba74417fb25944bc287c284, type: 3}
+  healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
   dropChance: 0.3
 --- !u!114 &3622069050715747217
 MonoBehaviour:

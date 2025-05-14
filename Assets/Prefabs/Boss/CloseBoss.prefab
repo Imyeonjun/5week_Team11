@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 4416952392488899928}
   weaponPivot: {fileID: 434251231411810243}
-  WeaponPrefab: {fileID: 3638731218046376947, guid: 242a10a8c4b074272a96c262d217f6cd, type: 3}
+  WeaponPrefab: {fileID: 7244482619339289298, guid: 242a10a8c4b074272a96c262d217f6cd, type: 3}
   damagedTime: 0.3
   followRange: 15
 --- !u!114 &961666228869180172
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81513dbd0ca4af24abf98ffc3aa546aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthItemPrefab: {fileID: 3163491449098956083, guid: 6cadee0eaba74417fb25944bc287c284, type: 3}
+  healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
   dropChance: 0.3
 --- !u!114 &4003498338100951509
 MonoBehaviour:
@@ -326,7 +326,7 @@ MonoBehaviour:
   attackRange: 3
   target:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isOnKnockback: 0
   knockbackPower: 0.1
   knockbackTime: 0.5
