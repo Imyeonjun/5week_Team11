@@ -7,11 +7,9 @@ public class MonsterSetter : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private MapCreator mapCreator;
-    [SerializeField] private GameObject monsterPrefab;
     [SerializeField] private MonsterManager monsterManager;
 
-    [SerializeField]
-    private List<GameObject> enemyPrefabs; // 생성할 적 프리팹 리스트
+    [SerializeField] private List<GameObject> enemyPrefabs; // 생성할 적 프리팹 리스트
 
     private List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
 
@@ -44,7 +42,9 @@ public class MonsterSetter : MonoBehaviour
             if (tilemap != null) // 타일맵이 존재하면
                 spawnPos = tilemap.transform.position + tilemap.localBounds.center; // 타일맵 중앙 위치로 스폰 위치 재조정
 
-            GameObject spawnedEnemy = Instantiate(monsterPrefab, spawnPos, Quaternion.identity); // 몬스터 프리팹을 해당 위치에 생성
+            GameObject randomPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)]; // 랜덤한 적 프리팹 선택
+
+            GameObject spawnedEnemy = Instantiate(randomPrefab, spawnPos, Quaternion.identity); // 몬스터 프리팹을 해당 위치에 생성
 
             MonsterController monsterController = spawnedEnemy.GetComponent<MonsterController>();
 
