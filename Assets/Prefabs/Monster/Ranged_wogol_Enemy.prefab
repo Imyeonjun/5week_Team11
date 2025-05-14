@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -9195486579808892743}
   - component: {fileID: 2962710272389447598}
   - component: {fileID: 4918134112831381292}
+  - component: {fileID: 8329144002871677932}
   m_Layer: 7
   m_Name: Ranged_wogol_Enemy
   m_TagString: Untagged
@@ -167,6 +168,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+--- !u!114 &8329144002871677932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912334455481989776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81513dbd0ca4af24abf98ffc3aa546aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthItemPrefab: {fileID: 1315841842293507463, guid: b41cde75b64cee5479ea3164311097cf, type: 3}
+  dropChance: 0.1
 --- !u!1 &4740838320077420114
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +255,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 533c27faf26669e458d27eb9d0695931, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

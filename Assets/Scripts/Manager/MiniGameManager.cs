@@ -9,12 +9,14 @@ public class MiniGameManager : MonoBehaviour
     public PlayerController playerController { get; private set; }
     private ResourceController resourceController;
 
-    [SerializeField] private int currentWaveIndex = 0;
-
+    [SerializeField] private MapResseter mapResseter;
+    [SerializeField] private MapCreator mapCreator;
     private MonsterManager monsterManager;
 
-    private UIManager uiManager;
     public UIManager UIManager => uiManager;
+    private UIManager uiManager;
+
+    [SerializeField] public int currentStageIndex = 0;
 
     public static bool isFirstLoading = true;
 
@@ -49,23 +51,30 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartGame() //게임 시작 함수
     {
         uiManager.SetPlayGame();
-        StartNextWave();
 
+        SetStage();
     }
 
-    void StartNextWave()
+    private void SetStage()
     {
-        currentWaveIndex += 1;
-        monsterManager.StartWave(1 + currentWaveIndex / 5);
-        uiManager.ChangeWave(currentWaveIndex / 5);
+        currentStageIndex += 1;
+
+        mapCreator.CreateStage();
+
+        StartCoroutine(DelayStartWave(3f)); // 3초 후 SetStage 실행
+
+        uiManager.ChangeWave(currentStageIndex);
     }
 
-    public void EndOfWave()
+    public void ClearStage()
     {
-        StartNextWave();
+        mapResseter.ClearMap();
+
+
+        SetStage();
     }
 
     public void GameOver()
@@ -74,5 +83,9 @@ public class MiniGameManager : MonoBehaviour
         uiManager.SetGameOver();
     }
 
-
+    public IEnumerator DelayStartWave(float delaySeconds)
+    {
+        yield return new WaitForSeconds(delaySeconds); // 지정된 시간만큼 대기
+        monsterManager.StartWave(); // 지연 후 실행
+    }
 }

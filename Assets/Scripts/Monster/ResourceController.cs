@@ -24,15 +24,15 @@ public class ResourceController : MonoBehaviour
         _stat = GetComponent<CharacterStat>();
         _playerAnimation = GetComponent<AnimationHandler>();
         _player = GetComponent<PlayerController>();
-
-       //if(_stat != null)
-       //{
-       // CurrentHealth = _stat.Health;
-       //}
-       //else
-       //{
-       // CurrentHealth = 100f;
-       //}
+        CurrentHealth = _stat.Health;
+        //if(_stat != null)
+        //{
+        // CurrentHealth = _stat.Health;
+        //}
+        //else
+        //{
+        // CurrentHealth = 100f;
+        //}
     }
 
     private void Start()

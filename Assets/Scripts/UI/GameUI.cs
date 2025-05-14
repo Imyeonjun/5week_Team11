@@ -10,9 +10,18 @@ public class GameUI : BaseUI
     [SerializeField] private Slider hpSlider;
     [SerializeField] private TextMeshProUGUI hpText;
 
+    public PlayerController playerController;
+    public ResourceController resourceController;
+    public CharacterStat characterStat;
+
     private void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
+        resourceController = FindObjectOfType<ResourceController>();
+        characterStat = playerController.GetComponent<CharacterStat>();
+
         UpdateHPSlider(1);
+        UpdateHPText(resourceController.CurrentHealth, characterStat.Health);
     }
 
     public void UpdateHPSlider(float percentage)
