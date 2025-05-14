@@ -11,9 +11,12 @@ public class SkillManager : MonoBehaviour
     public RectTransform startPoint;
     public SkillList skillList;
     public Skill skill;
-    public CombinationSkill combinationSkill;
     public PlayerController playerController;
+<<<<<<< HEAD
     [SerializeField] private bool CombiSkillOn = false; //디버그용
+=======
+    public CombinationSkill combinationSkill;
+>>>>>>> parent of 1e8a125 (Merge branch 'Sungwon' into TestCombine_Sungwon)
 
     public void Start()
     {
@@ -86,7 +89,14 @@ public class SkillManager : MonoBehaviour
 
         bool isReadyForFireArrow = powerUp.stack >= 1 && attackSpeedUp.stack >= 1;
 
+<<<<<<< HEAD
         if (isReadyForFireArrow) combinationSkill.PlusProjectilesPerShot(); //화살 갯수 증가
+=======
+        if (powerUp != null & attackSpeedUp != null) //파워업 1 + 공속업 1 = 불화살
+        {
+            if (isReadyForFireArrow) combinationSkill.FireArrow();
+        }
+>>>>>>> parent of 1e8a125 (Merge branch 'Sungwon' into TestCombine_Sungwon)
     }
 }
 

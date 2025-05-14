@@ -10,7 +10,6 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] private GameObject[] projectilePrefabs;
     [SerializeField] private ParticleSystem impactParticleSystem;
-    [SerializeField] private ParticleSystem fireTrailParticleSystem;
 
     private void Awake()
     {
@@ -24,9 +23,8 @@ public class ProjectileManager : MonoBehaviour
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, playerWeaponHandler, this);
+        
     }
-
-
 
     //public void CreatImpactParticleAtPosition(Vector3 position, PlayerWeaponHandler weaponHandler)
     //{
