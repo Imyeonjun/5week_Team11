@@ -8,13 +8,18 @@ public class MapCreator : MonoBehaviour
 {
     [SerializeField] private GameObject corridorHorizontalPrefab;
     [SerializeField] private GameObject corridorVerticalPrefab;
+    [SerializeField] private MiniGameManager miniManager;
+
     public GameObject[] roomTemplates;
 
     [Header("스테이지 설정")]
-    public int stageWidth = 10;
-    public int stageHeight = 10;
+    private int stageWidth = 10;
+    private int stageHeight = 10;
+    private float roomSpacing = 12f;
+
+    public float RoomSpacing => roomSpacing;
+
     public int minRoomCount = 5;
-    public float roomSpacing = 12f;
 
     public bool IsGenerationComplete { get; private set; } = false;
 
@@ -28,7 +33,7 @@ public class MapCreator : MonoBehaviour
 
     void Start()
     {
-        minRoomCount = Random.Range(5, 11);
+        minRoomCount = 5 + miniManager.currentStageIndex;
         CreateStage();
     }
 
@@ -157,5 +162,13 @@ public class MapCreator : MonoBehaviour
         }
 
         return new List<Vector2Int>(visited);
+    }
+
+    public void ResetData()
+    {
+        map = null;
+        roomPositions?.Clear();
+        IsGenerationComplete = false;
+        playerStartPos = Vector2.zero;
     }
 }

@@ -40,6 +40,7 @@ public class MonsterManager : MonoBehaviour
         monsterSetter.activeEnemies.Remove(enemy);
 
         miniManager.UIManager.ChangeCount(monsterSetter.activeEnemies.Count); // 몬스터 카운트 추가
+
         if (enemySpawnComplite && monsterSetter.activeEnemies.Count == 0)
             miniManager.ClearStage();
     }

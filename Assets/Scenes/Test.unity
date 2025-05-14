@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   corridorHorizontalPrefab: {fileID: 3024446763080684696, guid: ead366cfcd8a9684e8753fc8acd84517, type: 3}
   corridorVerticalPrefab: {fileID: 3024446763080684696, guid: d30396b1219f1cf45bdc464ca9085eae, type: 3}
+  miniManager: {fileID: 904280297}
   roomTemplates:
   - {fileID: 3024446763080684696, guid: d20718441bc8897429bddef4a3767e20, type: 3}
   - {fileID: 3024446763080684696, guid: 64327e29270482f4793cb9aa1de4eb22, type: 3}
@@ -563,10 +564,7 @@ MonoBehaviour:
   - {fileID: 3024446763080684696, guid: 6a79e62abe5324d45a26b2f8b05445ce, type: 3}
   - {fileID: 3024446763080684696, guid: 9f96b7ebd6df7fc49b2687b9027a67e0, type: 3}
   - {fileID: 3024446763080684696, guid: e372f9910e62fd245a62e12880f159b3, type: 3}
-  stageWidth: 10
-  stageHeight: 10
-  minRoomCount: 1
-  roomSpacing: 12
+  minRoomCount: 5
 --- !u!4 &263931509
 Transform:
   m_ObjectHideFlags: 0
@@ -581,6 +579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 867695895}
+  - {fileID: 1334087305}
   m_Father: {fileID: 654264574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332161960
@@ -1254,8 +1253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39045b7cb0474fd419df25aa4c963c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaveIndex: 0
-  monsterSetter: {fileID: 1270388875}
+  mapResseter: {fileID: 1334087306}
+  currentStageIndex: 0
 --- !u!1 &921252504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2070,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899984436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1334087304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334087305}
+  - component: {fileID: 1334087306}
+  m_Layer: 0
+  m_Name: MapResseter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334087305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334087304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 263931509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334087306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334087304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739fb6ae24e0fbc4d84804e68b743d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapCreator: {fileID: 263931508}
 --- !u!1 &1369417447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,8 +3056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660146a0c166f4d8e96de0af7b13c7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSpawns: 0.2
-  timeBetweenWaves: 1
   monsterSetter: {fileID: 1270388875}
 --- !u!1 &1815191318
 GameObject:

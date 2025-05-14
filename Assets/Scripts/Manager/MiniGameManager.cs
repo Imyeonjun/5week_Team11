@@ -9,13 +9,13 @@ public class MiniGameManager : MonoBehaviour
     public PlayerController playerController { get; private set; }
     private ResourceController resourceController;
 
-    public MonsterSetter monsterSetter;
+    [SerializeField] private MapResseter mapResseter;
     private MonsterManager monsterManager;
 
     public UIManager UIManager => uiManager;
     private UIManager uiManager;
 
-    [SerializeField] private int currentStageIndex = 0;
+    [SerializeField] public int currentStageIndex = 0;
 
     public static bool isFirstLoading = true;
 
@@ -68,6 +68,8 @@ public class MiniGameManager : MonoBehaviour
 
     public void ClearStage()
     {
+        mapResseter.ClearMap();
+
         SetStage();
     }
 

@@ -25,8 +25,8 @@ public class MonsterSetter : MonoBehaviour
 
         // 플레이어가 위치한 방 좌표 계산
         Vector2Int playerCell = new Vector2Int( // 플레이어의 현재 방 위치를 계산하여 저장
-            Mathf.RoundToInt(player.position.x / mapCreator.roomSpacing), // X 좌표 기준 방 인덱스
-            Mathf.RoundToInt(player.position.y / mapCreator.roomSpacing)  // Y 좌표 기준 방 인덱스
+            Mathf.RoundToInt(player.position.x / mapCreator.RoomSpacing), // X 좌표 기준 방 인덱스
+            Mathf.RoundToInt(player.position.y / mapCreator.RoomSpacing)  // Y 좌표 기준 방 인덱스
         );
 
         foreach (Vector2Int pos in mapCreator.RoomPositions) // 생성된 모든 방 위치를 순회
