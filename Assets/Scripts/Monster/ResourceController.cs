@@ -37,7 +37,7 @@ public class ResourceController : MonoBehaviour
 
     private void Start()
     {
-        //CurrentHealth = _stat.Health;
+        CurrentHealth = _stat.Health;
     }
 
     private void Update()
