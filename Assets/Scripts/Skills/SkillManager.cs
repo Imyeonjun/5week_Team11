@@ -94,13 +94,11 @@ public class SkillManager : MonoBehaviour
         }
 
         skillCardBg.SetActive(false);
-        IsCombine(skillStack);
+        //IsCombine(skillStack);
         return;
     }
 
-    private void IsCombine(int skillStack)
-    {
-        bool isCombinePower = 
-        if()
-    }
+    //private void IsCombine(int skillStack)
+    //{
+    //}
 }
