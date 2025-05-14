@@ -13,7 +13,7 @@ public class MonsterSetter : MonoBehaviour
 
     private List<MonsterController> activeEnemies = new List<MonsterController>(); // 현재 활성화된 적들
 
-    void Start()
+    public void Init()
     {
         StartCoroutine(SpawnMonstersWhenReady()); // 코루틴을 이용해 몬스터를 생성하는 함수 호출
     }

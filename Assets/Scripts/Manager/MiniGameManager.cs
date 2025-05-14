@@ -11,6 +11,8 @@ public class MiniGameManager : MonoBehaviour
 
     [SerializeField] private int currentWaveIndex = 0;
 
+    public MonsterSetter monsterSetter;
+
     private MonsterManager monsterManager;
 
     private UIManager uiManager;
@@ -53,7 +55,7 @@ public class MiniGameManager : MonoBehaviour
     {
         uiManager.SetPlayGame();
         StartNextWave();
-
+        monsterSetter.Init();
     }
 
     void StartNextWave()
