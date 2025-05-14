@@ -65,6 +65,7 @@ public class MonsterController : MonsterBase
     public override void Death()
     {
         base.Death();
+        monsterManager.RemoveEnemyOnDeath(this);
     }
     
 }

@@ -62,7 +62,7 @@ public class MonsterRangeWeapon : MonsterWeaponHandler
 	    // 각 총알마다 회전 각도 계산 후 발사
         for (int i = 0; i < numberOfProjectilesPerShot; i++)
         {
-            Debug.Log("투사체 준비.");
+            //Debug.Log("투사체 준비.");
             float angle = minAngle + projectilesAngleSpace * i; // 기본 각도
             float randomSpread = Random.Range(-spread, spread); // 랜덤 퍼짐 적용
             angle += randomSpread;

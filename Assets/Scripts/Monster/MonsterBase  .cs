@@ -78,7 +78,7 @@ public class MonsterBase : MonoBehaviour
         //    _rigidbody.velocity = Vector2.zero;
         //    return;
         //}
-        Movment(movementDirection);
+        Movment(MovementDirection);
         if(knockbackDuration > 0.0f)
         {
             knockbackDuration -= Time.fixedDeltaTime; // 넉백 시간 감소
