@@ -96,7 +96,7 @@
 - **언어**: C#
 - **버전관리**: Git + GitHub
 - **개발 도구**: Visual Studio, Rider
-- **작업툴**: Figma, Photoshop (UI 요소)
+- **작업툴**: Figma
 
 ---
 
